@@ -19,27 +19,26 @@ const Header = () => {
   return (
     <header
       className={`
-        fixed
-        top-0
-        left-0
-        w-full
-        z-50
-        transition-all
-        duration-500
-        ${
-          scrolled
-            ? "bg-white shadow-md"
-            : "bg-transparent"
+       fixed
+       top-0
+       left-0
+       w-full
+       z-50
+       transition-all
+       duration-500
+    ${scrolled
+          ? "bg-white/90 backdrop-blur-md shadow-md"
+          : "bg-transparent"
         }
-      `}
+  `}
     >
       <div
         className="
           max-w-[1800px]
           mx-auto
-          h-[72px]
+          h-[80px]
           px-8
-          lg:px-18
+          lg:px-65
           flex
           items-center
           justify-between
@@ -51,13 +50,13 @@ const Header = () => {
           <img
             src={
               scrolled
-                ? "YOUR_DARK_LOGO_URL"
-                : "YOUR_WHITE_LOGO_URL"
+                ? "https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787848495/ChatGPT_Image_Aug_27_2026_02_30_52_AM_oyvtse.png"
+                : "https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787849148/ChatGPT_Image_Aug_27_2026_09_45_36_AM_omywnd.png"
             }
             // alt="Vindhayavasini Constructions Works"
             className="
-              w-[85px]
-              md:w-[95px]
+              rounded-full
+              w-[75px]
               h-auto
               object-contain
               transition-all
@@ -78,15 +77,15 @@ const Header = () => {
               items-center
               gap-2
               px-5
-              text-[12px]
+              text-[14px]
               font-semibold
               tracking-[1.5px]
               transition-colors
               duration-300
-              ${
-                scrolled
-                  ? "text-[#222] hover:text-[#c99b22]"
-                  : "text-white hover:text-[#c99b22]"
+              hover:underline
+              ${scrolled
+                ? "text-[#222] hover:text-[#c99b22]"
+                : "text-white hover:text-[#c99b22]"
               }
             `}
           >
@@ -104,10 +103,9 @@ const Header = () => {
             className={`
               h-5
               w-[1px]
-              ${
-                scrolled
-                  ? "bg-gray-300"
-                  : "bg-white/40"
+              ${scrolled
+                ? "bg-gray-300"
+                : "bg-white/40"
               }
             `}
           />
@@ -118,15 +116,15 @@ const Header = () => {
             href="#"
             className={`
               px-5
-              text-[12px]
-              font-semibold
+              text-[14px]
+              font-medium
               tracking-[1.5px]
               transition-colors
               duration-300
-              ${
-                scrolled
-                  ? "text-[#222] hover:text-[#c99b22]"
-                  : "text-white hover:text-[#c99b22]"
+              hover:underline
+              ${scrolled
+                ? "text-[#222] hover:text-[#c99b22]"
+                : "text-white hover:text-[#c99b22]"
               }
             `}
           >
@@ -139,10 +137,9 @@ const Header = () => {
             className={`
               h-5
               w-[1px]
-              ${
-                scrolled
-                  ? "bg-gray-300"
-                  : "bg-white/40"
+              ${scrolled
+                ? "bg-gray-300"
+                : "bg-white/40"
               }
             `}
           />
@@ -153,15 +150,15 @@ const Header = () => {
             href="#"
             className={`
               px-5
-              text-[12px]
-              font-semibold
+              text-[14px]
+              font-medium
               tracking-[1.5px]
               transition-colors
               duration-300
-              ${
-                scrolled
-                  ? "text-[#222] hover:text-[#c99b22]"
-                  : "text-white hover:text-[#c99b22]"
+              hover:underline
+              ${scrolled
+                ? "text-[#222] hover:text-[#c99b22]"
+                : "text-white hover:text-[#c99b22]"
               }
             `}
           >
@@ -174,10 +171,9 @@ const Header = () => {
             className={`
               h-5
               w-[1px]
-              ${
-                scrolled
-                  ? "bg-gray-300"
-                  : "bg-white/40"
+              ${scrolled
+                ? "bg-gray-300"
+                : "bg-white/40"
               }
             `}
           />
@@ -188,15 +184,15 @@ const Header = () => {
             href="#"
             className={`
               px-5
-              text-[12px]
-              font-semibold
+              text-[14px]
+              font-medium
               tracking-[1.5px]
               transition-colors
               duration-300
-              ${
-                scrolled
-                  ? "text-[#222] hover:text-[#c99b22]"
-                  : "text-white hover:text-[#c99b22]"
+              hover:underline
+              ${scrolled
+                ? "text-[#222] hover:text-[#c99b22]"
+                : "text-white hover:text-[#c99b22]"
               }
             `}
           >
@@ -209,10 +205,9 @@ const Header = () => {
             className={`
               h-5
               w-[1px]
-              ${
-                scrolled
-                  ? "bg-gray-300"
-                  : "bg-white/40"
+              ${scrolled
+                ? "bg-gray-300"
+                : "bg-white/40"
               }
             `}
           />
@@ -223,15 +218,15 @@ const Header = () => {
             href="#"
             className={`
               px-5
-              text-[12px]
-              font-semibold
+              text-[14px]
+              font-medium
               tracking-[1.5px]
               transition-colors
               duration-300
-              ${
-                scrolled
-                  ? "text-[#222] hover:text-[#c99b22]"
-                  : "text-white hover:text-[#c99b22]"
+              hover:underline
+              ${scrolled
+                ? "text-[#222] hover:text-[#c99b22]"
+                : "text-white hover:text-[#c99b22]"
               }
             `}
           >
@@ -256,7 +251,8 @@ const Header = () => {
               items-center
               justify-center
               text-white
-              hover:bg-[#c99b22]
+              hover:bg-white
+              hover:text-[#101a2d]
               transition-all
               duration-300
             "
@@ -280,7 +276,8 @@ const Header = () => {
               items-center
               justify-center
               text-white
-              hover:bg-[#c99b22]
+              hover:bg-white
+              hover:text-[#101a2d]
               transition-all
               duration-300
             "

@@ -49,7 +49,7 @@ const Footer = () => {
               <div className="flex items-center gap-5 mb-8">
 
                 <img
-                  src="YOUR_LOGO_URL"
+                  src="https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787849148/ChatGPT_Image_Aug_27_2026_09_45_36_AM_omywnd.png"
                   alt="Viraj Constructions"
                   className="w-[90px] h-auto object-contain"
                 />

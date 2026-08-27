@@ -14,6 +14,18 @@ const slides = [
     description:
       "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
   },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
+
+    title: "SUNBREEZE II (PHASE 1)",
+
+    subtitle:
+      "Desire incorporated in design A Step Closer to nature",
+
+    description:
+      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
+  },
 
   {
     image:
@@ -40,7 +52,31 @@ const slides = [
     description:
       "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
   },
+  {
+    image:
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
 
+    title: "LUXURY RESIDENCES",
+
+    subtitle:
+      "Designed for modern living",
+
+    description:
+      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+  },
+  
+  {
+    image:
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
+
+    title: "LUXURY RESIDENCES",
+
+    subtitle:
+      "Designed for modern living",
+
+    description:
+      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+  },
   {
     image:
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
@@ -133,7 +169,7 @@ const Hero = () => {
           max-w-[1800px]
           mx-auto
           px-8
-          lg:px-16
+          lg:px-55
           flex
           items-center
         "
@@ -156,9 +192,9 @@ const Hero = () => {
               font-normal
               text-[42px]
               sm:text-[52px]
-              md:text-[62px]
-              lg:text-[68px]
-              xl:text-[72px]
+              md:text-[58px]
+              lg:text-[58px]
+              xl:text-[58px]
               leading-[1.05]
               tracking-[-1px]
             "
@@ -169,11 +205,11 @@ const Hero = () => {
           {/* SUBTITLE */}
           <h2
             className="
-              mt-5
+              mt-3
               text-[#c99b22]
               text-[18px]
-              md:text-[20px]
-              lg:text-[21px]
+              md:text-[19px]
+              lg:text-[19px]
               font-medium
             "
           >
@@ -183,11 +219,11 @@ const Hero = () => {
           {/* DESCRIPTION */}
           <p
             className="
-              mt-5
+              mt-4
               max-w-[650px]
               text-white
               text-[16px]
-              md:text-[18px]
+              md:text-[17px]
               leading-[1.7]
               font-semibold
             "
@@ -200,8 +236,8 @@ const Hero = () => {
             className="
               group
               mt-9
-              w-[225px]
-              h-[60px]
+              w-[200px]
+              h-[55px]
               flex
               items-center
               justify-center
@@ -246,7 +282,7 @@ const Hero = () => {
           -translate-x-1/2
           flex
           items-center
-          gap-4
+          gap-3
         "
       >
         {slides.map((_, index) => (
@@ -255,9 +291,9 @@ const Hero = () => {
             onClick={() => setActiveSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`
-              w-[18px]
-              h-[18px]
-              rounded-[5px]
+              w-[15px]
+              h-[15px]
+              rounded-[4px]
               border
               border-white
               transition-all

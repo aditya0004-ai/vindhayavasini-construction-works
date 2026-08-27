@@ -69,22 +69,22 @@ const OurStory = () => {
         <div className="text-center">
 
           {/* Our Story Button */}
-          <div className="mb-6 flex justify-center">
-            <div className="inline-flex items-center gap-2.5 border border-[#172033] px-5 py-2">
+          <div className=" flex justify-center py-8">
+            <div className="inline-flex items-center gap-2.5 border border-[#172033] px-6 py-2">
               <BookOpen
-                size={15}
+                size={17}
                 strokeWidth={1.5}
                 className="text-[#c49a3a]"
               />
 
-              <span className="text-[12px] font-medium tracking-[0.22em] text-[#111827]">
+              <span className="text-[15px] font-medium tracking-[0.22em] text-[#111827]">
                 OUR STORY
               </span>
             </div>
           </div>
 
           {/* Main Heading */}
-          <h2 className="mx-auto max-w-3xl font-serif text-[30px] font-normal leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[46px]">
+          <h2 className="mx-auto max-w-3xl font-['Cormorant_Garamond'] text-[30px] font-light leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[55px]">
             Two decades of shaping
             <br />
             Lucknow's{" "}
@@ -94,7 +94,7 @@ const OurStory = () => {
           </h2>
 
           {/* Description */}
-          <p className="mx-auto mt-4 max-w-2xl text-[14px] font-light leading-6 text-[#55708a] md:text-[15px] md:leading-7">
+          <p className="mx-auto mt-4 max-w-3xl text-[15px] font-light leading-6 text-[#55708a] md:text-[15px] md:leading-7">
             With over 20 years of building trust, Viraj Constructions creates
             more than just structures; it develops thriving communities and
             landmark spaces where people build a lifetime of memories.
@@ -104,7 +104,7 @@ const OurStory = () => {
         {/* ==============================
             STATS + VIDEO
         ============================== */}
-        <div className="mt-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_0.95fr] lg:gap-10">
+        <div className="mt-15 grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_0.95fr] lg:gap-10 ">
 
           {/* ==============================
               LEFT SIDE
@@ -133,15 +133,15 @@ const OurStory = () => {
                     </div>
 
                     {/* Number */}
-                    <div className="ml-5 w-[80px] shrink-0">
-                      <span className="font-sans text-[26px] font-light tracking-[-0.03em] text-[#071936] md:text-[28px]">
+                    <div className="ml-5 mr-15 w-[80px] shrink-0">
+                      <span className="font-sans text-[37px] font-light tracking-[-0.03em] text-[#071936] md:text-[37px]">
                         {stat.number}
                       </span>
                     </div>
 
                     {/* Text */}
                     <div>
-                      <span className="font-serif text-[15px] text-[#071936] md:text-[16px]">
+                      <span className="font-serif text-[17px] text-[#071936] md:text-[16px]">
                         {stat.text}
                       </span>
                     </div>
@@ -158,20 +158,20 @@ const OurStory = () => {
             </div>
 
             {/* Buttons */}
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="mt-13 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
               {/* About Viraj */}
               <button
                 className="
                   group
                   flex
-                  h-[46px]
+                  h-[50px]
                   items-center
                   justify-center
                   gap-2
                   bg-[#0d1629]
                   px-5
-                  text-[11.5px]
+                  text-[12px]
                   font-semibold
                   tracking-wide
                   text-white

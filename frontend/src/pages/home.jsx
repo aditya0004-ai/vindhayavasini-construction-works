@@ -6,6 +6,7 @@ import ProjectsSection from '../components/ProjectSection'
 import WhyUs from '../components/WhyUs'
 import BuildCTA from '../components/BuildCta'
 import Footer from '../components/Footer'
+
 const home = () => {
   return (
     <div className="w-full">

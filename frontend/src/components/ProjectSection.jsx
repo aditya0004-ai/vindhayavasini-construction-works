@@ -54,7 +54,7 @@ const projects = [
   },
   {
     id: "sunbreeze-2",
-    name: "SUNBREEZE II (PHASE I)",
+    name: "SUNBREEZE II",
     title: "Sunbreeze II",
     location: "BBD GREEN CITY, AYODHYA ROAD, LUCKNOW",
 
@@ -131,8 +131,8 @@ const projects = [
    height changes, everything else derives from them
 ========================================================= */
 
-const HEADER_HEIGHT = 72; // px — height of the sticky site header above this section
-const TAB_HEIGHT = 52; // px — height of the sticky project tab bar
+const HEADER_HEIGHT = 80; // px — height of the sticky site header above this section
+const TAB_HEIGHT = 64; // px — height of the sticky project tab bar
 
 /* =========================================================
    COMPONENT
@@ -190,16 +190,16 @@ const ProjectSection = () => {
           TOP HEADING
       ================================================= */}
       <div className="max-w-[1200px] mx-auto px-5 pt-16 pb-9">
-        <div className="flex justify-center mb-5">
+        <div className="flex justify-center mb-8">
           <div className="border border-[#111827] px-5 py-2 flex items-center gap-2">
-            <Building2 size={14} strokeWidth={1.5} className="text-[#c49a32]" />
-            <span className="text-[#111827] text-[11px] tracking-[3px] font-medium">
+            <Building2 size={17} strokeWidth={1.5} className="text-[#c49a32]" />
+            <span className="text-[#111827] text-[15px] tracking-[3px] font-medium">
               OUR PROJECTS
             </span>
           </div>
         </div>
 
-        <h2 className="text-center text-[#111827] font-serif font-light text-[34px] md:text-[42px] lg:text-[46px] leading-tight">
+        <h2 className="text-center text-[#111827] font-['Cormorant_Garamond'] font-light text-[34px] md:text-[42px] lg:text-[55px] leading-tight">
           Addresses that define the{" "}
           <span className="text-[#c49a32]">city.</span>
         </h2>
@@ -217,7 +217,7 @@ const ProjectSection = () => {
         style={{ top: HEADER_HEIGHT }}
       >
         <div className="max-w-[1200px] mx-auto px-5">
-          <div className="flex overflow-x-auto no-scrollbar">
+          <div className="flex ">
             {projects.map((project, index) => {
               const isActive = activeProject === index;
 
@@ -232,13 +232,13 @@ const ProjectSection = () => {
                   {isActive && (
                     <motion.div
                       layoutId="project-active-background"
-                      className="absolute inset-x-0 top-0 bottom-0 bg-[#111827]"
+                      className="mt-3 absolute inset-x-0 top-0 bottom-0 bg-[#111827] rounded-t-[20px]"
                       transition={{ type: "spring", stiffness: 400, damping: 34 }}
                     />
                   )}
 
                   <span
-                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 ${
+                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 text-[13px] ${
                       isActive ? "text-white" : "text-[#18233a]"
                     }`}
                   >
@@ -297,7 +297,7 @@ const ProjectSection = () => {
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                   className="lg:order-2"
                 >
-                  <h3 className="text-[#111827] font-serif font-light text-[30px] md:text-[36px] mb-3 leading-tight">
+                  <h3 className="text-[#111827] font-serif font-light text-[34px] md:text-[38px] mb-3 leading-tight">
                     {project.title}
                   </h3>
 
