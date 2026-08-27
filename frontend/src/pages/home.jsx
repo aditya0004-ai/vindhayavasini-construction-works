@@ -3,8 +3,9 @@ import Header from '../components/header'
 import Hero from '../components/hero'
 const home = () => {
   return (
-    <div>
+    <div className="w-full">
       < Header/>
+      < Hero />
       < Hero />
     </div>
   )

@@ -1,224 +1,278 @@
-import React from "react";
-import {
-  Phone,
-  ArrowRight,
-  ShieldCheck,
-  Leaf,
-  Users,
-  Settings,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 
-// IMAGE URLS
-const buildingImage =
-  "https://res.cloudinary.com/dermilxpz/image/upload/v1787765992/ChatGPT_Image_Aug_26_2026_11_09_31_PM_luaamv.png";
+const slides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
 
-const processSteps = [
-  {
-    number: "01",
-    title: "Excavation",
-    description: "Site preparation and land excavation",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787764711/ChatGPT_Image_Aug_26_2026_10_47_16_PM_ep2azc.png",
+    title: "SUNBREEZE II (PHASE 1)",
+
+    subtitle:
+      "Desire incorporated in design A Step Closer to nature",
+
+    description:
+      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
   },
+
   {
-    number: "02",
-    title: "Foundation",
-    description: "Foundation laying and base preparation",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787764696/ChatGPT_Image_Aug_26_2026_10_46_24_PM_nnyzgz.png",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90",
+
+    title: "LOTUS ENCLAVE",
+
+    subtitle:
+      "Homes that compliment you",
+
+    description:
+      "Premium 2 & 3 BHK villas in BBD Green City designed for comfort, greenery & exclusivity.",
   },
+
   {
-    number: "03",
-    title: "Columns",
-    description: "Column construction and reinforcement",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787764781/ChatGPT_Image_Aug_26_2026_10_49_28_PM_jyytkw.png",
+    image:
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
+
+    title: "LUXURY RESIDENCES",
+
+    subtitle:
+      "Designed for modern living",
+
+    description:
+      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
   },
+
   {
-    number: "04",
-    title: "Structure",
-    description: "Floor construction and structural work",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787764895/ChatGPT_Image_Aug_26_2026_10_51_15_PM_pzdjat.png",
-  },
-  {
-    number: "05",
-    title: "Finishing",
-    description: "Interior and exterior finishing work",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787765170/ChatGPT_Image_Aug_26_2026_10_55_28_PM_iz3qua.png",
-  },
-  {
-    number: "06",
-    title: "Complete",
-    description: "Final touches and quality inspection",
-    src: "https://res.cloudinary.com/dermilxpz/image/upload/v1787765182/ChatGPT_Image_Aug_26_2026_10_55_36_PM_kvzdxj.png",
+    image:
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
+
+    title: "YOUR DREAM HOME",
+
+    subtitle:
+      "A lifestyle beyond expectations",
+
+    description:
+      "Beautiful residences crafted with premium spaces, peaceful surroundings and exceptional attention to detail.",
   },
 ];
 
-const features = [
-  { icon: ShieldCheck, title: "Safe", subtitle: "Construction" },
-  { icon: Leaf, title: "Sustainable", subtitle: "Design" },
-  { icon: Users, title: "Expert", subtitle: "Team" },
-  { icon: Settings, title: "Quality", subtitle: "Materials" },
-];
+const Hero = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
 
-const ConstructionHero = () => {
+  // =========================
+  // AUTO SLIDER
+  // =========================
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) =>
+        prev === slides.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const slide = slides[activeSlide];
+
   return (
-    <section className="relative overflow-hidden bg-[#00152D] text-white">
+    <section className="relative w-full h-screen min-h-[650px] overflow-hidden">
 
-      {/* subtle background glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[#f6a400]/5 blur-[120px]" />
+      {/* =========================
+          BACKGROUND IMAGES
+      ========================= */}
+      {slides.map((item, index) => (
+        <img
+          key={index}
+          src={item.image}
+          alt={item.title}
+          className={`
+            absolute
+            inset-0
+            w-full
+            h-full
+            object-cover
+            transition-opacity
+            duration-1000
+            ease-in-out
+            ${activeSlide === index
+              ? "opacity-100"
+              : "opacity-0"
+            }
+          `}
+        />
+      ))}
 
-      {/* ================= HERO ================= */}
-      <div className="relative mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
+      {/* =========================
+          DARK OVERLAY
+      ========================= */}
+      <div className="absolute inset-0 bg-black/30" />
 
-        <div className="grid min-h-[560px] items-center gap-4 lg:grid-cols-[44%_56%]">
+      {/* =========================
+          LEFT DARK GRADIENT
+      ========================= */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-r
+          from-black/75
+          via-black/40
+          to-transparent
+        "
+      />
 
-          {/* LEFT */}
-          <div className="relative z-10 py-12 lg:py-14">
+      {/* =========================
+          HERO CONTENT
+      ========================= */}
+      <div
+        className="
+          relative
+          z-10
+          h-full
+          max-w-[1800px]
+          mx-auto
+          px-8
+          lg:px-16
+          flex
+          items-center
+        "
+      >
+        <div
+          key={activeSlide}
+          className="
+            w-full
+            max-w-[850px]
+            pt-[70px]
+            animate-fadeIn
+          "
+        >
 
-            <p className="mb-4 text-xs font-semibold tracking-[3px] text-[#f6a400]">
-              WE BUILD YOUR DREAM
-            </p>
+          {/* TITLE */}
+          <h1
+            className="
+              text-white
+              font-serif
+              font-normal
+              text-[42px]
+              sm:text-[52px]
+              md:text-[62px]
+              lg:text-[68px]
+              xl:text-[72px]
+              leading-[1.05]
+              tracking-[-1px]
+            "
+          >
+            {slide.title}
+          </h1>
 
-            <h1 className="max-w-[650px] text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl xl:text-[68px]">
-              Building Tomorrow,
-              <br />
-              <span className="text-[#ffab00]">Today.</span>
-            </h1>
-
-            <p className="mt-6 max-w-lg text-sm leading-6 text-gray-300 sm:text-base">
-              Experience modern construction powered by innovative 3D
-              technology, expert craftsmanship, and sustainable building
-              practices.
-            </p>
-
-            {/* Buttons */}
-            <div className="mt-7 flex flex-wrap gap-3">
-              <button className="flex items-center gap-2 rounded-full bg-[#f6a400] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:bg-[#ffb52b] hover:-translate-y-0.5">
-                <Phone size={18} />
-                Contact Us
-              </button>
-
-              <button className="flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.02] px-6 py-3 text-sm font-semibold transition-all duration-300 hover:border-[#f6a400] hover:text-[#f6a400]">
-                Our Projects
-                <ArrowRight size={16} />
-              </button>
-            </div>
-
-            {/* FEATURES */}
-            <div className="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 sm:gap-4">
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-
-                return (
-                  <div
-                    key={index}
-                    className="group flex items-center gap-3 sm:block"
-                  >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f6a400]/10">
-                      <Icon
-                        size={20}
-                        strokeWidth={1.8}
-                        className="text-[#f6a400]"
-                      />
-                    </div>
-
-                    <div className="sm:mt-2">
-                      <p className="text-xs font-semibold text-white">
-                        {feature.title}
-                      </p>
-                      <p className="text-[11px] text-gray-500">
-                        {feature.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="relative flex items-center justify-center lg:-ml-8">
-            <div className="absolute h-[380px] w-[380px] rounded-full bg-[#f6a400]/10 blur-[100px]" />
-
-            <img
-              src={buildingImage}
-              alt="Modern construction building"
-              className="relative z-10 w-full max-w-[650px] object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ================= PROCESS ================= */}
-      <div className="relative mx-3 mb-4 rounded-[22px] border border-white/10 bg-[#061526]/90 shadow-2xl backdrop-blur-sm sm:mx-5 lg:mx-8">
-
-        {/* Header */}
-        <div className="flex flex-col items-center px-5 pt-7 text-center">
-          <p className="text-[10px] font-semibold tracking-[3px] text-[#f6a400] sm:text-xs">
-            CONSTRUCTION PROCESS
-          </p>
-
-          <h2 className="mt-2 text-xl font-bold sm:text-2xl">
-            From Concept to Creation
+          {/* SUBTITLE */}
+          <h2
+            className="
+              mt-5
+              text-[#c99b22]
+              text-[18px]
+              md:text-[20px]
+              lg:text-[21px]
+              font-medium
+            "
+          >
+            {slide.subtitle}
           </h2>
 
-          <div className="mt-3 h-[2px] w-10 rounded-full bg-[#f6a400]" />
-        </div>
+          {/* DESCRIPTION */}
+          <p
+            className="
+              mt-5
+              max-w-[650px]
+              text-white
+              text-[16px]
+              md:text-[18px]
+              leading-[1.7]
+              font-semibold
+            "
+          >
+            {slide.description}
+          </p>
 
-        {/* Steps */}
-        <div className="mx-auto max-w-[1450px] px-4 py-7 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6 lg:gap-5">
+          {/* KNOW MORE BUTTON */}
+          <button
+            className="
+              group
+              mt-9
+              w-[225px]
+              h-[60px]
+              flex
+              items-center
+              justify-center
+              gap-6
+              border
+              border-white
+              bg-[#101a2d]
+              text-white
+              text-[16px]
+              font-semibold
+              tracking-wide
+              hover:bg-[#c99b22]
+              transition-all
+              duration-300
+            "
+          >
+            <span>KNOW MORE</span>
 
-            {processSteps.map((step, index) => (
-              <div key={step.number} className="group relative">
-
-                {/* Image Card */}
-                <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0b1829] transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#f6a400]/60 group-hover:shadow-lg group-hover:shadow-black/30">
-
-                  {/* Number */}
-                  <div className="absolute left-2.5 top-2.5 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-[#00152D]/85 text-[10px] font-bold text-[#f6a400] backdrop-blur-sm">
-                    {step.number}
-                  </div>
-
-                  {/* Image */}
-                  <div className="h-[125px] overflow-hidden sm:h-[135px] lg:h-[120px]">
-                    <img
-                      src={step.src}
-                      alt={step.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Bottom gradient */}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#071321] to-transparent" />
-                </div>
-
-                {/* Arrow */}
-                {index !== processSteps.length - 1 && (
-                  <div className="absolute -right-4 top-[52px] z-30 hidden lg:flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-[#061526]">
-                    <ArrowRight
-                      size={13}
-                      className="text-[#f6a400]"
-                    />
-                  </div>
-                )}
-
-                {/* Text */}
-                <div className="px-1 pt-3 text-center">
-                  <h3 className="text-sm font-semibold text-white">
-                    {step.title}
-                  </h3>
-
-                  <p className="mx-auto mt-1 max-w-[170px] text-[10px] leading-4 text-gray-500">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-          </div>
+            <ArrowRight
+              size={22}
+              strokeWidth={1.7}
+              className="
+                text-[#c99b22]
+                group-hover:text-white
+                group-hover:translate-x-1
+                transition-all
+              "
+            />
+          </button>
         </div>
       </div>
+
+      {/* =========================
+          SLIDER DOTS
+      ========================= */}
+      <div
+        className="
+          absolute
+          z-20
+          bottom-6
+          left-1/2
+          -translate-x-1/2
+          flex
+          items-center
+          gap-4
+        "
+      >
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+            className={`
+              w-[18px]
+              h-[18px]
+              rounded-[5px]
+              border
+              border-white
+              transition-all
+              duration-300
+              ${activeSlide === index
+                ? "bg-[#101a2d]"
+                : "bg-transparent"
+              }
+            `}
+          />
+        ))}
+      </div>
+
     </section>
   );
 };
 
-export default ConstructionHero;
+export default Hero;

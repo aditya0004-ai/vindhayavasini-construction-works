@@ -1,108 +1,301 @@
-import { ChevronDown, Phone } from "lucide-react"
-import { useRef, useState } from "react"
+import { useEffect, useState } from "react";
+import { ChevronDown, Phone, Mail } from "lucide-react";
 
-const navItems = [
-  {label: "HOME", dropdown : null},
-  {label: "COMPANY",
-   dropdown: ["About us", "Our Team", "Careers"]
-  },
-  {label: "SERVICES",
-    dropdown: ["Constructions", "Renovation", "Maintenance", "Consultation"]
-  },
-  {label: "PROJECTS",
-    dropdown: ["Completed Projects", "Ongoing Projects", "Gallery"]
-  }
-]
-const header = () => {
-   const [openMenu, setOpenMenu] = useState(null);
-  const closeTimer = useRef(null);
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleEnter = (label) => {
-    clearTimeout(closeTimer.current);
-    setOpenMenu(label);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
 
-  const handleLeave = () => {
-    closeTimer.current = setTimeout(() => setOpenMenu(null), 150);
-  };
- 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className='w-full bg-white shadow-sm relative z-50'>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-      <div className="flex items-center gap-2">
-        <img
-        src='/logo.png'
-        alt='Vindhayavasini Construction Works'
-        className="h-10 w-auto"
-        />
-      </div>
+    <header
+      className={`
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        transition-all
+        duration-500
+        ${
+          scrolled
+            ? "bg-white shadow-md"
+            : "bg-transparent"
+        }
+      `}
+    >
+      <div
+        className="
+          max-w-[1800px]
+          mx-auto
+          h-[72px]
+          px-8
+          lg:px-18
+          flex
+          items-center
+          justify-between
+        "
+      >
 
-      <nav className="hidden lg:flex items-center gap-7">
-        {navItems.map((item) => {
-          return (
-          <div
-          key={item.label}
-          className="relative"
-          onMouseEnter={() => item.dropdown && handleEnter(item.label)}
-          onMouseLeave={() => item.dropdown && handleLeave()}
-          >
-            <div className={"flex items-center gap-1 text-sm font-semibold text-gray-800 hover:text-orange-500 cursor-pointer transition-colors py-2"}>
-              <span>{item.label}</span>
-              {item.dropdown && (
-                <ChevronDown
-                size={14}
-                className={`mt-0.5 transition-transform duration-200 ${
-                  openMenu === item.label ? "rotate-180" : ""
-                }`}
-                />
-              )}
-            </div>
-            {item.dropdown && (
-              <div
-              className={`absolute left-0 top-full min-w-[200px] bg-white rounded-md shadow-lg border border-gray-100 py-2 origin-top transition-all duration-150 ${
-                openMenu === item.label
-                ? "opacity-100 scale-100 visible"
-                : "opacity-0 scale-95 invisible"
-              } `}
-              >
-                {item.dropdown.map((sub) => (
-                  <a
-                   key={sub}
-                   href=""
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
-                   >
-                  {sub}
-
-                   </a>
-                 
-                  
-                ))}
-
-              </div>
-            )}
-
-          </div>)
-        })}
-
-      </nav>
-
-      <div className="flex items-center gap-5">
-          <div className="hidden md:flex items-center gap-2">
-            <span className="flex items-center justify-center h-9 w-9 rounded-full bg-blue-950 text-white">
-              <Phone size={16} fill="white" />
-            </span>
-            <span className="font-semibold text-gray-900 text-sm">
-              Call Us
-            </span>
-          </div>
-
-          <button className="bg-blue-950 hover:bg-orange-600 text-white font-bold text-sm tracking-wide px-6 py-3 transition-colors">
-            GET IN TOUCH
-          </button>
+        {/* ================= LOGO ================= */}
+        <div className="flex-shrink-0">
+          <img
+            src={
+              scrolled
+                ? "YOUR_DARK_LOGO_URL"
+                : "YOUR_WHITE_LOGO_URL"
+            }
+            // alt="Vindhayavasini Constructions Works"
+            className="
+              w-[85px]
+              md:w-[95px]
+              h-auto
+              object-contain
+              transition-all
+              duration-300
+            "
+          />
         </div>
+
+
+        {/* ================= NAVIGATION ================= */}
+        <nav className="hidden lg:flex items-center">
+
+          {/* ABOUT US */}
+          <a
+            href="#"
+            className={`
+              flex
+              items-center
+              gap-2
+              px-5
+              text-[12px]
+              font-semibold
+              tracking-[1.5px]
+              transition-colors
+              duration-300
+              ${
+                scrolled
+                  ? "text-[#222] hover:text-[#c99b22]"
+                  : "text-white hover:text-[#c99b22]"
+              }
+            `}
+          >
+            ABOUT US
+
+            <ChevronDown
+              size={16}
+              strokeWidth={2}
+            />
+          </a>
+
+
+          {/* SEPARATOR */}
+          <span
+            className={`
+              h-5
+              w-[1px]
+              ${
+                scrolled
+                  ? "bg-gray-300"
+                  : "bg-white/40"
+              }
+            `}
+          />
+
+
+          {/* PROJECTS */}
+          <a
+            href="#"
+            className={`
+              px-5
+              text-[12px]
+              font-semibold
+              tracking-[1.5px]
+              transition-colors
+              duration-300
+              ${
+                scrolled
+                  ? "text-[#222] hover:text-[#c99b22]"
+                  : "text-white hover:text-[#c99b22]"
+              }
+            `}
+          >
+            PROJECTS
+          </a>
+
+
+          {/* SEPARATOR */}
+          <span
+            className={`
+              h-5
+              w-[1px]
+              ${
+                scrolled
+                  ? "bg-gray-300"
+                  : "bg-white/40"
+              }
+            `}
+          />
+
+
+          {/* BLOGS */}
+          <a
+            href="#"
+            className={`
+              px-5
+              text-[12px]
+              font-semibold
+              tracking-[1.5px]
+              transition-colors
+              duration-300
+              ${
+                scrolled
+                  ? "text-[#222] hover:text-[#c99b22]"
+                  : "text-white hover:text-[#c99b22]"
+              }
+            `}
+          >
+            BLOGS
+          </a>
+
+
+          {/* SEPARATOR */}
+          <span
+            className={`
+              h-5
+              w-[1px]
+              ${
+                scrolled
+                  ? "bg-gray-300"
+                  : "bg-white/40"
+              }
+            `}
+          />
+
+
+          {/* CAREERS */}
+          <a
+            href="#"
+            className={`
+              px-5
+              text-[12px]
+              font-semibold
+              tracking-[1.5px]
+              transition-colors
+              duration-300
+              ${
+                scrolled
+                  ? "text-[#222] hover:text-[#c99b22]"
+                  : "text-white hover:text-[#c99b22]"
+              }
+            `}
+          >
+            CAREERS
+          </a>
+
+
+          {/* SEPARATOR */}
+          <span
+            className={`
+              h-5
+              w-[1px]
+              ${
+                scrolled
+                  ? "bg-gray-300"
+                  : "bg-white/40"
+              }
+            `}
+          />
+
+
+          {/* CONTACT */}
+          <a
+            href="#"
+            className={`
+              px-5
+              text-[12px]
+              font-semibold
+              tracking-[1.5px]
+              transition-colors
+              duration-300
+              ${
+                scrolled
+                  ? "text-[#222] hover:text-[#c99b22]"
+                  : "text-white hover:text-[#c99b22]"
+              }
+            `}
+          >
+            CONTACT
+          </a>
+
+        </nav>
+
+
+        {/* ================= RIGHT ICONS ================= */}
+        <div className="flex items-center gap-3">
+
+          {/* PHONE */}
+          <a
+            href="tel:+919999999999"
+            className="
+              w-[44px]
+              h-[44px]
+              rounded-full
+              bg-[#101a2d]
+              flex
+              items-center
+              justify-center
+              text-white
+              hover:bg-[#c99b22]
+              transition-all
+              duration-300
+            "
+          >
+            <Phone
+              size={18}
+              strokeWidth={1.8}
+            />
+          </a>
+
+
+          {/* MAIL */}
+          <a
+            href="mailto:info@example.com"
+            className="
+              w-[44px]
+              h-[44px]
+              rounded-full
+              bg-[#101a2d]
+              flex
+              items-center
+              justify-center
+              text-white
+              hover:bg-[#c99b22]
+              transition-all
+              duration-300
+            "
+          >
+            <Mail
+              size={18}
+              strokeWidth={1.8}
+            />
+          </a>
+
+        </div>
+
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default header
+export default Header;
