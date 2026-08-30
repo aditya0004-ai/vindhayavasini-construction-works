@@ -29,7 +29,7 @@ const OurStory = () => {
     }
   }, []);
 
-  const toggleMute = () => {
+  const toggleMute = () => {īīīī
     if (videoRef.current) {
       videoRef.current.muted = !videoRef.current.muted;
       setMuted(videoRef.current.muted);
