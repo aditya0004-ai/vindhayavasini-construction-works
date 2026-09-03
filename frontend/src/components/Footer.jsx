@@ -243,7 +243,7 @@ const Footer = () => {
           <div>
 
             <p className="text-[15px] font-semibold tracking-[1px]">
-              © 2026 VIRAJ CONSTRUCTIONS PVT. LTD.
+              © 2026 VINDHAYAVASINI CONSTRUCTIONS PVT. LTD.
             </p>
 
             <p className="mt-3 text-[13px] tracking-[2px] text-[#c49a32]">

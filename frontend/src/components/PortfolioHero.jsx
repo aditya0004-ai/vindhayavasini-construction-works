@@ -14,7 +14,7 @@ const PortfolioHero = () => {
       <div className="relative z-10 text-center px-6">
 
         {/* Portfolio Label */}
-        <div className="inline-flex items-center gap-2 border border-gray-300 bg-white/30 px-4 py-2 mb-7">
+        <div className="inline-flex items-center gap-2 border border-gray-300 bg-white/30 px-4 py-2 mb-8 mt-8">
           <Layers size={16} strokeWidth={1.8} className="text-[#b18a2e]" />
           <span className="text-[12px] tracking-[3px] text-[#2d3540] font-medium">
             OUR PORTFOLIO
@@ -22,11 +22,11 @@ const PortfolioHero = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="font-serif text-[#29313d] text-[44px] md:text-[47px] leading-[1.1] font-light">
+        <h1 className="text-[#29313d] text-[49px] md:text-[55px] leading-[1.1] font-light font-elsie">
           Masterpieces in
         </h1>
 
-        <h2 className="font-serif text-[#b18a2e] text-[48px] md:text-[47px] leading-[1.1] font-light mt-1">
+        <h2 className="font-elsie text-[#b18a2e] text-[48px] md:text-[55px] leading-[1.1] font-light mt-2">
           Concrete.
         </h2>
 

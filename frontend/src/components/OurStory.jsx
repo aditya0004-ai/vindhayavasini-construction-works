@@ -15,7 +15,7 @@ const OurStory = () => {
 
   // Video URL
   const videoUrl =
-    "https://res.cloudinary.com/dermilxpz/video/upload/v1787835145/video_1_bvfo7u.mp4";
+    "https://media.istockphoto.com/id/473361357/video/cranes-at-a-skyscraper-construction.mp4?s=mp4-640x640-is&k=20&c=iuAGLUb6XsMmTIEE4IsHLQvA2rUguMiUIGjq5cWacDk=";
 
   // Poster image URL
   const posterImage =
@@ -84,7 +84,7 @@ const OurStory = () => {
           </div>
 
           {/* Main Heading */}
-          <h2 className="mx-auto max-w-3xl font-['Cormorant_Garamond'] text-[30px] font-light leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[55px]">
+          <h2 className="mx-auto max-w-3xl font-elsie text-[30px] font-light leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[55px]">
             Two decades of shaping
             <br />
             Lucknow's{" "}

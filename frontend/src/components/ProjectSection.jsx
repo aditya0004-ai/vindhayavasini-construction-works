@@ -199,7 +199,7 @@ const ProjectSection = () => {
           </div>
         </div>
 
-        <h2 className="text-center text-[#111827] font-['Cormorant_Garamond'] font-light text-[34px] md:text-[42px] lg:text-[55px] leading-tight">
+        <h2 className="text-center text-[#111827] font-elsie font-light text-[34px] md:text-[42px] lg:text-[55px] leading-tight">
           Addresses that define the{" "}
           <span className="text-[#c49a32]">city.</span>
         </h2>
@@ -295,9 +295,9 @@ const ProjectSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className="lg:order-2"
+                  className={index % 2 === 0 ? "lg:order-2" : "lg:order-1"}
                 >
-                  <h3 className="text-[#111827] font-serif font-light text-[34px] md:text-[38px] mb-3 leading-tight">
+                  <h3 className="text-[#111827] font-elsie font-light text-[34px] md:text-[38px] mb-3 leading-tight">
                     {project.title}
                   </h3>
 
@@ -365,7 +365,7 @@ const ProjectSection = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="lg:order-1"
+                  className={index % 2 === 0 ? "lg:order-1" : "lg:order-2"}
                 >
                   <div className="relative overflow-hidden group rounded-sm">
                     <motion.img

@@ -14,18 +14,6 @@ const slides = [
     description:
       "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
   },
-  {
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
-
-    title: "SUNBREEZE II (PHASE 1)",
-
-    subtitle:
-      "Desire incorporated in design A Step Closer to nature",
-
-    description:
-      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
-  },
 
   {
     image:
@@ -42,16 +30,17 @@ const slides = [
 
   {
     image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
+      "https://virajconstructions.com/assets/banners/lotus-enclave-desktop.webp",
 
-    title: "LUXURY RESIDENCES",
+    title: "SUNBREEZE II (PHASE 1)",
 
     subtitle:
-      "Designed for modern living",
+      "Desire incorporated in design A Step Closer to nature",
 
     description:
-      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
   },
+
   {
     image:
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
@@ -64,10 +53,22 @@ const slides = [
     description:
       "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
   },
-  
   {
     image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
+      "https://virajconstructions.com/assets/banners/sunbreeze-1-desktop.webp",
+
+    title: "LUXURY RESIDENCES",
+
+    subtitle:
+      "Designed for modern living",
+
+    description:
+      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+  },
+
+  {
+    image:
+      "https://virajconstructions.com/assets/banners/lotus-court-desktop.webp",
 
     title: "LUXURY RESIDENCES",
 
@@ -115,14 +116,17 @@ const Hero = () => {
     <section className="relative w-full h-screen min-h-[650px] overflow-hidden">
 
       {/* =========================
-          BACKGROUND IMAGES
-      ========================= */}
-      {slides.map((item, index) => (
-        <img
-          key={index}
-          src={item.image}
-          alt={item.title}
-          className={`
+    BACKGROUND IMAGES
+========================= */}
+      {slides.map((item, index) => {
+        const isActive = activeSlide === index;
+
+        return (
+          <img
+            key={index}
+            src={item.image}
+            alt={item.title}
+            className={`
             absolute
             inset-0
             w-full
@@ -131,13 +135,14 @@ const Hero = () => {
             transition-opacity
             duration-1000
             ease-in-out
-            ${activeSlide === index
-              ? "opacity-100"
-              : "opacity-0"
-            }
-          `}
-        />
-      ))}
+        ${isActive
+                ? "opacity-100 animate-kenburns"
+                : "opacity-0 scale-[1.13]"
+              }
+      `}
+          />
+        );
+      })}
 
       {/* =========================
           DARK OVERLAY
@@ -152,8 +157,8 @@ const Hero = () => {
           absolute
           inset-0
           bg-gradient-to-r
-          from-black/75
-          via-black/40
+          from-black/80
+          via-black/60
           to-transparent
         "
       />
@@ -188,8 +193,7 @@ const Hero = () => {
           <h1
             className="
               text-white
-              font-serif
-              font-normal
+              font-elsie
               text-[42px]
               sm:text-[52px]
               md:text-[58px]
