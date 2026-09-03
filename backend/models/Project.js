@@ -69,7 +69,7 @@ const ProjectSchema = new mongoose.Schema(
 );
 
 // Auto-generate a URL-safe slug from the name if one isn't provided
-ProjectSchema.pre("validate", function (next) {
+ProjectSchema.pre("validate", function () {
   if (!this.slug && this.name) {
     this.slug = this.name
       .toLowerCase()
@@ -77,7 +77,6 @@ ProjectSchema.pre("validate", function (next) {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
   }
-  next();
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);

@@ -1,65 +1,19 @@
+// frontend/src/App.jsx
 import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home";  
+import AdminPage from "./pages/AdminPage";
+import ProjectPage from "./pages/ProjectPage";
 
-import Home from "./pages/home";
-
-import AdminLogin from "./admin/pages/AdminLogin";
-import AdminDashboard from "./admin/pages/AdminDashboard";
-import ProjectsList from "./admin/pages/ProjectsList";
-import ProjectForm from "./admin/pages/ProjectForm";
-
-import ProtectedRoute from "./admin/components/ProtectedRoute";
-import AdminLayout from "./admin/components/AdminLayout";
-
-const App = () => {
+function App() {
   return (
     <Routes>
-      {/* =========================
-          PUBLIC WEBSITE
-      ========================== */}
-
       <Route path="/" element={<Home />} />
+      <Route path="/projects" element={<ProjectPage />} />
 
-      {/* =========================
-          ADMIN LOGIN
-      ========================== */}
-
-      <Route
-        path="/admin/login"
-        element={<AdminLogin />}
-      />
-
-      {/* =========================
-          PROTECTED ADMIN
-      ========================== */}
-
-      <Route element={<ProtectedRoute />}>
-        <Route
-          path="/admin"
-          element={<AdminLayout />}
-        >
-          <Route
-            index
-            element={<AdminDashboard />}
-          />
-
-          <Route
-            path="projects"
-            element={<ProjectsList />}
-          />
-
-          <Route
-            path="projects/new"
-            element={<ProjectForm />}
-          />
-
-          <Route
-            path="projects/:id/edit"
-            element={<ProjectForm />}
-          />
-        </Route>
-      </Route>
+      {/* Admin panel — password-protected, handles its own auth internally */}
+      <Route path="/admin" element={<AdminPage />} />
     </Routes>
   );
-};
+}
 
 export default App;
