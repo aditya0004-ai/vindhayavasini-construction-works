@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { X, Plus } from "lucide-react";
 
-export default function HighlightsInput({ value = [], onChange }) {
+export default function HighlightsInput({
+  value = [],
+  onChange,
+  placeholder = "e.g. RERA approved, Clubhouse, 24x7 security...",
+  emptyText = "No highlights added yet.",
+}) {
   const [draft, setDraft] = useState("");
 
   const addHighlight = () => {
@@ -32,7 +37,7 @@ export default function HighlightsInput({ value = [], onChange }) {
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="e.g. RERA approved, Clubhouse, 24x7 security..."
+          placeholder={placeholder}
           className="flex-1 bg-[#262019] border border-[#33291F] rounded-md py-2 px-3 text-sm text-[#F5F1E8] placeholder:text-[#6B5F51] focus:outline-none focus:ring-1 focus:ring-[#C9A258] focus:border-[#C9A258] transition"
         />
         <button
@@ -46,7 +51,7 @@ export default function HighlightsInput({ value = [], onChange }) {
       </div>
 
       {value.length === 0 ? (
-        <p className="text-xs text-[#6B5F51] italic">No highlights added yet.</p>
+        <p className="text-xs text-[#6B5F51] italic">{emptyText}</p>
       ) : (
         <ul className="flex flex-wrap gap-2">
           {value.map((highlight, index) => (

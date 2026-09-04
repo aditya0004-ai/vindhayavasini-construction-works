@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Pencil, Trash2, MapPin, EyeOff } from "lucide-react";
 import StatusBadge from "./StatusBadge";
+import CategoryBadge from "./CategoryBadge";
 import ConfirmDialog from "./ConfirmDialog";
 import * as adminApi from "../../lib/adminApi";
 
@@ -49,6 +50,7 @@ export default function ProjectsTable({ projects, onEdit, onDeleted }) {
             <tr className="bg-[#1A1613] border-b border-[#33291F] text-left">
               <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide">Project</th>
               <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide">Status</th>
+              <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide">Category</th>
               <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide">Location</th>
               <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide">Updated</th>
               <th className="px-5 py-3 text-xs font-medium text-[#A79C8C] uppercase tracking-wide text-right">
@@ -86,6 +88,9 @@ export default function ProjectsTable({ projects, onEdit, onDeleted }) {
                 </td>
                 <td className="px-5 py-3">
                   <StatusBadge status={project.status} />
+                </td>
+                <td className="px-5 py-3">
+                  <CategoryBadge category={project.category} />
                 </td>
                 <td className="px-5 py-3">
                   <div className="flex items-center gap-1.5 text-sm text-[#A79C8C]">

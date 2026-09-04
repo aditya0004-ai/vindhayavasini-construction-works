@@ -8,7 +8,7 @@ const storage = new CloudinaryStorage({
   params: async (req, file) => {
     const isLayoutPlan = file.fieldname === "layoutPlan";
     return {
-      folder: isLayoutPlan ? "sanskar-construction/layout-plans" : "sanskar-construction/projects",
+      folder: isLayoutPlan ? "vindhayavasini-construction/layout-plans" : "vindhayavasini-construction/projects",
       allowed_formats: isLayoutPlan
         ? ["jpg", "jpeg", "png", "webp", "pdf"]
         : ["jpg", "jpeg", "png", "webp"],

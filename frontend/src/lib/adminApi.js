@@ -3,7 +3,7 @@
 // header-building in one place so components stay focused on UI.
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-const TOKEN_KEY = "sanskar_admin_token";
+const TOKEN_KEY = "vindhayavasini_admin_token";
 
 export function getToken() {
   if (typeof window === "undefined") return null;
@@ -93,37 +93,126 @@ export async function deleteProject(id) {
 }
 
 export async function deleteGalleryImage(id, publicId) {
-  const res = await fetch(`${API_URL}/projects/${id}/gallery/${publicId}`, {
-    method: "DELETE",
-    headers: authHeaders(),
-  });
+  const encodedPublicId = encodeURIComponent(publicId);
+
+  const res = await fetch(
+    `${API_URL}/projects/${id}/gallery/${encodedPublicId}`,
+    {
+      method: "DELETE",
+      headers: authHeaders(),
+    }
+  );
+
   return handleResponse(res);
 }
+
+export async function deleteLayoutPlanImage(id, publicId) {
+  const encodedPublicId = encodeURIComponent(publicId);
+
+  const res = await fetch(
+    `${API_URL}/projects/${id}/layout-plan/${encodedPublicId}`,
+    {
+      method: "DELETE",
+      headers: authHeaders(),
+    }
+  );
+
+  return handleResponse(res);
+}
+  
 
 // Builds the multipart FormData a project create/update expects from
 // the plain JS object the form works with internally.
 export function buildProjectFormData({
   name,
+  subHeading,
   status,
+  category,
   location,
+  liveLocation,
   overview,
   highlights,
   order,
   isPublished,
   imageFile,
-  layoutPlanFile,
+  layoutPlanFiles,
   galleryFiles,
+  deletedGalleryPublicIds,
+  deletedLayoutPlanPublicIds,
 }) {
   const fd = new FormData();
+
   fd.append("name", name ?? "");
+  fd.append("subHeading", subHeading ?? "");
   fd.append("status", status ?? "Ongoing");
+  fd.append("category", category ?? "Residential");
   fd.append("location", location ?? "");
+  fd.append("liveLocation", liveLocation ?? "");
   fd.append("overview", overview ?? "");
   fd.append("highlights", JSON.stringify(highlights ?? []));
   fd.append("order", String(order ?? 0));
   fd.append("isPublished", String(isPublished ?? true));
-  if (imageFile) fd.append("image", imageFile);
-  if (layoutPlanFile) fd.append("layoutPlan", layoutPlanFile);
-  (galleryFiles || []).forEach((file) => fd.append("gallery", file));
+
+  // Images selected for deletion.
+  // Backend will delete these only when Save Changes is clicked.
+  fd.append(
+    "deletedGalleryPublicIds",
+    JSON.stringify(deletedGalleryPublicIds ?? [])
+  );
+
+  fd.append(
+    "deletedLayoutPlanPublicIds",
+    JSON.stringify(deletedLayoutPlanPublicIds ?? [])
+  );
+
+  if (imageFile) {
+    fd.append("image", imageFile);
+  }
+
+  (layoutPlanFiles ?? []).forEach((file) => {
+    fd.append("layoutPlan", file);
+  });
+
+  (galleryFiles ?? []).forEach((file) => {
+    fd.append("gallery", file);
+  });
+
   return fd;
 }
+// ---- Jobs ----
+ 
+export async function getAllJobsAdmin() {
+  const res = await fetch(`${API_URL}/jobs/admin/all`, {
+    headers: authHeaders(),
+  });
+  return handleResponse(res);
+}
+ 
+export async function createJob(job) {
+  const res = await fetch(`${API_URL}/jobs`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(job),
+  });
+  return handleResponse(res);
+}
+ 
+export async function updateJob(id, job) {
+  const res = await fetch(`${API_URL}/jobs/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...authHeaders() },
+    body: JSON.stringify(job),
+  });
+  return handleResponse(res);
+}
+ 
+export async function deleteJob(id) {
+  const res = await fetch(`${API_URL}/jobs/${id}`, {
+    method: "DELETE",
+    headers: authHeaders(),
+  });
+  return handleResponse(res);
+}
+ 
+
+ 

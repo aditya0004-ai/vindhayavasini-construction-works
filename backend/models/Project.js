@@ -7,6 +7,11 @@ const ProjectSchema = new mongoose.Schema(
       required: [true, "Project name is required"],
       trim: true,
     },
+    subHeading: {
+  type: String,
+  trim: true,
+  default: "",
+},
     slug: {
       type: String,
       required: true,
@@ -21,10 +26,23 @@ const ProjectSchema = new mongoose.Schema(
       enum: ["Upcoming", "Ongoing", "Completed"],
       default: "Ongoing",
     },
+    category: {
+      type: String,
+      required: [true, "Category is required"],
+      enum: ["Residential", "Commercial"],
+      default: "Residential",
+    },
     location: {
       type: String,
       required: [true, "Location is required"],
       trim: true,
+    },
+    // Optional link/coordinates for a "live location" (e.g. a Google Maps
+    // share link, or "lat,lng") — shown as a map link on the site
+    liveLocation: {
+      type: String,
+      trim: true,
+      default: null,
     },
     // Main/cover image shown on cards & hero areas
     image: {
@@ -51,10 +69,19 @@ const ProjectSchema = new mongoose.Schema(
         message: "Highlights must be non-empty strings",
       },
     },
-    // Layout plan is typically a single image or PDF
+    // Up to 5 layout plan images (floor plans, site layouts, etc.)
     layoutPlan: {
-      url: { type: String, default: null },
-      publicId: { type: String, default: null },
+      type: [
+        {
+          url: String,
+          publicId: String,
+        },
+      ],
+      default: [],
+      validate: {
+        validator: (arr) => arr.length <= 5,
+        message: "You can add up to 5 layout plan images only",
+      },
     },
     order: {
       type: Number,

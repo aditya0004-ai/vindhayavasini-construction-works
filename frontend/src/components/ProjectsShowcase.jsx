@@ -35,8 +35,6 @@ export default function ProjectsShowcase() {
           "http://localhost:5000/api/projects"
         );
 
-        console.log("Projects API Response:", response.data);
-
         const projectsData =
           response.data.projects ||
           response.data.data ||

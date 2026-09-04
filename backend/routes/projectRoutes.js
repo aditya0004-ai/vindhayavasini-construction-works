@@ -7,6 +7,7 @@ const {
   updateProject,
   deleteProject,
   deleteGalleryImage,
+  deleteLayoutPlanImage,
 } = require("../controllers/projectController");
 const { protect } = require("../middleware/auth");
 const upload = require("../middleware/upload");
@@ -15,7 +16,7 @@ const router = express.Router();
 
 const projectFileFields = upload.fields([
   { name: "image", maxCount: 1 },
-  { name: "layoutPlan", maxCount: 1 },
+  { name: "layoutPlan", maxCount: 5 },
   { name: "gallery", maxCount: 10 },
 ]);
 
@@ -32,5 +33,6 @@ router.post("/", protect, projectFileFields, createProject);
 router.put("/:id", protect, projectFileFields, updateProject);
 router.delete("/:id", protect, deleteProject);
 router.delete("/:id/gallery/:publicId", protect, deleteGalleryImage);
+router.delete("/:id/layout-plan/:publicId", protect, deleteLayoutPlanImage);
 
 module.exports = router;

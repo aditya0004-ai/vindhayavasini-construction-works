@@ -1,5 +1,3 @@
-// frontend/src/components/admin/ImageUploadField.jsx
-
 import { useRef, useState, useEffect } from "react";
 import { Upload, X, FileText } from "lucide-react";
 
@@ -14,35 +12,52 @@ export default function ImageUploadField({
 }) {
   const inputRef = useRef(null);
   const [preview, setPreview] = useState(existingUrl);
+  const [removedExisting, setRemovedExisting] = useState(false);
 
   useEffect(() => {
     if (!file) {
-      setPreview(existingUrl);
+      setPreview(removedExisting ? null : existingUrl);
       return;
     }
+
     if (file.type === "application/pdf") {
-      setPreview(null); // no image preview for PDFs
+      setPreview(null);
       return;
     }
+
     const url = URL.createObjectURL(file);
     setPreview(url);
+
     return () => URL.revokeObjectURL(url);
-  }, [file, existingUrl]);
+  }, [file, existingUrl, removedExisting]);
 
   const handleFileSelect = (e) => {
     const selected = e.target.files?.[0];
-    if (selected) onChange(selected);
+
+    if (selected) {
+      setRemovedExisting(false);
+      onChange(selected);
+    }
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
+
     const dropped = e.dataTransfer.files?.[0];
-    if (dropped) onChange(dropped);
+
+    if (dropped) {
+      setRemovedExisting(false);
+      onChange(dropped);
+    }
   };
 
   const clearFile = () => {
+    setRemovedExisting(true);
     onChange(null);
-    if (inputRef.current) inputRef.current.value = "";
+
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
   };
 
   const isPdf = file?.type === "application/pdf";
@@ -69,16 +84,21 @@ export default function ImageUploadField({
 
         {preview ? (
           <div className="relative h-40">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={preview} alt="Preview" className="w-full h-full object-cover" />
+            <img
+              src={preview}
+              alt="Preview"
+              className="w-full h-full object-cover"
+            />
+
+            {/* Always visible cross icon */}
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 clearFile();
               }}
-              className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/70 hover:bg-black/90 flex items-center justify-center text-white transition"
-              aria-label="Remove file"
+              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/80 hover:bg-[#E8A87C] flex items-center justify-center text-white transition shadow-lg"
+              aria-label="Remove image"
             >
               <X className="w-4 h-4" />
             </button>
@@ -86,27 +106,36 @@ export default function ImageUploadField({
         ) : isPdf ? (
           <div className="h-40 flex flex-col items-center justify-center gap-2 text-[#A79C8C]">
             <FileText className="w-8 h-8" />
+
             <span className="text-xs">{file.name}</span>
+
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 clearFile();
               }}
-              className="text-xs text-[#E8A87C] hover:underline"
+              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-black/80 hover:bg-[#E8A87C] flex items-center justify-center text-white transition shadow-lg"
+              aria-label="Remove file"
             >
-              Remove
+              <X className="w-4 h-4" />
             </button>
           </div>
         ) : (
           <div className="h-40 flex flex-col items-center justify-center gap-2 text-[#6B5F51]">
             <Upload className="w-6 h-6" />
-            <span className="text-xs">Click or drag a file here</span>
+            <span className="text-xs">
+              Click or drag an image here
+            </span>
           </div>
         )}
       </div>
 
-      {helpText && <p className="text-xs text-[#6B5F51] mt-1.5">{helpText}</p>}
+      {helpText && (
+        <p className="text-xs text-[#6B5F51] mt-1.5">
+          {helpText}
+        </p>
+      )}
     </div>
   );
 }

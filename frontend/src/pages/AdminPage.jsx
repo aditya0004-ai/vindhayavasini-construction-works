@@ -1,9 +1,9 @@
 // frontend/src/pages/AdminPage.jsx
 import { Loader2 } from "lucide-react";
+import { Outlet } from "react-router-dom";
 import { AdminAuthProvider, useAdminAuth } from "../context/AdminAuthContext";
 import AdminLogin from "../components/admin/AdminLogin";
 import AdminLayout from "../components/admin/AdminLayout";
-import AdminDashboard from "../components/admin/AdminDashboard";
 
 function AdminGate() {
   const { isAuthenticated, isLoading } = useAdminAuth();
@@ -22,7 +22,8 @@ function AdminGate() {
 
   return (
     <AdminLayout>
-      <AdminDashboard />
+      {/* Renders whichever nested /admin route is active — see App.jsx */}
+      <Outlet />
     </AdminLayout>
   );
 }

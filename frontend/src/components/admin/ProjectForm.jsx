@@ -4,41 +4,54 @@ import { useState } from "react";
 import { X, Loader2, ArrowLeft } from "lucide-react";
 import HighlightsInput from "./HighlightsInput";
 import ImageUploadField from "./ImageUploadField";
-import GalleryUploadField from "./GalleryUploadField";
+import MultiFileUploadField from "./MultiFileUploadField";
 import * as adminApi from "../../lib/adminApi";
 
 const STATUS_OPTIONS = ["Upcoming", "Ongoing", "Completed"];
+const CATEGORY_OPTIONS = ["Residential", "Commercial"];
 
 // project: existing project object when editing, null when creating
 export default function ProjectForm({ project, onSaved, onCancel }) {
   const isEditing = Boolean(project);
 
   const [name, setName] = useState(project?.name || "");
+  const [subHeading, setSubHeading] = useState(project?.subHeading || "");
   const [status, setStatus] = useState(project?.status || "Ongoing");
+  const [category, setCategory] = useState(project?.category || "Residential");
   const [location, setLocation] = useState(project?.location || "");
+  const [liveLocation, setLiveLocation] = useState(project?.liveLocation || "");
   const [overview, setOverview] = useState(project?.overview || "");
   const [highlights, setHighlights] = useState(project?.highlights || []);
   const [order, setOrder] = useState(project?.order ?? 0);
   const [isPublished, setIsPublished] = useState(project?.isPublished ?? true);
 
   const [imageFile, setImageFile] = useState(null);
-  const [layoutPlanFile, setLayoutPlanFile] = useState(null);
+  const [newLayoutPlanFiles, setNewLayoutPlanFiles] = useState([]);
+  const [existingLayoutPlan, setExistingLayoutPlan] = useState(project?.layoutPlan || []);
   const [newGalleryFiles, setNewGalleryFiles] = useState([]);
   const [existingGallery, setExistingGallery] = useState(project?.gallery || []);
-
+  const [deletedGalleryPublicIds, setDeletedGalleryPublicIds] = useState([]);
+const [deletedLayoutPlanPublicIds, setDeletedLayoutPlanPublicIds] = useState([]);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
 
-  const handleRemoveExistingGalleryImage = async (publicId) => {
-    // Existing images are already persisted, so remove them immediately via the API
-    if (!isEditing) return;
-    try {
-      await adminApi.deleteGalleryImage(project._id, publicId);
-      setExistingGallery((prev) => prev.filter((img) => img.publicId !== publicId));
-    } catch (err) {
-      setError(err.message || "Failed to remove gallery image.");
-    }
-  };
+ const handleRemoveExistingGalleryImage = (publicId) => {
+  setExistingGallery((prev) =>
+    prev.filter((img) => img.publicId !== publicId)
+  );
+
+  setDeletedGalleryPublicIds((prev) => [
+    ...prev,
+    publicId,
+  ]);
+};
+  const handleRemoveExistingLayoutPlanImage = (publicId) => {
+  setExistingLayoutPlan((prev) =>
+    prev.filter((img) => img.publicId !== publicId)
+  );
+
+  setDeletedLayoutPlanPublicIds((prev) => [...prev, publicId]);
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,15 +66,20 @@ export default function ProjectForm({ project, onSaved, onCancel }) {
     try {
       const formData = adminApi.buildProjectFormData({
         name,
+        subHeading,
         status,
+        category,
         location,
+        liveLocation,
         overview,
         highlights,
         order,
         isPublished,
         imageFile,
-        layoutPlanFile,
+        layoutPlanFiles: newLayoutPlanFiles,
         galleryFiles: newGalleryFiles,
+         deletedGalleryPublicIds,
+  deletedLayoutPlanPublicIds,
       });
 
       const result = isEditing
@@ -109,6 +127,23 @@ export default function ProjectForm({ project, onSaved, onCancel }) {
             />
           </div>
 
+          <div className="col-span-2">
+            <label className="block text-xs font-medium text-[#A79C8C] mb-2 uppercase tracking-wide">
+              Sub Heading
+              <span className="text-[#6B5F51] normal-case ml-1">
+                (optional)
+              </span>
+            </label>
+
+            <input
+              type="text"
+              value={subHeading}
+              onChange={(e) => setSubHeading(e.target.value)}
+              placeholder="e.g. Luxury Living Redefined"
+              className="w-full bg-[#262019] border border-[#33291F] rounded-md py-2.5 px-3 text-[#F5F1E8] placeholder:text-[#6B5F51] focus:outline-none focus:ring-1 focus:ring-[#C9A258] focus:border-[#C9A258] transition"
+            />
+          </div>
+
           <div>
             <label className="block text-xs font-medium text-[#A79C8C] mb-2 uppercase tracking-wide">
               Status <span className="text-[#C9A258]">*</span>
@@ -128,6 +163,23 @@ export default function ProjectForm({ project, onSaved, onCancel }) {
 
           <div>
             <label className="block text-xs font-medium text-[#A79C8C] mb-2 uppercase tracking-wide">
+              Category <span className="text-[#C9A258]">*</span>
+            </label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="w-full bg-[#262019] border border-[#33291F] rounded-md py-2.5 px-3 text-[#F5F1E8] focus:outline-none focus:ring-1 focus:ring-[#C9A258] focus:border-[#C9A258] transition"
+            >
+              {CATEGORY_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-[#A79C8C] mb-2 uppercase tracking-wide">
               Location <span className="text-[#C9A258]">*</span>
             </label>
             <input
@@ -136,6 +188,19 @@ export default function ProjectForm({ project, onSaved, onCancel }) {
               onChange={(e) => setLocation(e.target.value)}
               required
               placeholder="e.g. Sitapur Road, Lucknow"
+              className="w-full bg-[#262019] border border-[#33291F] rounded-md py-2.5 px-3 text-[#F5F1E8] placeholder:text-[#6B5F51] focus:outline-none focus:ring-1 focus:ring-[#C9A258] focus:border-[#C9A258] transition"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-[#A79C8C] mb-2 uppercase tracking-wide">
+              Live Location <span className="text-[#6B5F51] normal-case">(optional)</span>
+            </label>
+            <input
+              type="url"
+              value={liveLocation}
+              onChange={(e) => setLiveLocation(e.target.value)}
+              placeholder="Google Maps link"
               className="w-full bg-[#262019] border border-[#33291F] rounded-md py-2.5 px-3 text-[#F5F1E8] placeholder:text-[#6B5F51] focus:outline-none focus:ring-1 focus:ring-[#C9A258] focus:border-[#C9A258] transition"
             />
           </div>
@@ -162,27 +227,31 @@ export default function ProjectForm({ project, onSaved, onCancel }) {
           <HighlightsInput value={highlights} onChange={setHighlights} />
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
-          <ImageUploadField
-            label="Main Image"
-            required={!isEditing}
-            existingUrl={project?.image?.url}
-            file={imageFile}
-            onChange={setImageFile}
-            helpText={isEditing ? "Leave blank to keep the current image." : "Shown on project cards."}
-          />
-          <ImageUploadField
-            label="Layout Plan"
-            existingUrl={project?.layoutPlan?.url}
-            accept="image/jpeg,image/png,image/webp,application/pdf"
-            file={layoutPlanFile}
-            onChange={setLayoutPlanFile}
-            helpText="Optional. Image or PDF."
-          />
-        </div>
+        <ImageUploadField
+          label="Main Image"
+          required={!isEditing}
+          existingUrl={project?.image?.url}
+          file={imageFile}
+          onChange={setImageFile}
+          helpText={isEditing ? "Leave blank to keep the current image." : "Shown on project cards."}
+        />
 
-        <GalleryUploadField
-          existingImages={existingGallery}
+        <MultiFileUploadField
+          label="Layout Plan"
+          max={5}
+          accept="image/jpeg,image/png,image/webp,application/pdf"
+          existingFiles={existingLayoutPlan}
+          newFiles={newLayoutPlanFiles}
+          onAddFiles={(files) => setNewLayoutPlanFiles((prev) => [...prev, ...files])}
+          onRemoveExisting={handleRemoveExistingLayoutPlanImage}
+          onRemoveNewFile={(index) => setNewLayoutPlanFiles((prev) => prev.filter((_, i) => i !== index))}
+          helpText="Optional. Up to 5 images or PDFs — floor plans, site layouts, etc."
+        />
+
+        <MultiFileUploadField
+          label="Gallery Images"
+          max={10}
+          existingFiles={existingGallery}
           newFiles={newGalleryFiles}
           onAddFiles={(files) => setNewGalleryFiles((prev) => [...prev, ...files])}
           onRemoveExisting={handleRemoveExistingGalleryImage}

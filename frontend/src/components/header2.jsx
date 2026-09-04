@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 
 const Header2 = () => {
@@ -28,7 +29,7 @@ const Header2 = () => {
         "
       >
         {/* ================= LOGO ================= */}
-        <div className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0">
           <img
             src="https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787848495/ChatGPT_Image_Aug_27_2026_02_30_52_AM_oyvtse.png"
             alt="Vindhayavasini Constructions Works"
@@ -41,14 +42,14 @@ const Header2 = () => {
               duration-300
             "
           />
-        </div>
+        </Link>
 
         {/* ================= NAVIGATION ================= */}
         <nav className="hidden lg:flex items-center">
 
           {/* ABOUT US */}
-          <a
-            href="#"
+          <Link
+            to="/#about"
             className="
               flex
               items-center
@@ -66,14 +67,14 @@ const Header2 = () => {
           >
             ABOUT US
             <ChevronDown size={16} strokeWidth={2} />
-          </a>
+          </Link>
 
           {/* SEPARATOR */}
           <span className="h-5 w-[1px] bg-gray-300" />
 
           {/* PROJECTS */}
-          <a
-            href="#"
+          <Link
+            to="/projects"
             className="
               px-5
               text-[14px]
@@ -87,14 +88,14 @@ const Header2 = () => {
             "
           >
             PROJECTS
-          </a>
+          </Link>
 
           {/* SEPARATOR */}
           <span className="h-5 w-[1px] bg-gray-300" />
 
           {/* BLOGS */}
-          <a
-            href="#"
+          <Link
+            to="/blogs"
             className="
               px-5
               text-[14px]
@@ -108,14 +109,14 @@ const Header2 = () => {
             "
           >
             BLOGS
-          </a>
+          </Link>
 
           {/* SEPARATOR */}
           <span className="h-5 w-[1px] bg-gray-300" />
 
           {/* CAREERS */}
-          <a
-            href="#"
+          <Link
+            to="/careers"
             className="
               px-5
               text-[14px]
@@ -129,14 +130,14 @@ const Header2 = () => {
             "
           >
             CAREERS
-          </a>
+          </Link>
 
           {/* SEPARATOR */}
           <span className="h-5 w-[1px] bg-gray-300" />
 
           {/* CONTACT */}
-          <a
-            href="#"
+          <Link
+            to="/contact"
             className="
               px-5
               text-[14px]
@@ -150,7 +151,8 @@ const Header2 = () => {
             "
           >
             CONTACT
-          </a>
+          </Link>
+
         </nav>
 
         {/* ================= RIGHT ICONS ================= */}
