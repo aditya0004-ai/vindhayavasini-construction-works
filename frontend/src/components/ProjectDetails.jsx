@@ -36,7 +36,7 @@ import {
 ========================================================= */
 
 const HEADER_HEIGHT = 80;
-const TAB_HEIGHT = 56;
+const TAB_HEIGHT = 64;
 
 /* =========================================================
    COMPONENT
@@ -70,7 +70,7 @@ const ProjectDetails = ({ projectSlug }) => {
 
         setError(
           error.response?.data?.message ||
-            "Failed to fetch project."
+          "Failed to fetch project."
         );
       } finally {
         setLoading(false);
@@ -136,9 +136,8 @@ const ProjectDetails = ({ projectSlug }) => {
       },
       {
         threshold: [0.15, 0.3, 0.5, 0.65],
-        rootMargin: `-${
-          HEADER_HEIGHT + TAB_HEIGHT + 20
-        }px 0px -35% 0px`,
+        rootMargin: `-${HEADER_HEIGHT + TAB_HEIGHT + 20
+          }px 0px -35% 0px`,
       }
     );
 
@@ -431,7 +430,7 @@ const ProjectDetails = ({ projectSlug }) => {
   );
 
   return (
-    <div className="bg-[#f7f7f5]">
+    <div className="px-30">
 
       <style>{`
         .pd-eyebrow { transition: border-color 0.2s ease; }
@@ -446,11 +445,12 @@ const ProjectDetails = ({ projectSlug }) => {
 
       <div
         className="
+        
           sticky
           z-40
           bg-[#f7f7f5]
-          border-b
-          border-[#d8d0bd]
+          border-b-2
+          border-[#BB9632]
           shadow-[0_1px_0_rgba(179,145,53,0.35)]
         "
         style={{
@@ -459,7 +459,7 @@ const ProjectDetails = ({ projectSlug }) => {
       >
         <div className="max-w-[1140px] mx-auto px-5">
 
-          <div className="flex overflow-x-auto">
+          <div className="flex">
 
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -495,10 +495,10 @@ const ProjectDetails = ({ projectSlug }) => {
                       className="
                         absolute
                         inset-x-0
-                        top-0
+                        top-3
                         bottom-0
                         bg-[#172235]
-                        rounded-t-[16px]
+                        rounded-t-[24px]
                       "
                       transition={{
                         type: "spring",
@@ -524,10 +524,9 @@ const ProjectDetails = ({ projectSlug }) => {
                       md:text-[12px]
                       tracking-[1.25px]
                       font-medium
-                      ${
-                        isActive
-                          ? "text-white"
-                          : "text-[#273244]"
+                      ${isActive
+                        ? "text-white"
+                        : "text-[#273244]"
                       }
                     `}
                   >

@@ -1,4 +1,3 @@
-// frontend/src/components/ProjectsShowcase.jsx
 
 import { useState, useMemo, useEffect } from "react";
 import axios from "axios";
@@ -126,9 +125,9 @@ export default function ProjectsShowcase() {
               >
                 <button
                   onClick={() => setActiveTab(tab.key)}
-                  className={`relative flex items-center gap-2 px-6 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-colors rounded-t-md ${
+                  className={`relative flex items-center gap-2 px-6 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-colors rounded-t-[20px] ${
                     isActive
-                      ? "bg-[#14110F] text-white"
+                      ? "bg-[#0F172A] text-white"
                       : "text-[#3A342C] hover:text-[#14110F]"
                   }`}
                 >

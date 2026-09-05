@@ -71,7 +71,7 @@ const ProjectHero = ({ projectSlug }) => {
 
   return (
     <section
-      className="relative h-[440px] md:h-[480px] lg:h-[500px] bg-cover bg-center overflow-hidden bg-[#14110F]"
+      className="mb-20 relative h-screen bg-cover bg-center overflow-hidden bg-[#14110F]"
       style={{
         backgroundImage: backgroundImage ? `url("${backgroundImage}")` : "none",
       }}
@@ -88,34 +88,33 @@ const ProjectHero = ({ projectSlug }) => {
           {/* CATEGORY */}
           {project.category && (
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-6 h-px bg-[#C9A258]" />
-              <span className="text-[#C9A258] text-[11px] font-medium tracking-[2.5px] uppercase">
+              <span className="text-white text-xs font-bold font-sans tracking-[2.5px] uppercase mb-5 border border-white px-5 py-2">
                 {project.category}
               </span>
             </div>
           )}
 
           {/* PROJECT NAME */}
-          <h1 className="font-elsie text-white text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.08] tracking-tight">
+          <h1 className="font-serif text-[70px] text-white leading-[1.08] tracking-tight">
             {project.name}
           </h1>
 
           {/* SUB HEADING */}
           {project.subHeading && (
-            <h2 className="mt-3 text-[#C9A258] text-[15px] md:text-[17px] font-medium">
+            <h2 className="mt-3 text-[#BB9632] text-[15px] md:text-[17px] font-medium font-sans">
               {project.subHeading}
             </h2>
           )}
 
           {/* OVERVIEW */}
           {project.overview && (
-            <p className="mt-3 text-white/65 text-[14px] leading-[1.65] max-w-[480px] line-clamp-2">
+            <p className="mt-3 text-white text-[15px] md:text-[16px] leading-[1.65] max-w-[480px] line-clamp-2 font-semibold">
               {project.overview}
             </p>
           )}
 
           {/* LOCATION + STATUS ROW */}
-          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+          {/* <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
             {project.location && (
               <div className="flex items-center gap-1.5 text-white/55">
                 <MapPin size={14} className="text-[#C9A258]" />
@@ -131,22 +130,22 @@ const ProjectHero = ({ projectSlug }) => {
                 </span>
               </div>
             )}
-          </div>
+          </div> */}
 
           {/* BUTTON */}
           <button
-            className="group mt-6 border border-white/15 bg-white/[0.06] hover:bg-[#C9A258] hover:border-[#C9A258] text-white px-5 py-2.5 flex items-center gap-2.5 transition-colors duration-300"
+            className="group mt-7 border border-white bg-[#0F172A] hover:bg-[#C9A258] hover:border-[#C9A258] text-white px-6 py-3 flex items-center gap-2.5 transition-colors duration-300"
             onClick={() => {
               document
                 .getElementById("enquiry-section")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            <span className="text-[11px] font-semibold tracking-[1.5px] uppercase">
+            <span className="text-[15px] font-semibold tracking-[1.5px] uppercase">
               Enquire now
             </span>
             <ArrowDownRight
-              size={15}
+              size={17}
               className="text-[#C9A258] group-hover:text-white transition-colors duration-300"
             />
           </button>
