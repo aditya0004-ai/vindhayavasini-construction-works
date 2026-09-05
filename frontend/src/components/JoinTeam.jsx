@@ -5,7 +5,7 @@ const JoinTeam = () => {
     <section className="relative overflow-hidden">
 
       {/* Compact Container */}
-      <div className="relative h-[380px] overflow-hidden md:h-[430px]">
+      <div className="relative lg:h-[550px] overflow-hidden md:h-[430px]">
 
         {/* Background Image */}
         <img
@@ -25,28 +25,28 @@ const JoinTeam = () => {
           <div className="max-w-4xl">
 
             {/* Top Badge */}
-            <div className="mb-6 inline-flex items-center gap-3 border border-white/20 bg-black/20 px-6 py-3 backdrop-blur-md">
+            <div className="mb-10 mt-10 inline-flex items-center gap-3 border border-white/20 bg-black/20 px-6 py-3 backdrop-blur-md">
               <BriefcaseBusiness
-                size={19}
+                size={17}
                 className="text-[#c79a2b]"
               />
 
-              <span className="text-[11px] font-semibold tracking-[4px] text-white/90">
+              <span className="text-[10px] font-semibold tracking-[4px] text-white/90">
                 JOIN OUR TEAM
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="font-elsie text-[52px] leading-[0.95] text-white md:text-[76px]">
+            <h2 className="font-elsie text-[52px] leading-[0.95] text-white md:text-[60px]">
               Shape the
 
-              <span className="mt-2 block text-[#c79a2b]">
+              <span className="mt-4 block text-[#c79a2b]">
                 Skyline.
               </span>
             </h2>
 
             {/* Description */}
-            <p className="mx-auto mt-7 max-w-3xl text-[16px] leading-relaxed text-white/85 md:text-[20px]">
+            <p className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed text-white/85 md:text-[19px] font-semibold">
               Join a legacy of excellence. We are looking for visionary minds
               to build the future of luxury real estate.
             </p>

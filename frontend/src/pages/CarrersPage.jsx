@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import Header from "../components/header";
 import JoinTeam from "../components/JoinTeam";
 import JobOpenings from "../components/JobOpenings";
 import Footer from "../components/Footer";

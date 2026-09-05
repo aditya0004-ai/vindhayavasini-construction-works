@@ -72,20 +72,20 @@ const SendInquiry = () => {
           <div className="w-full">
 
             {/* Badge */}
-            <div className="mb-6 inline-flex items-center gap-3 border border-[#1d2738]/50 px-7 py-2.5">
+            <div className="mb-12 inline-flex items-center gap-3 border border-[#1d2738]/50 px-7 py-2.5">
               <Mail
-                size={17}
+                size={16}
                 strokeWidth={1.5}
                 className="text-[#b38b3d]"
               />
 
-              <span className="text-[11px] font-semibold tracking-[0.3em] text-[#1d2738]">
+              <span className="text-[10px] font-semibold tracking-[0.3em] text-[#1d2738]">
                 GET IN TOUCH
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="font-elsie text-[42px] leading-tight text-[#1d2738] md:text-[58px]">
+            <h2 className="font-elsie text-[42px] leading-tight text-[#1d2738] md:text-[52px]">
               Send an{" "}
               <span className="text-[#b38b3d]">
                 Inquiry.
@@ -93,7 +93,7 @@ const SendInquiry = () => {
             </h2>
 
             {/* Description */}
-            <p className="mt-4 max-w-[650px] text-[16px] leading-relaxed text-[#5b6470] md:text-[18px]">
+            <p className="mt-4 max-w-[650px] text-[16px] leading-relaxed text-[#5b6470] md:text-[17px]">
               Fill out the form below and our real estate concierges will get
               back to you shortly.
             </p>

@@ -52,18 +52,18 @@ const GlobalPresence = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-3 border border-[#283442]/50 px-7 py-2.5">
             <Globe2
-              size={17}
+              size={16}
               strokeWidth={1.6}
               className="text-[#b28a35]"
             />
 
-            <span className="text-xs font-semibold tracking-[0.32em] text-[#283442]">
+            <span className="text-[11px] font-semibold tracking-[0.32em] text-[#283442]">
               GLOBAL PRESENCE
             </span>
           </div>
 
           {/* Heading */}
-          <h2 className="font-elsie mt-6 text-[38px] leading-tight text-[#283442] md:text-[58px]">
+          <h2 className="font-elsie font-light mt-6 text-[38px] leading-tight text-[#283442] md:text-[50px]">
             Always at your{" "}
             <span className="text-[#b28a35]">
               Service.

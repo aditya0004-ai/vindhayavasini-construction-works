@@ -20,7 +20,7 @@ const Header2 = () => {
         className="
           max-w-[1800px]
           mx-auto
-          h-[80px]
+          h-[83px]
           px-8
           lg:px-65
           flex
@@ -54,7 +54,7 @@ const Header2 = () => {
               flex
               items-center
               gap-2
-              px-5
+              px-4
               text-[14px]
               font-semibold
               tracking-[1.5px]
@@ -76,7 +76,7 @@ const Header2 = () => {
           <Link
             to="/projects"
             className="
-              px-5
+              px-4
               text-[14px]
               font-medium
               tracking-[1.5px]
@@ -97,7 +97,7 @@ const Header2 = () => {
           <Link
             to="/blogs"
             className="
-              px-5
+              px-4
               text-[14px]
               font-medium
               tracking-[1.5px]
@@ -118,7 +118,7 @@ const Header2 = () => {
           <Link
             to="/careers"
             className="
-              px-5
+              px-4
               text-[14px]
               font-medium
               tracking-[1.5px]
@@ -139,7 +139,7 @@ const Header2 = () => {
           <Link
             to="/contact"
             className="
-              px-5
+              px-4
               text-[14px]
               font-medium
               tracking-[1.5px]

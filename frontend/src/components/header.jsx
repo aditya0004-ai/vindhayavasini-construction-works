@@ -62,9 +62,9 @@ const Header = () => {
         className="
           max-w-[1800px]
           mx-auto
-          h-[80px]
-          px-8
-          lg:px-20
+          h-[83px]
+          px-80
+          lg:px-57
           flex
           items-center
           justify-between
@@ -100,7 +100,7 @@ const Header = () => {
               flex
               items-center
               gap-2
-              px-5
+              px-4
               ${navTextClass}
             `}
           >
@@ -113,7 +113,7 @@ const Header = () => {
           {/* PROJECTS */}
           <Link
             to="/projects"
-            className={`px-5 ${navTextClass}`}
+            className={`px-4 ${navTextClass}`}
           >
             PROJECTS
           </Link>
@@ -123,7 +123,7 @@ const Header = () => {
           {/* BLOGS */}
           <Link
             to="/blogs"
-            className={`px-5 ${navTextClass}`}
+            className={`px-4 ${navTextClass}`}
           >
             BLOGS
           </Link>
@@ -133,7 +133,7 @@ const Header = () => {
           {/* CAREERS */}
           <Link
             to="/careers"
-            className={`px-5 ${navTextClass}`}
+            className={`px-4 ${navTextClass}`}
           >
             CAREERS
           </Link>
@@ -143,7 +143,7 @@ const Header = () => {
           {/* CONTACT */}
           <Link
             to="/contact"
-            className={`px-5 ${navTextClass}`}
+            className={`px-4 ${navTextClass}`}
           >
             CONTACT
           </Link>

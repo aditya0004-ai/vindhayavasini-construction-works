@@ -46,18 +46,18 @@ const JobOpenings = () => {
 
         {/* Header */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="mb-7 inline-flex items-center gap-3 border border-slate-400 px-8 py-3 text-[11px] tracking-[4px] text-slate-700">
-            <Search size={17} className="text-[#a88635]" />
+          <div className="mb-7 inline-flex items-center gap-3 border border-slate-400 px-5 py-2 text-[11px] tracking-[4px] text-slate-700">
+            <Search size={15} className="text-[#a88635]" />
             CURRENT OPENINGS
           </div>
 
-          <h2 className="font-elsie text-5xl leading-tight text-[#182235] md:text-7xl">
+          <h2 className="font-elsie text-4xl leading-tight text-[#182235] md:text-6xl font-light">
             Join the <span className="text-[#a88635]">Team.</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
             Explore rewarding career opportunities to build landmark developments,
-            drive engineering excellence, and shape the future of real estate.
+            drive engineering excellence, and shape the future of real estate with Vindhayavasini Constructions.
           </p>
         </div>
 
