@@ -29,6 +29,48 @@ import {
   Utensils,
   Bus,
   Gamepad2,
+  Download,
+  ExternalLink,
+
+  
+  Train,
+  Plane,
+  HeartPulse,
+  Activity,
+  Shield,
+  ShieldAlert,
+  Building,
+  Construction,
+  Hammer,
+  Zap,
+  Droplets,
+  Wind,
+  Sun,
+  Leaf,
+  Flower2,
+  Accessibility,
+  Camera,
+  BellRing,
+  Flame,
+  BatteryCharging,
+  Lightbulb,
+  Armchair,
+  Warehouse,
+  School,
+  Bike,
+  Footprints,
+  Church,
+  Fuel,
+  Navigation,
+  CircleCheck,
+  Sparkles,
+  Sofa,
+  ConciergeBell,
+  Volleyball,
+  PartyPopper,
+  Fence,
+  Layers,
+  BrickWall,
 } from "lucide-react";
 
 /* =========================================================
@@ -155,161 +197,499 @@ const ProjectDetails = ({ projectSlug }) => {
   /* =========================================================
      DYNAMIC HIGHLIGHT ICON
   ========================================================= */
+const getHighlightIcon = (highlight) => {
+  const text = String(highlight || "").toLowerCase();
 
-  const getHighlightIcon = (highlight) => {
-    const text = String(highlight || "").toLowerCase();
+  /* =====================================================
+     SECURITY
+  ===================================================== */
 
-    if (
-      text.includes("security") ||
-      text.includes("gated") ||
-      text.includes("guard")
-    ) {
-      return ShieldCheck;
-    }
+  if (
+    text.includes("multi-tier security") ||
+    text.includes("multi tier security") ||
+    text.includes("multiple security")
+  ) {
+    return ShieldAlert;
+  }
 
-    if (
-      text.includes("green") ||
-      text.includes("garden") ||
-      text.includes("park") ||
-      text.includes("greenery") ||
-      text.includes("acre")
-    ) {
-      return Trees;
-    }
+  if (
+    text.includes("security") ||
+    text.includes("gated") ||
+    text.includes("guard") ||
+    text.includes("24/7 security") ||
+    text.includes("24x7 security") ||
+    text.includes("surveillance")
+  ) {
+    return ShieldCheck;
+  }
 
-    if (
-      text.includes("metro") ||
-      text.includes("market") ||
-      text.includes("wholesale")
-    ) {
-      return Store;
-    }
+  if (
+    text.includes("cctv") ||
+    text.includes("camera")
+  ) {
+    return Camera;
+  }
 
-    if (
-      text.includes("stadium") ||
-      text.includes("cricket") ||
-      text.includes("sports")
-    ) {
-      return Trophy;
-    }
 
-    if (
-      text.includes("bank") ||
-      text.includes("atm")
-    ) {
-      return Landmark;
-    }
+  /* =====================================================
+     TRANSPORT & CONNECTIVITY
+  ===================================================== */
 
-    if (
-      text.includes("shopping") ||
-      text.includes("mall")
-    ) {
-      return ShoppingBag;
-    }
+  if (
+    text.includes("railway station") ||
+    text.includes("train station") ||
+    text.includes("station")
+  ) {
+    return Train;
+  }
 
-    if (
-      text.includes("club") ||
-      text.includes("clubhouse")
-    ) {
-      return Crown;
-    }
+  if (
+    text.includes("airport") ||
+    text.includes("air connectivity")
+  ) {
+    return Plane;
+  }
 
-    if (
-      text.includes("internet") ||
-      text.includes("wifi") ||
-      text.includes("wi-fi") ||
-      text.includes("fiber") ||
-      text.includes("optical")
-    ) {
-      return Wifi;
-    }
+  if (
+    text.includes("metro")
+  ) {
+    return Train;
+  }
 
-    if (
-      text.includes("gym") ||
-      text.includes("fitness")
-    ) {
-      return Dumbbell;
-    }
+  if (
+    text.includes("bus") ||
+    text.includes("transport")
+  ) {
+    return Bus;
+  }
 
-    if (
-      text.includes("building") ||
-      text.includes("tower")
-    ) {
-      return Building2;
-    }
+  if (
+    text.includes("highway") ||
+    text.includes("expressway") ||
+    text.includes("connectivity")
+  ) {
+    return Navigation;
+  }
 
-    if (
-      text.includes("swimming") ||
-      text.includes("pool")
-    ) {
-      return Waves;
-    }
 
-    if (text.includes("parking")) {
-      return CircleParking;
-    }
+  /* =====================================================
+     EARTHQUAKE / STRUCTURE
+  ===================================================== */
 
-    if (
-      text.includes("kids") ||
-      text.includes("children") ||
-      text.includes("play area")
-    ) {
-      return Baby;
-    }
+  if (
+    text.includes("earthquake") ||
+    text.includes("earthquake resistant") ||
+    text.includes("seismic")
+  ) {
+    return Building;
+  }
 
-    if (
-      text.includes("school") ||
-      text.includes("education")
-    ) {
-      return GraduationCap;
-    }
+  if (
+    text.includes("structure") ||
+    text.includes("structural") ||
+    text.includes("strong foundation")
+  ) {
+    return Construction;
+  }
 
-    if (
-      text.includes("hospital") ||
-      text.includes("health")
-    ) {
-      return Hospital;
-    }
+  if (
+    text.includes("construction") ||
+    text.includes("premium construction") ||
+    text.includes("quality construction")
+  ) {
+    return Hammer;
+  }
 
-    if (
-      text.includes("restaurant") ||
-      text.includes("food")
-    ) {
-      return Utensils;
-    }
+  if (
+    text.includes("brick") ||
+    text.includes("wall")
+  ) {
+    return BrickWall;
+  }
 
-    if (
-      text.includes("bus") ||
-      text.includes("transport")
-    ) {
-      return Bus;
-    }
 
-    if (
-      text.includes("game") ||
-      text.includes("gaming")
-    ) {
-      return Gamepad2;
-    }
+  /* =====================================================
+     WELLNESS & FITNESS
+  ===================================================== */
 
-    if (
-      text.includes("villa") ||
-      text.includes("home")
-    ) {
-      return Home;
-    }
+  if (
+    text.includes("yoga") ||
+    text.includes("meditation")
+  ) {
+    return HeartPulse;
+  }
 
-    if (text.includes("car")) {
-      return Car;
-    }
+  if (
+    text.includes("gym") ||
+    text.includes("fitness") ||
+    text.includes("workout")
+  ) {
+    return Dumbbell;
+  }
 
-    if (text.includes("tree")) {
-      return TreePine;
-    }
+  if (
+    text.includes("sports") ||
+    text.includes("stadium") ||
+    text.includes("cricket")
+  ) {
+    return Trophy;
+  }
 
-    return Award;
-  };
+  if (
+    text.includes("activity") ||
+    text.includes("recreation")
+  ) {
+    return Activity;
+  }
 
+  if (
+    text.includes("volleyball") ||
+    text.includes("badminton") ||
+    text.includes("sports court")
+  ) {
+    return Volleyball;
+  }
+
+
+  /* =====================================================
+     GREEN & NATURE
+  ===================================================== */
+
+  if (
+    text.includes("green") ||
+    text.includes("garden") ||
+    text.includes("park") ||
+    text.includes("greenery")
+  ) {
+    return Trees;
+  }
+
+  if (
+    text.includes("landscape") ||
+    text.includes("landscaping")
+  ) {
+    return Flower2;
+  }
+
+  if (
+    text.includes("tree") ||
+    text.includes("plantation")
+  ) {
+    return TreePine;
+  }
+
+  if (
+    text.includes("eco") ||
+    text.includes("environment") ||
+    text.includes("sustainable")
+  ) {
+    return Leaf;
+  }
+
+
+  /* =====================================================
+     WATER & UTILITIES
+  ===================================================== */
+
+  if (
+    text.includes("swimming") ||
+    text.includes("pool")
+  ) {
+    return Waves;
+  }
+
+  if (
+    text.includes("water") ||
+    text.includes("water supply") ||
+    text.includes("rainwater") ||
+    text.includes("rain water")
+  ) {
+    return Droplets;
+  }
+
+  if (
+    text.includes("electric") ||
+    text.includes("electricity") ||
+    text.includes("power backup")
+  ) {
+    return Zap;
+  }
+
+  if (
+    text.includes("solar") ||
+    text.includes("solar energy")
+  ) {
+    return Sun;
+  }
+
+  if (
+    text.includes("backup") ||
+    text.includes("generator")
+  ) {
+    return BatteryCharging;
+  }
+
+  if (
+    text.includes("ventilation") ||
+    text.includes("fresh air")
+  ) {
+    return Wind;
+  }
+
+
+  /* =====================================================
+     INTERNET & SMART FEATURES
+  ===================================================== */
+
+  if (
+    text.includes("internet") ||
+    text.includes("wifi") ||
+    text.includes("wi-fi") ||
+    text.includes("fiber") ||
+    text.includes("optical")
+  ) {
+    return Wifi;
+  }
+
+  if (
+    text.includes("smart home") ||
+    text.includes("smart feature") ||
+    text.includes("automation")
+  ) {
+    return Lightbulb;
+  }
+
+
+  /* =====================================================
+     SHOPPING & COMMERCIAL
+  ===================================================== */
+
+  if (
+    text.includes("market") ||
+    text.includes("wholesale") ||
+    text.includes("commercial")
+  ) {
+    return Store;
+  }
+
+  if (
+    text.includes("shopping") ||
+    text.includes("mall")
+  ) {
+    return ShoppingBag;
+  }
+
+  if (
+    text.includes("restaurant") ||
+    text.includes("food") ||
+    text.includes("cafe")
+  ) {
+    return Utensils;
+  }
+
+
+  /* =====================================================
+     CLUB & LIFESTYLE
+  ===================================================== */
+
+  if (
+    text.includes("clubhouse") ||
+    text.includes("club house") ||
+    text.includes("club")
+  ) {
+    return Crown;
+  }
+
+  if (
+    text.includes("lounge") ||
+    text.includes("seating")
+  ) {
+    return Sofa;
+  }
+
+  if (
+    text.includes("party") ||
+    text.includes("banquet") ||
+    text.includes("celebration")
+  ) {
+    return PartyPopper;
+  }
+
+  if (
+    text.includes("concierge") ||
+    text.includes("service")
+  ) {
+    return ConciergeBell;
+  }
+
+
+  /* =====================================================
+     PARKING
+  ===================================================== */
+
+  if (
+    text.includes("parking")
+  ) {
+    return CircleParking;
+  }
+
+  if (
+    text.includes("car")
+  ) {
+    return Car;
+  }
+
+  if (
+    text.includes("bike") ||
+    text.includes("cycling")
+  ) {
+    return Bike;
+  }
+
+
+  /* =====================================================
+     FAMILY
+  ===================================================== */
+
+  if (
+    text.includes("kids") ||
+    text.includes("children") ||
+    text.includes("play area") ||
+    text.includes("playground")
+  ) {
+    return Baby;
+  }
+
+  if (
+    text.includes("senior") ||
+    text.includes("elderly")
+  ) {
+    return Accessibility;
+  }
+
+
+  /* =====================================================
+     EDUCATION & HEALTH
+  ===================================================== */
+
+  if (
+    text.includes("school") ||
+    text.includes("education")
+  ) {
+    return GraduationCap;
+  }
+
+  if (
+    text.includes("college") ||
+    text.includes("university")
+  ) {
+    return School;
+  }
+
+  if (
+    text.includes("hospital") ||
+    text.includes("health") ||
+    text.includes("medical")
+  ) {
+    return Hospital;
+  }
+
+
+  /* =====================================================
+     BUILDINGS / PROPERTY
+  ===================================================== */
+
+  if (
+    text.includes("tower") ||
+    text.includes("building")
+  ) {
+    return Building2;
+  }
+
+  if (
+    text.includes("villa") ||
+    text.includes("home") ||
+    text.includes("residence")
+  ) {
+    return Home;
+  }
+
+  if (
+    text.includes("warehouse") ||
+    text.includes("storage")
+  ) {
+    return Warehouse;
+  }
+
+
+  /* =====================================================
+     BANKING
+  ===================================================== */
+
+  if (
+    text.includes("bank") ||
+    text.includes("atm")
+  ) {
+    return Landmark;
+  }
+
+
+  /* =====================================================
+     FIRE SAFETY
+  ===================================================== */
+
+  if (
+    text.includes("fire safety") ||
+    text.includes("fire fighting") ||
+    text.includes("fire protection")
+  ) {
+    return Flame;
+  }
+
+
+  /* =====================================================
+     PREMIUM FEATURES
+  ===================================================== */
+
+  if (
+    text.includes("premium") ||
+    text.includes("luxury") ||
+    text.includes("world class")
+  ) {
+    return Sparkles;
+  }
+
+  if (
+    text.includes("approved") ||
+    text.includes("certified") ||
+    text.includes("verified")
+  ) {
+    return CircleCheck;
+  }
+
+  if (
+    text.includes("boundary") ||
+    text.includes("fencing")
+  ) {
+    return Fence;
+  }
+
+  if (
+    text.includes("floor") ||
+    text.includes("multi-level") ||
+    text.includes("multi level")
+  ) {
+    return Layers;
+  }
+
+
+  /* =====================================================
+     DEFAULT
+  ===================================================== */
+
+  return Award;
+};
+  
   /* =========================================================
      LOADING
   ========================================================= */
@@ -613,7 +993,7 @@ const ProjectDetails = ({ projectSlug }) => {
 
             <SectionEyebrow
               icon={Building2}
-              label={project.subHeading || project.category}
+              label={project.category || project.category}
             />
 
             <h1
@@ -999,78 +1379,343 @@ const ProjectDetails = ({ projectSlug }) => {
 
       </section>
 
+     {/* =====================================================
+    LOCATION
+===================================================== */}
 
-      {/* =====================================================
-          LOCATION
-      ====================================================== */}
+<section
+  id="location"
+  ref={(el) => (sectionRefs.current.location = el)}
+  className="relative py-10 md:py-14 overflow-hidden"
+  style={{
+    scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
+  }}
+>
+  <div className="w-full">
 
-      <section
-        id="location"
-        ref={(el) => (sectionRefs.current.location = el)}
-        className="py-14 md:py-20 px-5"
-        style={{
-          scrollMarginTop:
-            HEADER_HEIGHT + TAB_HEIGHT + 12,
-        }}
+    {/* MAP CONTAINER */}
+    <div
+      className="
+        relative
+        w-full
+        h-[520px]
+        md:h-[560px]
+        overflow-hidden
+      "
+    >
+
+      {/* ================= CLICKABLE BACKGROUND MAP ================= */}
+
+      {project.liveLocation ? (
+        <iframe
+          src={project.liveLocation}
+          title={`${project.name} Location`}
+          className="
+            absolute
+            inset-0
+            z-0
+            w-full
+            h-full
+            border-0
+          "
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      ) : (
+        <div
+          className="
+            absolute
+            inset-0
+            z-0
+            flex
+            items-center
+            justify-center
+            bg-[#e8e6e0]
+          "
+        >
+          <p className="text-gray-600 text-[13px]">
+            Live location is not available.
+          </p>
+        </div>
+      )}
+
+      {/* ================= LIGHT MAP OVERLAY ================= */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          z-[1]
+          bg-[#172235]/5
+          pointer-events-none
+        "
+      />
+
+
+      {/* ================= CARD POSITIONING ================= */}
+
+      <div
+        className="
+          absolute
+          inset-0
+          z-10
+          max-w-[1140px]
+          mx-auto
+          left-0
+          right-0
+          px-5
+          md:px-8
+          flex
+          items-center
+          justify-end
+          pointer-events-none
+        "
       >
 
-        <div className="max-w-[1140px] mx-auto">
+        {/* ================= LOCATION CARD ================= */}
 
-          <div className="text-center mb-8 md:mb-9">
-            <SectionEyebrow icon={MapPin} label="PROJECT LOCATION" />
-          </div>
+        <div
+          className="
+            w-full
+            max-w-[500px]
+            bg-[#172235]
+            text-white
+            border-t-[3px]
+            border-[#b39135]
+            shadow-[0_18px_45px_rgba(0,0,0,0.28)]
+            px-6
+            py-7
+            md:px-8
+            md:py-8
+            pointer-events-auto
+          "
+        >
 
+          {/* SMALL HEADING */}
 
-          <div className="text-center mb-8">
+          <div className="flex items-center gap-2.5 mb-3">
 
-            <h2
+            <MapPin
+              size={16}
+              strokeWidth={1.7}
+              className="text-[#b39135]"
+            />
+
+            <span
               className="
-                text-[20px]
-                md:text-[26px]
-                leading-[1.35]
-                text-[#1d293b]
-                font-elsie
-                font-normal
+                text-[9px]
+                md:text-[10px]
+                tracking-[3px]
+                font-semibold
+                text-[#c9a74d]
               "
             >
-              {project.location ||
-                "Location not available"}
-            </h2>
+              SITE LOCATION
+            </span>
 
           </div>
 
+          {/* PROJECT NAME */}
 
-          {project.liveLocation ? (
+          <h2
+            className="
+              font-elsie
+              font-normal
+              text-[27px]
+              md:text-[34px]
+              leading-[1.2]
+              text-[#f6f4f0]
+              mb-4
+            "
+          >
+            {project.name || "Project Location"}
+          </h2>
 
-            <div className="w-full h-[280px] md:h-[400px] overflow-hidden border border-[#d8d0bd]">
+          {/* DIVIDER */}
 
-              <iframe
-                src={project.liveLocation}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title={`${project.name} Location`}
-              />
+          <div className="w-full h-px bg-white/20 mb-4" />
 
-            </div>
+          {/* SITE LOCATION (ADDRESS) */}
 
-          ) : (
+          <div className="mb-5">
 
-            <div className="h-[180px] flex items-center justify-center border border-[#d8d0bd]">
+            <p
+              className="
+                text-[9px]
+                md:text-[10px]
+                tracking-[2px]
+                font-semibold
+                text-[#9ba5b5]
+                mb-1.5
+              "
+            >
+              SITE LOCATION
+            </p>
 
-              <p className="text-gray-500 text-[13px]">
-                Live location is not available.
+            <p
+              className="
+                text-[13px]
+                md:text-[14px]
+                leading-[1.6]
+                text-[#e4e7ec]
+                font-medium
+              "
+            >
+              {project.location || "Location not available"}
+            </p>
+
+          </div>
+
+          {/* REGISTERED RERA NO. */}
+
+          {project.reraNumber && (
+            <div className="mb-6">
+
+              <p
+                className="
+                  text-[9px]
+                  md:text-[10px]
+                  tracking-[2px]
+                  font-semibold
+                  text-[#9ba5b5]
+                  mb-1.5
+                "
+              >
+                REGISTERED RERA NO.
+              </p>
+
+              <p
+                className="
+                  text-[13px]
+                  md:text-[14px]
+                  leading-[1.6]
+                  text-[#c9a74d]
+                  font-semibold
+                  tracking-[0.5px]
+                "
+              >
+                {project.reraNumber}
               </p>
 
             </div>
-
           )}
+
+          {/* ================= BUTTONS ================= */}
+
+          <div className="flex flex-col gap-3">
+
+            {/* DOWNLOAD BROCHURE */}
+
+            <a
+              href="/brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                h-[50px]
+                bg-[#f5f3ef]
+                text-[#172235]
+                flex
+                items-center
+                justify-between
+                px-5
+                group
+                transition-all
+                duration-300
+                hover:bg-[#b39135]
+                hover:text-white
+              "
+            >
+
+              <span
+                className="
+                  text-[10px]
+                  md:text-[11px]
+                  tracking-[1.4px]
+                  font-semibold
+                  whitespace-nowrap
+                "
+              >
+                DOWNLOAD BROCHURE
+              </span>
+
+              <Download
+                size={16}
+                strokeWidth={1.8}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-y-[2px]
+                "
+              />
+
+            </a>
+
+            {/* GET DIRECTIONS */}
+
+            <a
+              href={
+                project.locationUrl ||
+                `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  project.location || ""
+                )}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                h-[50px]
+                border
+                border-white/30
+                text-white
+                flex
+                items-center
+                justify-between
+                px-5
+                group
+                transition-all
+                duration-300
+                hover:border-[#b39135]
+                hover:bg-white/10
+              "
+            >
+
+              <span
+                className="
+                  text-[10px]
+                  md:text-[11px]
+                  tracking-[1.2px]
+                  font-semibold
+                  whitespace-nowrap
+                "
+              >
+                GET DIRECTIONS
+              </span>
+
+              <ExternalLink
+                size={16}
+                strokeWidth={1.7}
+                className="
+                  text-[#b39135]
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-[2px]
+                  group-hover:-translate-y-[2px]
+                "
+              />
+
+            </a>
+
+          </div>
 
         </div>
 
-      </section>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+     
 
     </div>
   );

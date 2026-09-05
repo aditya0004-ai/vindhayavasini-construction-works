@@ -6,11 +6,12 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const projectRoutes = require("./routes/projectRoutes");
 const jobRoutes = require("./routes/jobRoutes");
+const inquiryRoutes = require("./routes/inquiryRoutes");
 
 const app = express();
 const dns = require("dns");
 
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
+// dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 require("dotenv").config();
 
@@ -32,6 +33,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/jobs", jobRoutes);
+app.use("/api/inquiries", inquiryRoutes);
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ success: false, message: "Route not found." });

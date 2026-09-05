@@ -11,6 +11,7 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import JobsDashboard from "./components/admin/JobsDashboard";
 import CareersPage from "./pages/CarrersPage";
 import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   useEffect(() => {
@@ -40,7 +41,7 @@ function App() {
       <Route path="/projects/:slug" element={<ProjectDetailPage />} />
       <Route path="/careers" element={<CareersPage />} />
       <Route path="/contact" element={<ContactPage />} />
-
+      <Route path="/about" element={<AboutPage />} />
       {/* Admin panel — password-protected, handles its own auth internally.
           Nested routes render inside AdminLayout via <Outlet /> in AdminPage. */}
       <Route path="/admin" element={<AdminPage />}>

@@ -8,10 +8,10 @@ const ProjectSchema = new mongoose.Schema(
       trim: true,
     },
     subHeading: {
-  type: String,
-  trim: true,
-  default: "",
-},
+      type: String,
+      trim: true,
+      default: "",
+    },
     slug: {
       type: String,
       required: true,
@@ -29,7 +29,11 @@ const ProjectSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, "Category is required"],
-      enum: ["Residential", "Commercial"],
+      enum: [
+        "Residential",
+        "Commercial",
+        "Institutional",
+      ],
       default: "Residential",
     },
     location: {

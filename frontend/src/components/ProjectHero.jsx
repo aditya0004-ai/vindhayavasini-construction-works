@@ -100,16 +100,16 @@ const ProjectHero = ({ projectSlug }) => {
           </h1>
 
           {/* SUB HEADING */}
-          {project.subHeading && (
+          {/* {project.subHeading && (
             <h2 className="mt-3 text-[#BB9632] text-[15px] md:text-[17px] font-medium font-sans">
               {project.subHeading}
             </h2>
-          )}
+          )} */}
 
           {/* OVERVIEW */}
-          {project.overview && (
+          {project.subHeading && (
             <p className="mt-3 text-white text-[15px] md:text-[16px] leading-[1.65] max-w-[480px] line-clamp-2 font-semibold">
-              {project.overview}
+              {project.subHeading}
             </p>
           )}
 

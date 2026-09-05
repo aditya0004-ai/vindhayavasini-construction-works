@@ -13,6 +13,7 @@ const TABS = [
   { key: "all", label: "All" },
   { key: "residential", label: "Residential" },
   { key: "commercial", label: "Commercial" },
+  { key: "institutional", label: "Institutional" },
 ];
 
 export default function ProjectsShowcase() {

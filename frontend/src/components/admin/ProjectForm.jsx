@@ -8,7 +8,7 @@ import MultiFileUploadField from "./MultiFileUploadField";
 import * as adminApi from "../../lib/adminApi";
 
 const STATUS_OPTIONS = ["Upcoming", "Ongoing", "Completed"];
-const CATEGORY_OPTIONS = ["Residential", "Commercial"];
+const CATEGORY_OPTIONS = ["Residential", "Commercial", "Institutional"];
 
 // project: existing project object when editing, null when creating
 export default function ProjectForm({ project, onSaved, onCancel }) {

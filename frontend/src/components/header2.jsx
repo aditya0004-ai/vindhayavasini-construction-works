@@ -49,7 +49,7 @@ const Header2 = () => {
 
           {/* ABOUT US */}
           <Link
-            to="/#about"
+            to="/about"
             className="
               flex
               items-center
