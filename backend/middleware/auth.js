@@ -1,22 +1,54 @@
 const jwt = require("jsonwebtoken");
 
-// Protects any route it's attached to — requires a valid Bearer token
-// issued by POST /api/auth/login
+/*
+=================================
+ AUTH MIDDLEWARE
+=================================
+*/
+
 const protect = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
+  // Check authorization header
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ success: false, message: "Not authorized. No token provided." });
+    return res.status(401).json({
+      success: false,
+      message: "Not authorized. No token provided.",
+    });
   }
 
+  // Extract token safely
   const token = authHeader.split(" ")[1];
 
+  if (!token) {
+    return res.status(401).json({
+      success: false,
+      message: "Not authorized. No token provided.",
+    });
+  }
+
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.admin = decoded; // { username, role, iat, exp }
+    // Ensure JWT secret exists
+    if (!process.env.JWT_SECRET) {
+      throw new Error("JWT_SECRET is not configured.");
+    }
+
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+
+    // Attach authenticated admin/user data
+    req.admin = decoded;
+
     next();
   } catch (err) {
-    return res.status(401).json({ success: false, message: "Not authorized. Invalid or expired token." });
+    console.error("JWT Authentication Error:", err.message);
+
+    return res.status(401).json({
+      success: false,
+      message: "Not authorized. Invalid or expired token.",
+    });
   }
 };
 
