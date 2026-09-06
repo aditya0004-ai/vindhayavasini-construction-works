@@ -24,7 +24,7 @@ connectDB();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:3000",
+  "https://vindhayavasini-construction-works.vercel.app",
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
