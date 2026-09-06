@@ -194,7 +194,7 @@ const Hero = () => {
             className="
               text-white
               font-elsie
-              text-[42px]
+              text-[36px]
               sm:text-[52px]
               md:text-[58px]
               lg:text-[58px]
@@ -211,7 +211,7 @@ const Hero = () => {
             className="
               mt-3
               text-[#c99b22]
-              text-[18px]
+              text-[17px]
               md:text-[19px]
               lg:text-[19px]
               font-medium
@@ -223,7 +223,8 @@ const Hero = () => {
           {/* DESCRIPTION */}
           <p
             className="
-              mt-4
+              mt-3
+              md:mt-4
               max-w-[650px]
               text-white
               text-[16px]
@@ -239,7 +240,8 @@ const Hero = () => {
           <button
             className="
               group
-              mt-9
+              mt-7
+             md:mt-9
               w-[200px]
               h-[55px]
               flex

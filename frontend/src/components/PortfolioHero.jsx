@@ -16,22 +16,22 @@ const PortfolioHero = () => {
         {/* Portfolio Label */}
         <div className="inline-flex items-center gap-2 border border-gray-300 bg-white/30 px-4 py-2 mb-8 mt-8">
           <Layers size={16} strokeWidth={1.8} className="text-[#b18a2e]" />
-          <span className="text-[12px] tracking-[3px] text-[#2d3540] font-medium">
+          <span className="text-[10px] md:text-[12px] tracking-[3px] text-[#2d3540] font-medium">
             OUR PORTFOLIO
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-[#29313d] text-[49px] md:text-[55px] leading-[1.1] font-light font-elsie">
+        <h1 className="text-[#29313d] text-[40px] md:text-[55px] leading-[1.1] font-light font-elsie">
           Masterpieces in
         </h1>
 
-        <h2 className="font-elsie text-[#b18a2e] text-[48px] md:text-[55px] leading-[1.1] font-light mt-2">
+        <h2 className="font-elsie text-[#b18a2e] text-[40px] md:text-[55px] leading-[1.1] font-light mt-2">
           Concrete.
         </h2>
 
         {/* Description */}
-        <p className="max-w-[680px] mx-auto mt-6 text-[15px] md:text-[16px] leading-[1.6] text-[#596575] font-light">
+        <p className="max-w-[680px] mx-auto mt-6 text-[14px] md:text-[16px] leading-[1.6] text-[#596575] font-light">
           Explore our curated collection of integrated townships, luxury
           residences, and landmark commercial destinations.
         </p>

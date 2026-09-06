@@ -141,6 +141,24 @@ const TAB_HEIGHT = 64; // px — height of the sticky project tab bar
 const ProjectSection = () => {
   const [activeProject, setActiveProject] = useState(0);
   const projectRefs = useRef([]);
+  const projectTabsRef = useRef(null);
+
+  useEffect(() => {
+    if (!projectTabsRef.current) return;
+
+    const activeTab =
+      projectTabsRef.current.querySelector(
+        `[data-project-tab="${activeProject}"]`
+      );
+
+    if (activeTab) {
+      activeTab.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [activeProject]);
 
   /* =======================================================
      SCROLL DETECTION
@@ -185,7 +203,7 @@ const ProjectSection = () => {
   };
 
   return (
-    <section className="bg-white">
+    <section className="bg-white mb-30 md:mb-">
       {/* =================================================
           TOP HEADING
       ================================================= */}
@@ -199,7 +217,7 @@ const ProjectSection = () => {
           </div>
         </div>
 
-        <h2 className="text-center text-[#111827] font-elsie font-light text-[34px] md:text-[42px] lg:text-[55px] leading-tight">
+        <h2 className="text-center text-[#111827] font-elsie md:font-light text-[30px] md:text-[42px] lg:text-[55px] leading-tight">
           Addresses that define the{" "}
           <span className="text-[#c49a32]">city.</span>
         </h2>
@@ -217,7 +235,18 @@ const ProjectSection = () => {
         style={{ top: HEADER_HEIGHT }}
       >
         <div className="max-w-[1200px] mx-auto px-5">
-          <div className="flex ">
+          <div
+            ref={projectTabsRef}
+            className="
+             flex
+             flex-nowrap
+             overflow-x-auto
+             scrollbar-hide
+             lg:overflow-visible
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+           "
+          >
             {projects.map((project, index) => {
               const isActive = activeProject === index;
 
@@ -225,9 +254,24 @@ const ProjectSection = () => {
                 <button
                   key={project.id}
                   type="button"
+                  data-project-tab={index}
                   onClick={() => scrollToProject(index)}
                   style={{ height: TAB_HEIGHT }}
-                  className="relative flex-shrink-0 lg:flex-1 min-w-[150px] px-4 flex items-center justify-center whitespace-nowrap text-[11px] tracking-[1.5px] font-medium outline-none"
+                  className="
+                   relative
+                   flex-shrink-0
+                   lg:flex-1
+                   min-w-[150px]
+                   px-4
+                   flex
+                   items-center
+                   justify-center
+                   whitespace-nowrap
+                   text-[11px]
+                   tracking-[1.5px]
+                   font-medium
+                   outline-none
+                 "
                 >
                   {isActive && (
                     <motion.div
@@ -238,9 +282,8 @@ const ProjectSection = () => {
                   )}
 
                   <span
-                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 text-[13px] ${
-                      isActive ? "text-white" : "text-[#18233a]"
-                    }`}
+                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 text-[13px] ${isActive ? "text-white" : "text-[#18233a]"
+                      }`}
                   >
                     {isActive && (
                       <Building2
@@ -295,7 +338,8 @@ const ProjectSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className={index % 2 === 0 ? "lg:order-2" : "lg:order-1"}
+                  className={`order-2 ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"
+                    }`}
                 >
                   <h3 className="text-[#111827] font-elsie font-light text-[34px] md:text-[38px] mb-3 leading-tight">
                     {project.title}
@@ -321,9 +365,8 @@ const ProjectSection = () => {
                       return (
                         <div
                           key={featureIndex}
-                          className={`flex flex-col items-center justify-center text-center px-2 ${
-                            !isLast ? "border-r border-[#eadfc6]" : ""
-                          }`}
+                          className={`flex flex-col items-center justify-center text-center px-2 ${!isLast ? "border-r border-[#eadfc6]" : ""
+                            }`}
                         >
                           <Icon size={22} strokeWidth={1.4} className="text-[#c49a32] mb-2" />
                           <strong className="text-[#111827] text-[13px] font-medium leading-tight">
@@ -338,7 +381,7 @@ const ProjectSection = () => {
                   </div>
 
                   {/* BUTTONS */}
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-">
                     <button
                       type="button"
                       className="bg-[#111827] text-white px-6 py-3 text-[12px] tracking-[0.5px] font-medium flex items-center justify-center gap-3 hover:bg-[#1d293e] transition-colors duration-300"
@@ -365,7 +408,10 @@ const ProjectSection = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className={index % 2 === 0 ? "lg:order-1" : "lg:order-2"}
+                  className={`order-1 ${index % 2 === 0
+                    ? "lg:order-1"
+                    : "lg:order-2"
+                    }`}
                 >
                   <div className="relative overflow-hidden group rounded-sm">
                     <motion.img

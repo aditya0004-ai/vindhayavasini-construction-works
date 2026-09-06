@@ -58,8 +58,8 @@ const WhyUs = () => {
               className="
                 max-w-[440px]
                 text-[#10182b]
-                text-[32px]
-                sm:text-[38px]
+                text-[32px] text-center
+                sm:text-[38px] 
                 lg:text-[42px]
                 xl:text-[46px]
                 leading-[1.22]
@@ -95,7 +95,7 @@ const WhyUs = () => {
           {/* =========================================
               RIGHT VALUES
           ========================================== */}
-          <div className="border-t border-[#e6d9bd]">
+          <div className="border-t border-[#e6d9bd] mb-5 mt-3">
 
             {values.map((value, index) => (
               <div
@@ -117,6 +117,7 @@ const WhyUs = () => {
                   hover:bg-[#f8f5ee]
                   px-0
                   xl:px-0
+                  mb-8
                 "
               >
 
@@ -129,6 +130,10 @@ const WhyUs = () => {
                     xl:text-[30px]
                     font-light
                     leading-none
+                    mb-6 mt-3
+                    md:mb-0
+                    ml-25
+                    md:ml-0
                   "
                 >
                   {value.number}
@@ -146,6 +151,10 @@ const WhyUs = () => {
                     font-light
                     font-serif
                     leading-none
+                    mb-6 mt-3
+                    md:mb-0
+                    ml-20
+                    md:ml-0
                   "
                 >
                   {value.title}
@@ -168,6 +177,8 @@ const WhyUs = () => {
                     leading-[1.55]
                     font-light
                     max-w-[420px]
+                    text-center
+                 
                   "
                 >
                   {value.description}

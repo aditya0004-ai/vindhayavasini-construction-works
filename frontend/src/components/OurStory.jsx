@@ -133,15 +133,15 @@ const OurStory = () => {
                     </div>
 
                     {/* Number */}
-                    <div className="ml-5 mr-15 w-[80px] shrink-0">
-                      <span className="font-sans text-[37px] font-light tracking-[-0.03em] text-[#071936] md:text-[37px]">
+                    <div className="ml-5 mr-5 md:mr-15 w-[80px] shrink-0">
+                      <span className="font-sans text-[30px] font-light tracking-[-0.03em] text-[#071936] md:text-[37px]">
                         {stat.number}
                       </span>
                     </div>
 
                     {/* Text */}
                     <div>
-                      <span className="font-serif text-[17px] text-[#071936] md:text-[16px]">
+                      <span className="font-serif text-[15px] text-[#071936] md:text-[16px]">
                         {stat.text}
                       </span>
                     </div>

@@ -5,7 +5,7 @@ const JoinTeam = () => {
     <section className="relative overflow-hidden">
 
       {/* Compact Container */}
-      <div className="relative lg:h-[550px] overflow-hidden md:h-[430px]">
+      <div className="relative lg:h-[550px] overflow-hidden md:h-[430px] py-18 md:py-0">
 
         {/* Background Image */}
         <img
@@ -31,13 +31,13 @@ const JoinTeam = () => {
                 className="text-[#c79a2b]"
               />
 
-              <span className="text-[10px] font-semibold tracking-[4px] text-white/90">
+              <span className="text-[8px] md:text-[10px] font-semibold tracking-[4px] text-white/90">
                 JOIN OUR TEAM
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="font-elsie text-[52px] leading-[0.95] text-white md:text-[60px]">
+            <h2 className="font-elsie text-[46px] leading-[0.95] text-white md:text-[60px]">
               Shape the
 
               <span className="mt-4 block text-[#c79a2b]">
@@ -46,7 +46,7 @@ const JoinTeam = () => {
             </h2>
 
             {/* Description */}
-            <p className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed text-white/85 md:text-[19px] font-semibold">
+            <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-relaxed text-white/85 md:text-[19px] font-semibold">
               Join a legacy of excellence. We are looking for visionary minds
               to build the future of luxury real estate.
             </p>

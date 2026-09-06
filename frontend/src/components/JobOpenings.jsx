@@ -46,16 +46,16 @@ const JobOpenings = () => {
 
         {/* Header */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <div className="mb-7 inline-flex items-center gap-3 border border-slate-400 px-5 py-2 text-[11px] tracking-[4px] text-slate-700">
+          <div className="mb-7 inline-flex items-center gap-3 border border-slate-400 px-5 py-2 text-[9px] md:text-[11px] tracking-[4px] text-slate-700">
             <Search size={15} className="text-[#a88635]" />
             CURRENT OPENINGS
           </div>
 
-          <h2 className="font-elsie text-4xl leading-tight text-[#182235] md:text-6xl font-light">
+          <h2 className="font-elsie text-3xl leading-tight text-[#182235] md:text-6xl font-light">
             Join the <span className="text-[#a88635]">Team.</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base md:leading-8 text-slate-600 text-[15px] md:text-lg">
             Explore rewarding career opportunities to build landmark developments,
             drive engineering excellence, and shape the future of real estate with Vindhayavasini Constructions.
           </p>
@@ -113,12 +113,12 @@ const JobOpenings = () => {
                         </span>
                       )}
 
-                     {job.experience && (
-  <span className="flex items-center gap-1.5">
-    <Award size={15} className="text-[#a88635]" />
-    {job.experience}
-  </span>
-)}
+                      {job.experience && (
+                        <span className="flex items-center gap-1.5">
+                          <Award size={15} className="text-[#a88635]" />
+                          {job.experience}
+                        </span>
+                      )}
 
                     </div>
                   </div>
@@ -142,9 +142,8 @@ const JobOpenings = () => {
 
                       <ChevronDown
                         size={16}
-                        className={`text-[#a88635] transition-transform duration-300 ${
-                          openJob === job._id ? "rotate-180" : ""
-                        }`}
+                        className={`text-[#a88635] transition-transform duration-300 ${openJob === job._id ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
 
