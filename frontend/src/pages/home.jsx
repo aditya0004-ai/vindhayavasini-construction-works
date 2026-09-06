@@ -3,7 +3,7 @@ import Hero from '../components/hero'
 import OurStory from '../components/OurStory'
 import ProjectsSection from '../components/ProjectSection'
 import WhyUs from '../components/WhyUs'
-import BuildCTA from '../components/BuildCta'
+import BuildCTA from '../components/BuildCTA'
 import Footer from '../components/Footer'
 
 const home = () => {
