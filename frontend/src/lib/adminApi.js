@@ -1,8 +1,7 @@
 // frontend/src/lib/adminApi.js
 // Thin fetch wrapper around the backend API. Keeps token storage and
 // header-building in one place so components stay focused on UI.
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 const TOKEN_KEY = "vindhayavasini_admin_token";
 
 export function getToken() {

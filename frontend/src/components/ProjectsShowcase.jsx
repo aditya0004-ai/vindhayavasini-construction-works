@@ -15,12 +15,15 @@ const TABS = [
   { key: "institutional", label: "Institutional" },
 ];
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export default function ProjectsShowcase() {
   const [activeTab, setActiveTab] = useState("all");
 
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
 
   // ================================
   // FETCH PROJECTS FROM BACKEND
@@ -31,7 +34,7 @@ export default function ProjectsShowcase() {
         setLoading(true);
 
         const response = await axios.get(
-          "http://localhost:5000/api/projects"
+          `${API_URL}/projects`
         );
 
         const projectsData =

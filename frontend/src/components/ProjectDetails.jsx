@@ -79,6 +79,7 @@ import {
 
 const HEADER_HEIGHT = 80;
 const TAB_HEIGHT = 64;
+const API_URL = import.meta.env.VITE_API_URL;
 
 /* =========================================================
    COMPONENT
@@ -104,7 +105,7 @@ const ProjectDetails = ({ projectSlug }) => {
         setError("");
 
         const response = await axios.get(
-          `http://localhost:5000/api/projects/${projectSlug}`
+          `${API_URL}/projects/${projectSlug}`
         );
 
         setProject(response.data.data);

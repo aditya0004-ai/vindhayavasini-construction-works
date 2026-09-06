@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { MapPin, ArrowDownRight } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ProjectHero = ({ projectSlug }) => {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ const ProjectHero = ({ projectSlug }) => {
         }
 
         const response = await axios.get(
-          `http://localhost:5000/api/projects/${projectSlug}`
+          `${API_URL}/projects/${projectSlug}`
         );
 
         setProject(response.data.data);
