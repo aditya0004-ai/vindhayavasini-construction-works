@@ -11,7 +11,7 @@ const inquiryRoutes = require("./routes/inquiryRoutes");
 const app = express();
 const dns = require("dns");
 
-// dns.setServers(["8.8.8.8", "8.8.4.4"]);
+//dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 require("dotenv").config();
 

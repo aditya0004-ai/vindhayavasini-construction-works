@@ -32,7 +32,7 @@ import {
   Download,
   ExternalLink,
 
-  
+
   Train,
   Plane,
   HeartPulse,
@@ -85,6 +85,7 @@ const TAB_HEIGHT = 64;
 ========================================================= */
 
 const ProjectDetails = ({ projectSlug }) => {
+  const [enlargedImage, setEnlargedImage] = useState(null);
   const [project, setProject] = useState(null);
   const [activeTab, setActiveTab] = useState("overview");
   const [loading, setLoading] = useState(true);
@@ -197,499 +198,499 @@ const ProjectDetails = ({ projectSlug }) => {
   /* =========================================================
      DYNAMIC HIGHLIGHT ICON
   ========================================================= */
-const getHighlightIcon = (highlight) => {
-  const text = String(highlight || "").toLowerCase();
-
-  /* =====================================================
-     SECURITY
-  ===================================================== */
-
-  if (
-    text.includes("multi-tier security") ||
-    text.includes("multi tier security") ||
-    text.includes("multiple security")
-  ) {
-    return ShieldAlert;
-  }
-
-  if (
-    text.includes("security") ||
-    text.includes("gated") ||
-    text.includes("guard") ||
-    text.includes("24/7 security") ||
-    text.includes("24x7 security") ||
-    text.includes("surveillance")
-  ) {
-    return ShieldCheck;
-  }
-
-  if (
-    text.includes("cctv") ||
-    text.includes("camera")
-  ) {
-    return Camera;
-  }
-
-
-  /* =====================================================
-     TRANSPORT & CONNECTIVITY
-  ===================================================== */
-
-  if (
-    text.includes("railway station") ||
-    text.includes("train station") ||
-    text.includes("station")
-  ) {
-    return Train;
-  }
-
-  if (
-    text.includes("airport") ||
-    text.includes("air connectivity")
-  ) {
-    return Plane;
-  }
-
-  if (
-    text.includes("metro")
-  ) {
-    return Train;
-  }
-
-  if (
-    text.includes("bus") ||
-    text.includes("transport")
-  ) {
-    return Bus;
-  }
-
-  if (
-    text.includes("highway") ||
-    text.includes("expressway") ||
-    text.includes("connectivity")
-  ) {
-    return Navigation;
-  }
-
-
-  /* =====================================================
-     EARTHQUAKE / STRUCTURE
-  ===================================================== */
-
-  if (
-    text.includes("earthquake") ||
-    text.includes("earthquake resistant") ||
-    text.includes("seismic")
-  ) {
-    return Building;
-  }
-
-  if (
-    text.includes("structure") ||
-    text.includes("structural") ||
-    text.includes("strong foundation")
-  ) {
-    return Construction;
-  }
-
-  if (
-    text.includes("construction") ||
-    text.includes("premium construction") ||
-    text.includes("quality construction")
-  ) {
-    return Hammer;
-  }
-
-  if (
-    text.includes("brick") ||
-    text.includes("wall")
-  ) {
-    return BrickWall;
-  }
-
-
-  /* =====================================================
-     WELLNESS & FITNESS
-  ===================================================== */
-
-  if (
-    text.includes("yoga") ||
-    text.includes("meditation")
-  ) {
-    return HeartPulse;
-  }
-
-  if (
-    text.includes("gym") ||
-    text.includes("fitness") ||
-    text.includes("workout")
-  ) {
-    return Dumbbell;
-  }
-
-  if (
-    text.includes("sports") ||
-    text.includes("stadium") ||
-    text.includes("cricket")
-  ) {
-    return Trophy;
-  }
-
-  if (
-    text.includes("activity") ||
-    text.includes("recreation")
-  ) {
-    return Activity;
-  }
-
-  if (
-    text.includes("volleyball") ||
-    text.includes("badminton") ||
-    text.includes("sports court")
-  ) {
-    return Volleyball;
-  }
-
-
-  /* =====================================================
-     GREEN & NATURE
-  ===================================================== */
-
-  if (
-    text.includes("green") ||
-    text.includes("garden") ||
-    text.includes("park") ||
-    text.includes("greenery")
-  ) {
-    return Trees;
-  }
-
-  if (
-    text.includes("landscape") ||
-    text.includes("landscaping")
-  ) {
-    return Flower2;
-  }
-
-  if (
-    text.includes("tree") ||
-    text.includes("plantation")
-  ) {
-    return TreePine;
-  }
-
-  if (
-    text.includes("eco") ||
-    text.includes("environment") ||
-    text.includes("sustainable")
-  ) {
-    return Leaf;
-  }
-
-
-  /* =====================================================
-     WATER & UTILITIES
-  ===================================================== */
-
-  if (
-    text.includes("swimming") ||
-    text.includes("pool")
-  ) {
-    return Waves;
-  }
-
-  if (
-    text.includes("water") ||
-    text.includes("water supply") ||
-    text.includes("rainwater") ||
-    text.includes("rain water")
-  ) {
-    return Droplets;
-  }
-
-  if (
-    text.includes("electric") ||
-    text.includes("electricity") ||
-    text.includes("power backup")
-  ) {
-    return Zap;
-  }
-
-  if (
-    text.includes("solar") ||
-    text.includes("solar energy")
-  ) {
-    return Sun;
-  }
-
-  if (
-    text.includes("backup") ||
-    text.includes("generator")
-  ) {
-    return BatteryCharging;
-  }
-
-  if (
-    text.includes("ventilation") ||
-    text.includes("fresh air")
-  ) {
-    return Wind;
-  }
-
-
-  /* =====================================================
-     INTERNET & SMART FEATURES
-  ===================================================== */
-
-  if (
-    text.includes("internet") ||
-    text.includes("wifi") ||
-    text.includes("wi-fi") ||
-    text.includes("fiber") ||
-    text.includes("optical")
-  ) {
-    return Wifi;
-  }
-
-  if (
-    text.includes("smart home") ||
-    text.includes("smart feature") ||
-    text.includes("automation")
-  ) {
-    return Lightbulb;
-  }
-
-
-  /* =====================================================
-     SHOPPING & COMMERCIAL
-  ===================================================== */
-
-  if (
-    text.includes("market") ||
-    text.includes("wholesale") ||
-    text.includes("commercial")
-  ) {
-    return Store;
-  }
-
-  if (
-    text.includes("shopping") ||
-    text.includes("mall")
-  ) {
-    return ShoppingBag;
-  }
-
-  if (
-    text.includes("restaurant") ||
-    text.includes("food") ||
-    text.includes("cafe")
-  ) {
-    return Utensils;
-  }
-
-
-  /* =====================================================
-     CLUB & LIFESTYLE
-  ===================================================== */
-
-  if (
-    text.includes("clubhouse") ||
-    text.includes("club house") ||
-    text.includes("club")
-  ) {
-    return Crown;
-  }
-
-  if (
-    text.includes("lounge") ||
-    text.includes("seating")
-  ) {
-    return Sofa;
-  }
-
-  if (
-    text.includes("party") ||
-    text.includes("banquet") ||
-    text.includes("celebration")
-  ) {
-    return PartyPopper;
-  }
-
-  if (
-    text.includes("concierge") ||
-    text.includes("service")
-  ) {
-    return ConciergeBell;
-  }
-
-
-  /* =====================================================
-     PARKING
-  ===================================================== */
-
-  if (
-    text.includes("parking")
-  ) {
-    return CircleParking;
-  }
-
-  if (
-    text.includes("car")
-  ) {
-    return Car;
-  }
-
-  if (
-    text.includes("bike") ||
-    text.includes("cycling")
-  ) {
-    return Bike;
-  }
-
-
-  /* =====================================================
-     FAMILY
-  ===================================================== */
-
-  if (
-    text.includes("kids") ||
-    text.includes("children") ||
-    text.includes("play area") ||
-    text.includes("playground")
-  ) {
-    return Baby;
-  }
-
-  if (
-    text.includes("senior") ||
-    text.includes("elderly")
-  ) {
-    return Accessibility;
-  }
-
-
-  /* =====================================================
-     EDUCATION & HEALTH
-  ===================================================== */
-
-  if (
-    text.includes("school") ||
-    text.includes("education")
-  ) {
-    return GraduationCap;
-  }
-
-  if (
-    text.includes("college") ||
-    text.includes("university")
-  ) {
-    return School;
-  }
-
-  if (
-    text.includes("hospital") ||
-    text.includes("health") ||
-    text.includes("medical")
-  ) {
-    return Hospital;
-  }
-
-
-  /* =====================================================
-     BUILDINGS / PROPERTY
-  ===================================================== */
-
-  if (
-    text.includes("tower") ||
-    text.includes("building")
-  ) {
-    return Building2;
-  }
-
-  if (
-    text.includes("villa") ||
-    text.includes("home") ||
-    text.includes("residence")
-  ) {
-    return Home;
-  }
-
-  if (
-    text.includes("warehouse") ||
-    text.includes("storage")
-  ) {
-    return Warehouse;
-  }
-
-
-  /* =====================================================
-     BANKING
-  ===================================================== */
-
-  if (
-    text.includes("bank") ||
-    text.includes("atm")
-  ) {
-    return Landmark;
-  }
-
-
-  /* =====================================================
-     FIRE SAFETY
-  ===================================================== */
-
-  if (
-    text.includes("fire safety") ||
-    text.includes("fire fighting") ||
-    text.includes("fire protection")
-  ) {
-    return Flame;
-  }
-
-
-  /* =====================================================
-     PREMIUM FEATURES
-  ===================================================== */
-
-  if (
-    text.includes("premium") ||
-    text.includes("luxury") ||
-    text.includes("world class")
-  ) {
-    return Sparkles;
-  }
-
-  if (
-    text.includes("approved") ||
-    text.includes("certified") ||
-    text.includes("verified")
-  ) {
-    return CircleCheck;
-  }
-
-  if (
-    text.includes("boundary") ||
-    text.includes("fencing")
-  ) {
-    return Fence;
-  }
-
-  if (
-    text.includes("floor") ||
-    text.includes("multi-level") ||
-    text.includes("multi level")
-  ) {
-    return Layers;
-  }
-
-
-  /* =====================================================
-     DEFAULT
-  ===================================================== */
-
-  return Award;
-};
-  
+  const getHighlightIcon = (highlight) => {
+    const text = String(highlight || "").toLowerCase();
+
+    /* =====================================================
+       SECURITY
+    ===================================================== */
+
+    if (
+      text.includes("multi-tier security") ||
+      text.includes("multi tier security") ||
+      text.includes("multiple security")
+    ) {
+      return ShieldAlert;
+    }
+
+    if (
+      text.includes("security") ||
+      text.includes("gated") ||
+      text.includes("guard") ||
+      text.includes("24/7 security") ||
+      text.includes("24x7 security") ||
+      text.includes("surveillance")
+    ) {
+      return ShieldCheck;
+    }
+
+    if (
+      text.includes("cctv") ||
+      text.includes("camera")
+    ) {
+      return Camera;
+    }
+
+
+    /* =====================================================
+       TRANSPORT & CONNECTIVITY
+    ===================================================== */
+
+    if (
+      text.includes("railway station") ||
+      text.includes("train station") ||
+      text.includes("station")
+    ) {
+      return Train;
+    }
+
+    if (
+      text.includes("airport") ||
+      text.includes("air connectivity")
+    ) {
+      return Plane;
+    }
+
+    if (
+      text.includes("metro")
+    ) {
+      return Train;
+    }
+
+    if (
+      text.includes("bus") ||
+      text.includes("transport")
+    ) {
+      return Bus;
+    }
+
+    if (
+      text.includes("highway") ||
+      text.includes("expressway") ||
+      text.includes("connectivity")
+    ) {
+      return Navigation;
+    }
+
+
+    /* =====================================================
+       EARTHQUAKE / STRUCTURE
+    ===================================================== */
+
+    if (
+      text.includes("earthquake") ||
+      text.includes("earthquake resistant") ||
+      text.includes("seismic")
+    ) {
+      return Building;
+    }
+
+    if (
+      text.includes("structure") ||
+      text.includes("structural") ||
+      text.includes("strong foundation")
+    ) {
+      return Construction;
+    }
+
+    if (
+      text.includes("construction") ||
+      text.includes("premium construction") ||
+      text.includes("quality construction")
+    ) {
+      return Hammer;
+    }
+
+    if (
+      text.includes("brick") ||
+      text.includes("wall")
+    ) {
+      return BrickWall;
+    }
+
+
+    /* =====================================================
+       WELLNESS & FITNESS
+    ===================================================== */
+
+    if (
+      text.includes("yoga") ||
+      text.includes("meditation")
+    ) {
+      return HeartPulse;
+    }
+
+    if (
+      text.includes("gym") ||
+      text.includes("fitness") ||
+      text.includes("workout")
+    ) {
+      return Dumbbell;
+    }
+
+    if (
+      text.includes("sports") ||
+      text.includes("stadium") ||
+      text.includes("cricket")
+    ) {
+      return Trophy;
+    }
+
+    if (
+      text.includes("activity") ||
+      text.includes("recreation")
+    ) {
+      return Activity;
+    }
+
+    if (
+      text.includes("volleyball") ||
+      text.includes("badminton") ||
+      text.includes("sports court")
+    ) {
+      return Volleyball;
+    }
+
+
+    /* =====================================================
+       GREEN & NATURE
+    ===================================================== */
+
+    if (
+      text.includes("green") ||
+      text.includes("garden") ||
+      text.includes("park") ||
+      text.includes("greenery")
+    ) {
+      return Trees;
+    }
+
+    if (
+      text.includes("landscape") ||
+      text.includes("landscaping")
+    ) {
+      return Flower2;
+    }
+
+    if (
+      text.includes("tree") ||
+      text.includes("plantation")
+    ) {
+      return TreePine;
+    }
+
+    if (
+      text.includes("eco") ||
+      text.includes("environment") ||
+      text.includes("sustainable")
+    ) {
+      return Leaf;
+    }
+
+
+    /* =====================================================
+       WATER & UTILITIES
+    ===================================================== */
+
+    if (
+      text.includes("swimming") ||
+      text.includes("pool")
+    ) {
+      return Waves;
+    }
+
+    if (
+      text.includes("water") ||
+      text.includes("water supply") ||
+      text.includes("rainwater") ||
+      text.includes("rain water")
+    ) {
+      return Droplets;
+    }
+
+    if (
+      text.includes("electric") ||
+      text.includes("electricity") ||
+      text.includes("power backup")
+    ) {
+      return Zap;
+    }
+
+    if (
+      text.includes("solar") ||
+      text.includes("solar energy")
+    ) {
+      return Sun;
+    }
+
+    if (
+      text.includes("backup") ||
+      text.includes("generator")
+    ) {
+      return BatteryCharging;
+    }
+
+    if (
+      text.includes("ventilation") ||
+      text.includes("fresh air")
+    ) {
+      return Wind;
+    }
+
+
+    /* =====================================================
+       INTERNET & SMART FEATURES
+    ===================================================== */
+
+    if (
+      text.includes("internet") ||
+      text.includes("wifi") ||
+      text.includes("wi-fi") ||
+      text.includes("fiber") ||
+      text.includes("optical")
+    ) {
+      return Wifi;
+    }
+
+    if (
+      text.includes("smart home") ||
+      text.includes("smart feature") ||
+      text.includes("automation")
+    ) {
+      return Lightbulb;
+    }
+
+
+    /* =====================================================
+       SHOPPING & COMMERCIAL
+    ===================================================== */
+
+    if (
+      text.includes("market") ||
+      text.includes("wholesale") ||
+      text.includes("commercial")
+    ) {
+      return Store;
+    }
+
+    if (
+      text.includes("shopping") ||
+      text.includes("mall")
+    ) {
+      return ShoppingBag;
+    }
+
+    if (
+      text.includes("restaurant") ||
+      text.includes("food") ||
+      text.includes("cafe")
+    ) {
+      return Utensils;
+    }
+
+
+    /* =====================================================
+       CLUB & LIFESTYLE
+    ===================================================== */
+
+    if (
+      text.includes("clubhouse") ||
+      text.includes("club house") ||
+      text.includes("club")
+    ) {
+      return Crown;
+    }
+
+    if (
+      text.includes("lounge") ||
+      text.includes("seating")
+    ) {
+      return Sofa;
+    }
+
+    if (
+      text.includes("party") ||
+      text.includes("banquet") ||
+      text.includes("celebration")
+    ) {
+      return PartyPopper;
+    }
+
+    if (
+      text.includes("concierge") ||
+      text.includes("service")
+    ) {
+      return ConciergeBell;
+    }
+
+
+    /* =====================================================
+       PARKING
+    ===================================================== */
+
+    if (
+      text.includes("parking")
+    ) {
+      return CircleParking;
+    }
+
+    if (
+      text.includes("car")
+    ) {
+      return Car;
+    }
+
+    if (
+      text.includes("bike") ||
+      text.includes("cycling")
+    ) {
+      return Bike;
+    }
+
+
+    /* =====================================================
+       FAMILY
+    ===================================================== */
+
+    if (
+      text.includes("kids") ||
+      text.includes("children") ||
+      text.includes("play area") ||
+      text.includes("playground")
+    ) {
+      return Baby;
+    }
+
+    if (
+      text.includes("senior") ||
+      text.includes("elderly")
+    ) {
+      return Accessibility;
+    }
+
+
+    /* =====================================================
+       EDUCATION & HEALTH
+    ===================================================== */
+
+    if (
+      text.includes("school") ||
+      text.includes("education")
+    ) {
+      return GraduationCap;
+    }
+
+    if (
+      text.includes("college") ||
+      text.includes("university")
+    ) {
+      return School;
+    }
+
+    if (
+      text.includes("hospital") ||
+      text.includes("health") ||
+      text.includes("medical")
+    ) {
+      return Hospital;
+    }
+
+
+    /* =====================================================
+       BUILDINGS / PROPERTY
+    ===================================================== */
+
+    if (
+      text.includes("tower") ||
+      text.includes("building")
+    ) {
+      return Building2;
+    }
+
+    if (
+      text.includes("villa") ||
+      text.includes("home") ||
+      text.includes("residence")
+    ) {
+      return Home;
+    }
+
+    if (
+      text.includes("warehouse") ||
+      text.includes("storage")
+    ) {
+      return Warehouse;
+    }
+
+
+    /* =====================================================
+       BANKING
+    ===================================================== */
+
+    if (
+      text.includes("bank") ||
+      text.includes("atm")
+    ) {
+      return Landmark;
+    }
+
+
+    /* =====================================================
+       FIRE SAFETY
+    ===================================================== */
+
+    if (
+      text.includes("fire safety") ||
+      text.includes("fire fighting") ||
+      text.includes("fire protection")
+    ) {
+      return Flame;
+    }
+
+
+    /* =====================================================
+       PREMIUM FEATURES
+    ===================================================== */
+
+    if (
+      text.includes("premium") ||
+      text.includes("luxury") ||
+      text.includes("world class")
+    ) {
+      return Sparkles;
+    }
+
+    if (
+      text.includes("approved") ||
+      text.includes("certified") ||
+      text.includes("verified")
+    ) {
+      return CircleCheck;
+    }
+
+    if (
+      text.includes("boundary") ||
+      text.includes("fencing")
+    ) {
+      return Fence;
+    }
+
+    if (
+      text.includes("floor") ||
+      text.includes("multi-level") ||
+      text.includes("multi level")
+    ) {
+      return Layers;
+    }
+
+
+    /* =====================================================
+       DEFAULT
+    ===================================================== */
+
+    return Award;
+  };
+
   /* =========================================================
      LOADING
   ========================================================= */
@@ -789,19 +790,20 @@ const getHighlightIcon = (highlight) => {
         border-[#273244]
         px-5
         md:px-6
-        py-2
+        py-1.5
       "
     >
-      <Icon size={15} strokeWidth={1.5} className="text-[#b39135]" />
+      <Icon size={15} strokeWidth={2} className="text-[#b39135]" />
 
       <span
         className="
           text-[10px]
-          md:text-[11px]
-          tracking-[2.5px]
-          md:tracking-[3px]
+          md:text-[13px]
+          tracking-[2px]
+          md:tracking-[2px]
           text-[#273244]
           font-medium
+          font-sans
         "
       >
         {label}
@@ -913,8 +915,8 @@ const getHighlightIcon = (highlight) => {
 
                     {isActive && (
                       <Icon
-                        size={13}
-                        strokeWidth={1.5}
+                        size={17}
+                        strokeWidth={2}
                         className="
                           text-[#b39135]
                           flex-shrink-0
@@ -1000,11 +1002,11 @@ const getHighlightIcon = (highlight) => {
               className="
                 mt-6
                 md:mt-7
-                text-[36px]
-                md:text-[48px]
+                text-[40px]
+                md:text-[52px]
                 leading-[1.12]
                 text-[#1d293b]
-                font-elsie
+                font-serif
                 font-normal
               "
             >
@@ -1017,8 +1019,8 @@ const getHighlightIcon = (highlight) => {
                 className="
                   mt-5
                   md:mt-6
-                  text-[14px]
-                  md:text-[15px]
+                  text-[15px]
+                  md:text-[16px]
                   leading-[1.75]
                   text-[#536070]
                   max-w-[52ch]
@@ -1076,8 +1078,8 @@ const getHighlightIcon = (highlight) => {
                 >
 
                   <FactIcon
-                    size={26}
-                    strokeWidth={1.3}
+                    size={32}
+                    strokeWidth={2}
                     className="pd-fact-icon text-[#b39135] shrink-0"
                   />
 
@@ -1085,12 +1087,12 @@ const getHighlightIcon = (highlight) => {
 
                     <p
                       className="
+                      font-sansita
                         text-[10px]
                         md:text-[11px]
                         tracking-[2.5px]
-                        md:tracking-[3px]
+                        md:tracking-[3.4px]
                         text-[#7a8490]
-                        mb-1
                         font-medium
                       "
                     >
@@ -1100,11 +1102,10 @@ const getHighlightIcon = (highlight) => {
                     <h3
                       className="
                         text-[18px]
-                        md:text-[20px]
+                        md:text-[26px]
                         leading-[1.3]
                         text-[#1d293b]
-                        font-elsie
-                        font-normal
+                        font-sansita
                       "
                     >
                       {fact.value}
@@ -1130,14 +1131,14 @@ const getHighlightIcon = (highlight) => {
       <section
         id="highlights"
         ref={(el) => (sectionRefs.current.highlights = el)}
-        className="py-14 md:py-20 px-5"
+        className="px-5"
         style={{
           scrollMarginTop:
             HEADER_HEIGHT + TAB_HEIGHT + 12,
         }}
       >
 
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[750px] mx-auto">
 
           <div className="border-y border-[#d8d0bd] py-10 md:py-12">
 
@@ -1153,7 +1154,6 @@ const getHighlightIcon = (highlight) => {
                   grid
                   grid-cols-2
                   md:grid-cols-4
-                  gap-x-6
                   gap-y-10
                   md:gap-y-12
                   mt-10
@@ -1185,34 +1185,32 @@ const getHighlightIcon = (highlight) => {
                         className="
                           w-14
                           h-14
-                          md:w-16
-                          md:h-16
+                          md:w-18
+                          md:h-18
                           flex
                           items-center
                           justify-center
                           rounded-full
                           bg-white
-                          border
-                          border-[#e4dfd0]
-                          mb-3.5
+                          mb-1
                         "
                       >
                         <Icon
-                          size={24}
-                          strokeWidth={1.5}
+                          size={38}
+                          strokeWidth={2}
                           className="text-[#b39135]"
                         />
                       </div>
 
                       <p
                         className="
-                          max-w-[160px]
+                          max-w-[140px]
                           text-[11px]
-                          md:text-[12px]
+                          md:text-[14px]
                           leading-[1.45]
-                          tracking-[0.5px]
                           text-[#273244]
-                          font-medium
+                          font-Manrope
+                          font-semibold uppercase
                         "
                       >
                         {highlightName}
@@ -1242,29 +1240,35 @@ const getHighlightIcon = (highlight) => {
       {/* =====================================================
           LAYOUT PLAN
       ====================================================== */}
-
       <section
         id="layout-plan"
-        ref={(el) =>
-          (sectionRefs.current["layout-plan"] = el)
-        }
-        className="py-14 md:py-20 px-5"
+        ref={(el) => (sectionRefs.current["layout-plan"] = el)}
+        className="py-14 md:py-20 px-5 bg-white"
         style={{
-          scrollMarginTop:
-            HEADER_HEIGHT + TAB_HEIGHT + 12,
+          scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
         }}
       >
-
         <div className="max-w-[1140px] mx-auto">
 
-          <div className="text-center mb-9 md:mb-11">
-            <SectionEyebrow icon={Map} label="LAYOUT PLAN" />
+          {/* Heading */}
+          <div className="text-center mb-10 md:mb-12">
+            <div className="flex justify-center mb-5">
+              <SectionEyebrow icon={Map} label="BLUEPRINT" />
+            </div>
+            <div className="font-elsie text-3xl md:text-4xl lg:text-[34px] font-light text-[#0F172A]">
+              Layout
+              <span className="ml-2 text-[#BB9632]">Plans</span>
+            </div>
           </div>
-
 
           {layoutPlans.length > 0 ? (
 
-            <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+            <div
+              className={`grid gap-8 items-start ${layoutPlans.length === 1
+                ? "grid-cols-1 max-w-[660px] mx-auto"
+                : "grid-cols-1 md:grid-cols-2"
+                }`}
+            >
 
               {layoutPlans.map((plan, index) => (
 
@@ -1274,14 +1278,37 @@ const getHighlightIcon = (highlight) => {
                     plan.publicId ||
                     index
                   }
-                  className="bg-white border border-[#e4dfd0] p-2.5 md:p-3.5"
+                  className="w-full bg-white border border-[#172033] shadow-[0_8px_25px_rgba(15,23,42,0.08)]"
                 >
 
-                  <img
-                    src={plan.url}
-                    alt={`Layout Plan ${index + 1}`}
-                    className="w-full h-auto max-h-[420px] object-contain"
-                  />
+                  {/* Image */}
+                  <div className="p-0.5 md:p-1   transition-transform
+                      duration-500
+                      hover:scale-103">
+                    <img
+                      src={plan.url}
+                      alt={`Layout Plan ${index + 1}`}
+                      className="w-full h-auto max-h-[520px] object-contain block"
+                    />
+                  </div>
+
+                  {/* Bottom information bar */}
+                  <div className="h-[46px] border-t border-[#172033] flex items-center justify-between px-4 md:px-5">
+
+                    <span className="text-[10px] md:text-[11px] tracking-[0.12em] uppercase text-[#18233A] font-medium">
+                      Master Layout Plan
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={() => setEnlargedImage(plan.url)}
+                      className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.08em] uppercase text-[#18233A] hover:text-[#BB9632] transition-colors duration-200"
+                    >
+                      <span className="text-[14px]">⌕</span>
+                      Enlarge
+                    </button>
+
+                  </div>
 
                 </div>
 
@@ -1297,8 +1324,39 @@ const getHighlightIcon = (highlight) => {
 
           )}
 
+          {/* Bottom decorative line */}
+          <div className="mt-11 md:mt-14 flex items-center justify-center">
+            <div className="w-full max-w-[810px] h-px bg-[#eadfbe] relative">
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-white border border-[#eadfbe]" />
+            </div>
+          </div>
+
         </div>
 
+        {enlargedImage && (
+          <div
+            className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setEnlargedImage(null)}
+          >
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setEnlargedImage(null)}
+              className="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition-colors"
+              aria-label="Close enlarged image"
+            >
+              ×
+            </button>
+
+            {/* Enlarged Image */}
+            <img
+              src={enlargedImage}
+              alt="Enlarged Layout Plan"
+              className="max-w-full max-h-[90vh] object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </section>
 
 
@@ -1309,108 +1367,81 @@ const getHighlightIcon = (highlight) => {
       <section
         id="gallery"
         ref={(el) => (sectionRefs.current.gallery = el)}
-        className="py-14 md:py-20 px-5"
+        className="py-14 md:py-20"
         style={{
-          scrollMarginTop:
-            HEADER_HEIGHT + TAB_HEIGHT + 12,
+          scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
         }}
       >
-
-        <div className="max-w-[1140px] mx-auto">
-
-          <div className="text-center mb-9 md:mb-11">
-            <SectionEyebrow icon={Images} label="PROJECT GALLERY" />
-          </div>
-
-
-          {gallery.length > 0 ? (
-
-            <div
-              className="
-                grid
-                grid-cols-1
-                sm:grid-cols-2
-                lg:grid-cols-3
-                gap-4
-                md:gap-5
-              "
-            >
-
-              {gallery.map((image, index) => (
-
-                <div
-                  key={
-                    image._id ||
-                    image.publicId ||
-                    index
-                  }
-                  className="overflow-hidden bg-white border border-[#e4dfd0]"
-                >
-
-                  <img
-                    src={image.url}
-                    alt={`${project.name} ${index + 1}`}
-                    className="
-                      w-full
-                      h-[210px]
-                      md:h-[240px]
-                      object-cover
-                      transition-transform
-                      duration-500
-                      hover:scale-105
-                    "
-                  />
-
-                </div>
-
-              ))}
-
+        {/* Heading */}
+        <div className="px-5">
+          <div className="text-center mb-10 md:mb-12">
+            <div className="flex justify-center mb-5">
+              <SectionEyebrow icon={Map} label="VISUALS" />
             </div>
 
-          ) : (
-
-            <p className="text-center text-[13px] text-gray-500">
-              No gallery images available.
-            </p>
-
-          )}
-
+            <div className="font-elsie text-3xl md:text-4xl lg:text-[34px] font-light text-[#0F172A]">
+              Project
+              <span className="ml-2 text-[#BB9632]">Gallery</span>
+            </div>
+          </div>
         </div>
 
+        {gallery.length > 0 ? (
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            {gallery.map((image, index) => (
+              <div
+                key={image._id || image.publicId || index}
+                className="overflow-hidden bg-white"
+              >
+                <img
+                  src={image.url}
+                  alt={`${project.name} ${index + 1}`}
+                  className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+            ))}
+
+          </div>
+        ) : (
+          <p className="text-center text-[13px] text-gray-500">
+            No gallery images available.
+          </p>
+        )}
       </section>
 
-     {/* =====================================================
+      {/* =====================================================
     LOCATION
 ===================================================== */}
 
-<section
-  id="location"
-  ref={(el) => (sectionRefs.current.location = el)}
-  className="relative py-10 md:py-14 overflow-hidden"
-  style={{
-    scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
-  }}
->
-  <div className="w-full">
+      <section
+        id="location"
+        ref={(el) => (sectionRefs.current.location = el)}
+        className="relative py-10 md:py-14 overflow-hidden"
+        style={{
+          scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
+        }}
+      >
+        <div className="w-full">
 
-    {/* MAP CONTAINER */}
-    <div
-      className="
+          {/* MAP CONTAINER */}
+          <div
+            className="
         relative
         w-full
         h-[520px]
         md:h-[560px]
         overflow-hidden
       "
-    >
+          >
 
-      {/* ================= CLICKABLE BACKGROUND MAP ================= */}
+            {/* ================= CLICKABLE BACKGROUND MAP ================= */}
 
-      {project.liveLocation ? (
-        <iframe
-          src={project.liveLocation}
-          title={`${project.name} Location`}
-          className="
+            {project.liveLocation ? (
+              <iframe
+                src={project.liveLocation}
+                title={`${project.name} Location`}
+                className="
             absolute
             inset-0
             z-0
@@ -1418,13 +1449,13 @@ const getHighlightIcon = (highlight) => {
             h-full
             border-0
           "
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      ) : (
-        <div
-          className="
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            ) : (
+              <div
+                className="
             absolute
             inset-0
             z-0
@@ -1433,30 +1464,30 @@ const getHighlightIcon = (highlight) => {
             justify-center
             bg-[#e8e6e0]
           "
-        >
-          <p className="text-gray-600 text-[13px]">
-            Live location is not available.
-          </p>
-        </div>
-      )}
+              >
+                <p className="text-gray-600 text-[13px]">
+                  Live location is not available.
+                </p>
+              </div>
+            )}
 
-      {/* ================= LIGHT MAP OVERLAY ================= */}
+            {/* ================= LIGHT MAP OVERLAY ================= */}
 
-      <div
-        className="
+            <div
+              className="
           absolute
           inset-0
           z-[1]
           bg-[#172235]/5
           pointer-events-none
         "
-      />
+            />
 
 
-      {/* ================= CARD POSITIONING ================= */}
+            {/* ================= CARD POSITIONING ================= */}
 
-      <div
-        className="
+            <div
+              className="
           absolute
           inset-0
           z-10
@@ -1471,12 +1502,12 @@ const getHighlightIcon = (highlight) => {
           justify-end
           pointer-events-none
         "
-      >
+            >
 
-        {/* ================= LOCATION CARD ================= */}
+              {/* ================= LOCATION CARD ================= */}
 
-        <div
-          className="
+              <div
+                className="
             w-full
             max-w-[500px]
             bg-[#172235]
@@ -1490,36 +1521,36 @@ const getHighlightIcon = (highlight) => {
             md:py-8
             pointer-events-auto
           "
-        >
+              >
 
-          {/* SMALL HEADING */}
+                {/* SMALL HEADING */}
 
-          <div className="flex items-center gap-2.5 mb-3">
+                <div className="flex items-center gap-2.5 mb-3">
 
-            <MapPin
-              size={16}
-              strokeWidth={1.7}
-              className="text-[#b39135]"
-            />
+                  <MapPin
+                    size={16}
+                    strokeWidth={1.7}
+                    className="text-[#b39135]"
+                  />
 
-            <span
-              className="
+                  <span
+                    className="
                 text-[9px]
                 md:text-[10px]
                 tracking-[3px]
                 font-semibold
                 text-[#c9a74d]
               "
-            >
-              SITE LOCATION
-            </span>
+                  >
+                    SITE LOCATION
+                  </span>
 
-          </div>
+                </div>
 
-          {/* PROJECT NAME */}
+                {/* PROJECT NAME */}
 
-          <h2
-            className="
+                <h2
+                  className="
               font-elsie
               font-normal
               text-[27px]
@@ -1528,20 +1559,20 @@ const getHighlightIcon = (highlight) => {
               text-[#f6f4f0]
               mb-4
             "
-          >
-            {project.name || "Project Location"}
-          </h2>
+                >
+                  {project.name || "Project Location"}
+                </h2>
 
-          {/* DIVIDER */}
+                {/* DIVIDER */}
 
-          <div className="w-full h-px bg-white/20 mb-4" />
+                <div className="w-full h-px bg-white/20 mb-4" />
 
-          {/* SITE LOCATION (ADDRESS) */}
+                {/* SITE LOCATION (ADDRESS) */}
 
-          <div className="mb-5">
+                <div className="mb-5">
 
-            <p
-              className="
+                  <p
+                    className="
                 text-[9px]
                 md:text-[10px]
                 tracking-[2px]
@@ -1549,31 +1580,31 @@ const getHighlightIcon = (highlight) => {
                 text-[#9ba5b5]
                 mb-1.5
               "
-            >
-              SITE LOCATION
-            </p>
+                  >
+                    SITE LOCATION
+                  </p>
 
-            <p
-              className="
+                  <p
+                    className="
                 text-[13px]
                 md:text-[14px]
                 leading-[1.6]
                 text-[#e4e7ec]
                 font-medium
               "
-            >
-              {project.location || "Location not available"}
-            </p>
+                  >
+                    {project.location || "Location not available"}
+                  </p>
 
-          </div>
+                </div>
 
-          {/* REGISTERED RERA NO. */}
+                {/* REGISTERED RERA NO. */}
 
-          {project.reraNumber && (
-            <div className="mb-6">
+                {project.reraNumber && (
+                  <div className="mb-6">
 
-              <p
-                className="
+                    <p
+                      className="
                   text-[9px]
                   md:text-[10px]
                   tracking-[2px]
@@ -1581,12 +1612,12 @@ const getHighlightIcon = (highlight) => {
                   text-[#9ba5b5]
                   mb-1.5
                 "
-              >
-                REGISTERED RERA NO.
-              </p>
+                    >
+                      REGISTERED RERA NO.
+                    </p>
 
-              <p
-                className="
+                    <p
+                      className="
                   text-[13px]
                   md:text-[14px]
                   leading-[1.6]
@@ -1594,24 +1625,24 @@ const getHighlightIcon = (highlight) => {
                   font-semibold
                   tracking-[0.5px]
                 "
-              >
-                {project.reraNumber}
-              </p>
+                    >
+                      {project.reraNumber}
+                    </p>
 
-            </div>
-          )}
+                  </div>
+                )}
 
-          {/* ================= BUTTONS ================= */}
+                {/* ================= BUTTONS ================= */}
 
-          <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3">
 
-            {/* DOWNLOAD BROCHURE */}
+                  {/* DOWNLOAD BROCHURE */}
 
-            <a
-              href="/brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
+                  <a
+                    href="/brochure.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
                 h-[50px]
                 bg-[#f5f3ef]
                 text-[#172235]
@@ -1625,44 +1656,44 @@ const getHighlightIcon = (highlight) => {
                 hover:bg-[#b39135]
                 hover:text-white
               "
-            >
+                  >
 
-              <span
-                className="
+                    <span
+                      className="
                   text-[10px]
                   md:text-[11px]
                   tracking-[1.4px]
                   font-semibold
                   whitespace-nowrap
                 "
-              >
-                DOWNLOAD BROCHURE
-              </span>
+                    >
+                      DOWNLOAD BROCHURE
+                    </span>
 
-              <Download
-                size={16}
-                strokeWidth={1.8}
-                className="
+                    <Download
+                      size={16}
+                      strokeWidth={1.8}
+                      className="
                   transition-transform
                   duration-300
                   group-hover:translate-y-[2px]
                 "
-              />
+                    />
 
-            </a>
+                  </a>
 
-            {/* GET DIRECTIONS */}
+                  {/* GET DIRECTIONS */}
 
-            <a
-              href={
-                project.locationUrl ||
-                `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  project.location || ""
-                )}`
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
+                  <a
+                    href={
+                      project.locationUrl ||
+                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        project.location || ""
+                      )}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
                 h-[50px]
                 border
                 border-white/30
@@ -1677,45 +1708,45 @@ const getHighlightIcon = (highlight) => {
                 hover:border-[#b39135]
                 hover:bg-white/10
               "
-            >
+                  >
 
-              <span
-                className="
+                    <span
+                      className="
                   text-[10px]
                   md:text-[11px]
                   tracking-[1.2px]
                   font-semibold
                   whitespace-nowrap
                 "
-              >
-                GET DIRECTIONS
-              </span>
+                    >
+                      GET DIRECTIONS
+                    </span>
 
-              <ExternalLink
-                size={16}
-                strokeWidth={1.7}
-                className="
+                    <ExternalLink
+                      size={16}
+                      strokeWidth={1.7}
+                      className="
                   text-[#b39135]
                   transition-transform
                   duration-300
                   group-hover:translate-x-[2px]
                   group-hover:-translate-y-[2px]
                 "
-              />
+                    />
 
-            </a>
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
 
         </div>
+      </section>
 
-      </div>
-
-    </div>
-
-  </div>
-</section>
-     
 
     </div>
   );
