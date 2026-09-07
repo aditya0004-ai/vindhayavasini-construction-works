@@ -17,8 +17,8 @@ const Footer = () => {
 
   const developmentLinks = [
     "Omaxe City",
-    "Sunbreeze I",
-    "Sunbreeze II (Phase I)",
+    "Subhalaya II (Phase I)",
+    "Subhalaya II (Phase II)",
     "Lotus Court",
     "Lotus Arcade",
   ];

@@ -9,7 +9,7 @@ const JoinTeam = () => {
 
         {/* Background Image */}
         <img
-          src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1800&q=85"
+          src="https://res.cloudinary.com/wcimdxco/image/upload/v1788784524/ChatGPT_Image_Sep_7_2026_06_02_35_PM.png"
           alt="Join Our Team"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -38,18 +38,17 @@ const JoinTeam = () => {
 
             {/* Heading */}
             <h2 className="font-elsie text-[46px] leading-[0.95] text-white md:text-[60px]">
-              Shape the
+  Build the
 
-              <span className="mt-4 block text-[#c79a2b]">
-                Skyline.
-              </span>
-            </h2>
+  <span className="mt-4 block text-[#c79a2b]">
+    Future.
+  </span>
+</h2>
 
-            {/* Description */}
-            <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-relaxed text-white/85 md:text-[19px] font-semibold">
-              Join a legacy of excellence. We are looking for visionary minds
-              to build the future of luxury real estate.
-            </p>
+{/* Description */}
+<p className="mx-auto mt-7 max-w-2xl text-[15px] leading-relaxed text-white/85 md:text-[19px] font-semibold">
+  Join a team driven by innovation, excellence, and a shared vision to create meaningful spaces.
+</p>
 
           
 

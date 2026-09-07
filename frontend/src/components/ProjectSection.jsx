@@ -17,13 +17,13 @@ import {
 
 const projects = [
   {
-    id: "bdd-green-city",
-    name: "BBD GREEN CITY",
-    title: "BBD Green City",
+    id: "citizen-city",
+    name: "CITIZEN CITY",
+    title: "Citizen City",
     location: "NEW GOMTI NAGAR, AYODHYA ROAD, LUCKNOW",
 
     description:
-      "BBD Green City is a 318-acre integrated township in New Gomti Nagar, Lucknow, bringing together premium residences, commercial hubs, green spaces and modern infrastructure.",
+      "Citizen City is a 318-acre integrated township in New Gomti Nagar, Lucknow, bringing together premium residences, commercial hubs, green spaces and modern infrastructure.",
 
     image:
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
@@ -35,13 +35,13 @@ const projects = [
     ],
   },
   {
-    id: "sunbreeze-1",
-    name: "SUNBREEZE I",
-    title: "Sunbreeze I",
-    location: "BBD GREEN CITY, AYODHYA ROAD, LUCKNOW",
+    id: "subhalaya-1",
+    name: "SUBHALAAY I",
+    title: "Subhalaya I",
+    location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
 
     description:
-      "Sunbreeze I is a premium residential development offering 2 & 3 BHK apartments and 4 BHK penthouses in BBD Green City, featuring a sophisticated lifestyle with modern amenities.",
+      "Subhalaya I is a premium residential development offering 2 & 3 BHK apartments and 4 BHK penthouses in Citizen City, featuring a sophisticated lifestyle with modern amenities.",
 
     image:
       "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85",
@@ -53,13 +53,13 @@ const projects = [
     ],
   },
   {
-    id: "sunbreeze-2",
-    name: "SUNBREEZE II",
-    title: "Sunbreeze II",
-    location: "BBD GREEN CITY, AYODHYA ROAD, LUCKNOW",
+    id: "subhalaya-2",
+    name: "SUBHALAAY II",
+    title: "Subhalaya II",
+    location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
 
     description:
-      "Sunbreeze II Phase I offers contemporary residences designed around comfort, connectivity and modern urban living.",
+      "Subhalaya II Phase I offers contemporary residences designed around comfort, connectivity and modern urban living.",
 
     image:
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
@@ -74,7 +74,7 @@ const projects = [
     id: "lotus-court",
     name: "LOTUS COURT",
     title: "Lotus Court",
-    location: "BBD GREEN CITY, LUCKNOW",
+    location: "CITIZEN CITY, LUCKNOW",
 
     description:
       "Lotus Court is designed as an elegant residential destination combining spacious homes, greenery and thoughtfully planned surroundings.",
@@ -92,7 +92,7 @@ const projects = [
     id: "lotus-arcade",
     name: "LOTUS ARCADE",
     title: "Lotus Arcade",
-    location: "BBD GREEN CITY, LUCKNOW",
+    location: "CITIZEN CITY, LUCKNOW",
 
     description:
       "Lotus Arcade brings commercial spaces and modern conveniences together in a strategically connected location.",
@@ -110,7 +110,7 @@ const projects = [
     id: "lotus-enclave",
     name: "LOTUS ENCLAVE",
     title: "Lotus Enclave",
-    location: "LUCKNOW",
+    location: "CITIZEN CITY, LUCKNOW",
 
     description:
       "Lotus Enclave offers thoughtfully planned homes with a balance of contemporary architecture and peaceful surroundings.",

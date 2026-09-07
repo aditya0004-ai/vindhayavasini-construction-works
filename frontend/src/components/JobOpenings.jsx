@@ -56,8 +56,8 @@ const JobOpenings = () => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base md:leading-8 text-slate-600 text-[15px] md:text-lg">
-            Explore rewarding career opportunities to build landmark developments,
-            drive engineering excellence, and shape the future of real estate with Vindhayavasini Constructions.
+            Discover rewarding career opportunities to create landmark developments,
+            advance engineering excellence, and shape the future of real estate with Vindhayavasini Constructions.
           </p>
         </div>
 

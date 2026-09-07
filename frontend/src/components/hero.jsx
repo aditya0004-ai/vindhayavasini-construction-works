@@ -6,13 +6,13 @@ const slides = [
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
 
-    title: "SUNBREEZE II (PHASE 1)",
+    title: "SUBHALAAY II (PHASE 1)",
 
     subtitle:
       "Desire incorporated in design A Step Closer to nature",
 
     description:
-      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
+      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in Lucknow City.",
   },
 
   {
@@ -25,20 +25,20 @@ const slides = [
       "Homes that compliment you",
 
     description:
-      "Premium 2 & 3 BHK villas in BBD Green City designed for comfort, greenery & exclusivity.",
+      "Premium 2 & 3 BHK villas in  Green City designed for comfort, greenery & exclusivity.",
   },
 
   {
     image:
       "https://virajconstructions.com/assets/banners/lotus-enclave-desktop.webp",
 
-    title: "SUNBREEZE II (PHASE 1)",
+    title: "SUBHALAAY II (PHASE 1)",
 
     subtitle:
       "Desire incorporated in design A Step Closer to nature",
 
     description:
-      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in BBD Green City.",
+      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in City.",
   },
 
   {

@@ -23,7 +23,7 @@ const PortfolioHero = () => {
 
         {/* Heading */}
         <h1 className="text-[#29313d] text-[40px] md:text-[55px] leading-[1.1] font-light font-elsie">
-          Masterpieces in
+          Landmarks Crafted in
         </h1>
 
         <h2 className="font-elsie text-[#b18a2e] text-[40px] md:text-[55px] leading-[1.1] font-light mt-2">
@@ -32,8 +32,8 @@ const PortfolioHero = () => {
 
         {/* Description */}
         <p className="max-w-[680px] mx-auto mt-6 text-[14px] md:text-[16px] leading-[1.6] text-[#596575] font-light">
-          Explore our curated collection of integrated townships, luxury
-          residences, and landmark commercial destinations.
+          Discover our distinguished portfolio of integrated townships, refined
+          residences, and iconic commercial destinations.
         </p>
 
       </div>

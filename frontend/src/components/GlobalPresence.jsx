@@ -7,7 +7,7 @@ const GlobalPresence = () => {
       label: "CORPORATE OFFICE",
       title: "Headquarters",
       details: [
-        "BBD Viraj Towers, Vibhuti Khand",
+        "CITIZEN Towers, Vibhuti Khand",
         "Gomti Nagar, Lucknow - 226010",
         "Uttar Pradesh, India",
       ],
@@ -18,7 +18,7 @@ const GlobalPresence = () => {
       title: "Sales",
       details: [
         "+91 9696333555",
-        "saleshead@virajconstructions.co.in",
+        "saleshead@vindhayavasiniconstructions.co.in",
       ],
     },
     {
@@ -27,7 +27,7 @@ const GlobalPresence = () => {
       title: "Support",
       details: [
         "+91 9696333555",
-        "saleshead@virajconstructions.co.in",
+        "saleshead@vindhayavasiniconstructions.co.in",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },
@@ -36,7 +36,7 @@ const GlobalPresence = () => {
       label: "HR DEPARTMENT",
       title: "Careers",
       details: [
-        "hr@virajconstructions.co.in",
+        "hr@vindhayavasiniconstructions.co.in",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },

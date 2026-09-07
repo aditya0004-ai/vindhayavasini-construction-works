@@ -132,7 +132,7 @@ const Header2 = () => {
 
             {/* BLOGS */}
 
-            <Link
+            {/* <Link
               to="/blogs"
               className="
                 px-4
@@ -147,7 +147,7 @@ const Header2 = () => {
               "
             >
               BLOGS
-            </Link>
+            </Link> */}
 
 
             {/* SEPARATOR */}

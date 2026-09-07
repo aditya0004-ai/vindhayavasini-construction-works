@@ -85,13 +85,10 @@ const OurStory = () => {
 
           {/* Main Heading */}
           <h2 className="mx-auto max-w-3xl font-elsie text-[30px] font-light leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[55px]">
-            Two decades of shaping
-            <br />
-            Lucknow's{" "}
-            <span className="text-[#c49a3a]">
-              skyline.
-            </span>
-          </h2>
+  Building India's future,
+  <br />
+  one <span className="text-[#c49a3a]">landmark at a time.</span>
+</h2>
 
           {/* Description */}
           <p className="mx-auto mt-4 max-w-3xl text-[15px] font-light leading-6 text-[#55708a] md:text-[15px] md:leading-7">
