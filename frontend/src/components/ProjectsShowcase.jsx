@@ -25,9 +25,6 @@ export default function ProjectsShowcase() {
   const [error, setError] = useState("");
 
 
-  // ================================
-  // FETCH PROJECTS FROM BACKEND
-  // ================================
   useEffect(() => {
     const fetchProjects = async () => {
       try {
