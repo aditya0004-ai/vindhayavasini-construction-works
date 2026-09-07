@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { MapPin, ArrowDownRight } from "lucide-react";
+import { MapPin, ArrowDownRight, Headphones} from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -29,8 +29,8 @@ const ProjectHero = ({ projectSlug }) => {
         console.error("Error fetching project:", error);
         setError(
           error.response?.data?.message ||
-            error.message ||
-            "Failed to fetch project"
+          error.message ||
+          "Failed to fetch project"
         );
       } finally {
         setLoading(false);
@@ -97,16 +97,20 @@ const ProjectHero = ({ projectSlug }) => {
           )}
 
           {/* PROJECT NAME */}
-          <h1 className="font-serif text-[70px] text-white leading-[1.08] tracking-tight">
+          <h1 className="font-serif text-[70px] max-[550px]:text-[45px] text-white leading-[1.08] tracking-tight">
             {project.name}
           </h1>
 
           {/* SUB HEADING */}
-          {/* {project.subHeading && (
+          {project.subHeading && (
             <h2 className="mt-3 text-[#BB9632] text-[15px] md:text-[17px] font-medium font-sans">
-              {project.subHeading}
+              {project.subHeading
+                .split(/\s+/)
+                .slice(0, 9)
+                .join(" ")}
+              {project.subHeading.split(/\s+/).length > 50 ? "..." : ""}
             </h2>
-          )} */}
+          )}
 
           {/* OVERVIEW */}
           {project.subHeading && (
@@ -146,7 +150,7 @@ const ProjectHero = ({ projectSlug }) => {
             <span className="text-[15px] font-semibold tracking-[1.5px] uppercase">
               Enquire now
             </span>
-            <ArrowDownRight
+            <Headphones
               size={17}
               className="text-[#C9A258] group-hover:text-white transition-colors duration-300"
             />

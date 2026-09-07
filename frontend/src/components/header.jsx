@@ -148,12 +148,12 @@ const Header = () => {
 
             {/* BLOGS */}
 
-            <Link
+            {/* <Link
               to="/blogs"
               className={`px-4 ${navTextClass}`}
             >
               BLOGS
-            </Link>
+            </Link> */}
 
             <span className={separatorClass} />
 
@@ -361,7 +361,7 @@ const Header = () => {
 
           <div
             className="
-              text-[10px]
+              text-[11px]
               tracking-[2px]
               font-medium
               text-[#c49a32]
@@ -378,7 +378,7 @@ const Header = () => {
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
-              text-[15px]
+              text-[16px]
               font-normal
               tracking-[0.2px]
               text-[#4c5362]
@@ -386,17 +386,17 @@ const Header = () => {
               font-serif
             "
           >
-            About Viraj Constructions
+            About Vindhayavasini Constructions
           </Link>
 
 
-          {/* ABOUT BBD */}
+          {/* ABOUT GROUP */}
 
           <Link
-            to="/about-bbd"
+            to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
-              text-[15px]
+              text-[16px]
               font-normal
               tracking-[0.2px]
               text-[#4c5362]
@@ -405,7 +405,7 @@ const Header = () => {
               font-serif
             "
           >
-            About BBD Group
+            About Vindhayavasini Group
           </Link>
 
 
@@ -417,8 +417,8 @@ const Header = () => {
             className="
               border-t
               border-gray-200
-              py-4
-              text-[18px]
+              py-5
+              text-[19px]
               text-[#4b5261]
               font-serif
             "
@@ -429,7 +429,7 @@ const Header = () => {
 
           {/* ================= BLOGS ================= */}
 
-          <Link
+          {/* <Link
             to="/blogs"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -442,7 +442,7 @@ const Header = () => {
             "
           >
             Blogs
-          </Link>
+          </Link> */}
 
 
           {/* ================= CAREERS ================= */}
@@ -453,8 +453,8 @@ const Header = () => {
             className="
               border-t
               border-gray-200
-              py-4
-              text-[18px]
+              py-5
+              text-[19px]
               text-[#4b5261]
               font-serif
             "
@@ -471,8 +471,8 @@ const Header = () => {
             className="
               border-t
               border-gray-200
-              py-4
-              text-[18px]
+              py-5
+              text-[19px]
               text-[#4b5261]
               font-serif
             "
@@ -516,20 +516,20 @@ const Header = () => {
               href="tel:+919999999999"
               className="
                 flex-1
-                h-[40px]
+                h-[47px]
                 bg-[#101a2d]
                 flex
                 items-center
                 justify-center
                 gap-2
                 text-white
-                text-[10px]
+                text-[13px]
                 font-semibold
                 tracking-[0.7px]
               "
             >
               <Phone
-                size={13}
+                size={15}
                 strokeWidth={1.8}
                 className="text-[#c49a32]"
               />
@@ -544,20 +544,20 @@ const Header = () => {
               href="mailto:info@example.com"
               className="
                 flex-1
-                h-[40px]
+                h-[47px]
                 bg-[#101a2d]
                 flex
                 items-center
                 justify-center
                 gap-2
                 text-white
-                text-[10px]
+                text-[13px]
                 font-semibold
                 tracking-[0.7px]
               "
             >
               <Mail
-                size={13}
+                size={15}
                 strokeWidth={1.8}
                 className="text-[#c49a32]"
               />

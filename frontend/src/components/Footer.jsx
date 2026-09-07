@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   const developmentLinks = [
-    "BBD Green City",
+    "Omaxe City",
     "Sunbreeze I",
     "Sunbreeze II (Phase I)",
     "Lotus Court",
@@ -73,7 +73,7 @@ const Footer = () => {
                   />
 
                   <p className="text-[14px] leading-5 uppercase">
-                    BBD Viraj Towers, Vibhuti Khand,
+                    vindhayavasini Towers, Vibhuti Khand,
                     <br />
                     Gomti Nagar, Lucknow 226010
                   </p>
@@ -109,7 +109,7 @@ const Footer = () => {
                     href="mailto:saleshead@virajconstructions.co.in"
                     className="text-[13px] font-semibold uppercase break-all hover:text-[#c49a32] transition"
                   >
-                    saleshead@virajconstructions.co.in
+                    saleshead@vindhayavasiniconstructions.co.in
                   </a>
 
                 </div>

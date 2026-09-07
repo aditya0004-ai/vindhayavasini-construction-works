@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 
+
 import {
   ClipboardList,
   Award,
@@ -91,12 +92,70 @@ const ProjectDetails = ({ projectSlug }) => {
   const [activeTab, setActiveTab] = useState("overview");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const layoutScrollRef = useRef(null);
+  const galleryScrollRef = useRef(null);
+  const activeTabRef = useRef(null);
 
   const sectionRefs = useRef({});
 
   /* =========================================================
      FETCH PROJECT
   ========================================================= */
+  useEffect(() => {
+    if (activeTabRef.current) {
+      activeTabRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeTab]);
+
+  const scrollToPreviousGallery = () => {
+    if (!galleryScrollRef.current) return;
+
+    const container = galleryScrollRef.current;
+    const scrollAmount = container.clientWidth * 0.85;
+
+    container.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToNextGallery = () => {
+    if (!galleryScrollRef.current) return;
+
+    const container = galleryScrollRef.current;
+    const scrollAmount = container.clientWidth * 0.85;
+
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToNextLayout = () => {
+    if (!layoutScrollRef.current) return;
+
+    const container = layoutScrollRef.current;
+
+    container.scrollBy({
+      left: container.clientWidth,
+      behavior: "smooth",
+    });
+  };
+  const scrollToPreviousLayout = () => {
+    if (!layoutScrollRef.current) return;
+
+    const container = layoutScrollRef.current;
+    const scrollAmount = container.clientWidth * 0.85;
+
+    container.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -130,24 +189,33 @@ const ProjectDetails = ({ projectSlug }) => {
      SCROLL TO SECTION
   ========================================================= */
 
-  const scrollToSection = (sectionId) => {
-    const section = sectionRefs.current[sectionId];
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
 
     if (!section) return;
 
-    setActiveTab(sectionId);
+    // Get header height more reliably
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.getBoundingClientRect().height : HEADER_HEIGHT;
 
-    const y =
-      section.getBoundingClientRect().top +
-      window.scrollY -
-      HEADER_HEIGHT -
-      TAB_HEIGHT -
-      12;
+    // Get tab height more reliably - target by the sticky container class
+    const tabContainer = document.querySelector('[class*="sticky"][class*="z-40"]');
+    const tabHeight = tabContainer ? tabContainer.getBoundingClientRect().height : TAB_HEIGHT;
 
+    // Get the section position
+    const rect = section.getBoundingClientRect();
+    const sectionTop = rect.top + window.scrollY;
+
+    // Calculate offset with a small buffer for smooth scroll
+    const offset = headerHeight + tabHeight + 8;
+
+    // Scroll to the section
     window.scrollTo({
-      top: y,
-      behavior: "smooth",
+      top: sectionTop - offset,
+      behavior: 'smooth',
     });
+
+    setActiveTab(id);
   };
 
   /* =========================================================
@@ -794,11 +862,11 @@ const ProjectDetails = ({ projectSlug }) => {
         py-1.5
       "
     >
-      <Icon size={15} strokeWidth={2} className="text-[#b39135]" />
+      <Icon size={16} strokeWidth={2} className="text-[#b39135]" />
 
       <span
         className="
-          text-[10px]
+          text-[13px]
           md:text-[13px]
           tracking-[2px]
           md:tracking-[2px]
@@ -813,7 +881,7 @@ const ProjectDetails = ({ projectSlug }) => {
   );
 
   return (
-    <div className="px-30">
+    <div className="px-3 md:px-30">
 
       <style>{`
         .pd-eyebrow { transition: border-color 0.2s ease; }
@@ -823,26 +891,41 @@ const ProjectDetails = ({ projectSlug }) => {
       `}</style>
 
       {/* =====================================================
-          STICKY NAVIGATION
-      ====================================================== */}
+    STICKY NAVIGATION
+====================================================== */}
 
       <div
         className="
-        
-          sticky
-          z-40
-          bg-[#f7f7f5]
-          border-b-2
-          border-[#BB9632]
-          shadow-[0_1px_0_rgba(179,145,53,0.35)]
-        "
+    sticky
+    z-40
+    bg-[#f7f7f5]
+    border-b-2
+    border-[#BB9632]
+    shadow-[0_1px_0_rgba(179,145,53,0.35)]
+  "
         style={{
           top: HEADER_HEIGHT,
         }}
       >
-        <div className="max-w-[1140px] mx-auto px-5">
+        <div className="max-w-[1140px] mx-auto">
 
-          <div className="flex">
+          {/* Horizontal scroll wrapper on mobile */}
+          <div
+            className="
+        flex
+        overflow-x-auto
+        scrollbar-hide
+        px-3
+        md:px-5
+        snap-x
+        snap-mandatory
+      "
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
 
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -851,23 +934,27 @@ const ProjectDetails = ({ projectSlug }) => {
               return (
                 <button
                   key={tab.id}
+                  ref={isActive ? activeTabRef : null}
                   type="button"
                   onClick={() => scrollToSection(tab.id)}
                   style={{
                     height: TAB_HEIGHT,
                   }}
                   className="
-                    relative
-                    flex-shrink-0
-                    lg:flex-1
-                    min-w-[130px]
-                    px-3
-                    flex
-                    items-center
-                    justify-center
-                    whitespace-nowrap
-                    outline-none
-                  "
+              relative
+              flex-shrink-0
+              lg:flex-1
+              min-w-[115px]
+              sm:min-w-[125px]
+              lg:min-w-0
+              px-3
+              flex
+              items-center
+              justify-center
+              whitespace-nowrap
+              outline-none
+              snap-center
+            "
                 >
 
                   {/* ACTIVE BACKGROUND */}
@@ -876,13 +963,13 @@ const ProjectDetails = ({ projectSlug }) => {
                     <motion.div
                       layoutId="project-details-active-background"
                       className="
-                        absolute
-                        inset-x-0
-                        top-3
-                        bottom-0
-                        bg-[#172235]
-                        rounded-t-[24px]
-                      "
+                  absolute
+                  inset-x-0
+                  top-3
+                  bottom-0
+                  bg-[#172235]
+                  rounded-t-[20px]
+                "
                       transition={{
                         type: "spring",
                         stiffness: 400,
@@ -895,33 +982,39 @@ const ProjectDetails = ({ projectSlug }) => {
 
                   <span
                     className={`
-                      relative
-                      z-10
-                      flex
-                      items-center
-                      justify-center
-                      gap-1.5
-                      transition-colors
-                      duration-200
-                      text-[11px]
-                      md:text-[12px]
-                      tracking-[1.25px]
-                      font-medium
-                      ${isActive
+                      mx-3
+                mt-2.5
+                relative
+                z-10
+                flex
+                items-center
+                justify-center
+                gap-1.5
+                transition-colors
+                duration-200
+                text-[12px]
+                sm:text-[11px]
+                md:text-[12px]
+                tracking-[1px]
+                md:tracking-[1.25px]
+                font-medium
+                ${isActive
                         ? "text-white"
                         : "text-[#273244]"
                       }
-                    `}
+              `}
                   >
 
                     {isActive && (
                       <Icon
-                        size={17}
+                        size={15}
                         strokeWidth={2}
                         className="
-                          text-[#b39135]
-                          flex-shrink-0
-                        "
+                    text-[#b39135]
+                    flex-shrink-0
+                    sm:w-[16px]
+                    sm:h-[16px]
+                  "
                       />
                     )}
 
@@ -935,16 +1028,16 @@ const ProjectDetails = ({ projectSlug }) => {
                     <motion.span
                       layoutId="project-details-active-diamond"
                       className="
-                        absolute
-                        left-1/2
-                        -translate-x-1/2
-                        -bottom-[4px]
-                        w-[8px]
-                        h-[8px]
-                        rotate-45
-                        bg-[#b39135]
-                        z-30
-                      "
+                  absolute
+                  left-1/2
+                  -translate-x-1/2
+                  -bottom-[4px]
+                  w-[8px]
+                  h-[8px]
+                  rotate-45
+                  bg-[#b39135]
+                  z-30
+                "
                       transition={{
                         type: "spring",
                         stiffness: 400,
@@ -992,7 +1085,9 @@ const ProjectDetails = ({ projectSlug }) => {
 
           {/* LEFT */}
 
-          <div>
+          <div
+            className="max-[530px]:flex items-center justify-center flex-col"
+          >
 
             <SectionEyebrow
               icon={Building2}
@@ -1007,7 +1102,7 @@ const ProjectDetails = ({ projectSlug }) => {
                 md:text-[52px]
                 leading-[1.12]
                 text-[#1d293b]
-                font-serif
+                font-elsie
                 font-normal
               "
             >
@@ -1018,6 +1113,7 @@ const ProjectDetails = ({ projectSlug }) => {
             {project.overview && (
               <p
                 className="
+                 max-[530px]:text-center
                   mt-5
                   md:mt-6
                   text-[15px]
@@ -1081,7 +1177,7 @@ const ProjectDetails = ({ projectSlug }) => {
                   <FactIcon
                     size={32}
                     strokeWidth={2}
-                    className="pd-fact-icon text-[#b39135] shrink-0"
+                    className="pd-fact-icon text-[#b39135] shrink-0 max-[550px]:mr-5"
                   />
 
                   <div>
@@ -1102,7 +1198,8 @@ const ProjectDetails = ({ projectSlug }) => {
 
                     <h3
                       className="
-                        text-[18px]
+                         max-[550px]:mb-5 tracking-[2px]
+                        text-[23px]
                         md:text-[26px]
                         leading-[1.3]
                         text-[#1d293b]
@@ -1244,7 +1341,7 @@ const ProjectDetails = ({ projectSlug }) => {
       <section
         id="layout-plan"
         ref={(el) => (sectionRefs.current["layout-plan"] = el)}
-        className="py-14 md:py-20 px-5 bg-white"
+        className=" md:py-20 px-5 bg-white"
         style={{
           scrollMarginTop: HEADER_HEIGHT + TAB_HEIGHT + 12,
         }}
@@ -1253,7 +1350,7 @@ const ProjectDetails = ({ projectSlug }) => {
 
           {/* Heading */}
           <div className="text-center mb-10 md:mb-12">
-            <div className="flex justify-center mb-5">
+            <div className="flex justify-center mb-5 mt-12">
               <SectionEyebrow icon={Map} label="BLUEPRINT" />
             </div>
             <div className="font-elsie text-3xl md:text-4xl lg:text-[34px] font-light text-[#0F172A]">
@@ -1261,59 +1358,146 @@ const ProjectDetails = ({ projectSlug }) => {
               <span className="ml-2 text-[#BB9632]">Plans</span>
             </div>
           </div>
-
           {layoutPlans.length > 0 ? (
 
-            <div
-              className={`grid gap-8 items-start ${layoutPlans.length === 1
-                ? "grid-cols-1 max-w-[660px] mx-auto"
-                : "grid-cols-1 md:grid-cols-2"
-                }`}
-            >
+            <div className="relative w-full">
 
-              {layoutPlans.map((plan, index) => (
+              {/* Horizontal scroll area */}
+              <div
+                ref={layoutScrollRef}
+                className={
+                  layoutPlans.length === 1
+                    ? "flex justify-center w-full"
+                    : "flex items-start gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-4 px-1 scrollbar-hide"
+                }
+                style={{
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  WebkitOverflowScrolling: "touch",
+                }}
+              >
+                {layoutPlans.map((plan, index) => (
 
-                <div
-                  key={
-                    plan._id ||
-                    plan.publicId ||
-                    index
-                  }
-                  className="w-full bg-white border border-[#172033] shadow-[0_8px_25px_rgba(15,23,42,0.08)]"
-                >
+                  <div
+                    key={
+                      plan._id ||
+                      plan.publicId ||
+                      index
+                    }
+                    className={
+                      layoutPlans.length === 1
+                        ? "w-full max-w-[1140px] bg-white border border-[#172033] shadow-[0_8px_25px_rgba(15,23,42,0.08)]"
+                        : "flex-shrink-0 w-fit max-w-[calc(100vw-40px)] snap-center bg-white border border-[#172033] shadow-[0_8px_25px_rgba(15,23,42,0.08)]"
+                    }
+                  >
 
-                  {/* Image */}
-                  <div className="p-0.5 md:p-1   transition-transform
-                      duration-500
-                      hover:scale-103">
-                    <img
-                      src={plan.url}
-                      alt={`Layout Plan ${index + 1}`}
-                      className="w-full h-auto max-h-[520px] object-contain block"
-                    />
-                  </div>
-
-                  {/* Bottom information bar */}
-                  <div className="h-[46px] border-t border-[#172033] flex items-center justify-between px-4 md:px-5">
-
-                    <span className="text-[10px] md:text-[11px] tracking-[0.12em] uppercase text-[#18233A] font-medium">
-                      Master Layout Plan
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={() => setEnlargedImage(plan.url)}
-                      className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.08em] uppercase text-[#18233A] hover:text-[#BB9632] transition-colors duration-200"
+                    {/* Image */}
+                    <div
+                      className="
+              p-0.5 md:p-1
+              transition-transform
+              duration-500
+              hover:scale-103
+            "
                     >
-                      <span className="text-[14px]">⌕</span>
-                      Enlarge
-                    </button>
+                      <img
+                        src={plan.url}
+                        alt={`Layout Plan ${index + 1}`}
+                        className={
+                          layoutPlans.length === 1
+                            ? "w-full h-auto max-h-[520px] object-contain block"
+                            : "w-auto max-w-full h-auto max-h-[520px] object-contain block"
+                        }
+                      />
+                    </div>
+
+                    {/* Bottom information bar */}
+                    <div className="h-[46px] border-t border-[#172033] flex items-center justify-between px-4 md:px-5">
+
+                      <span className="text-[10px] md:text-[11px] tracking-[0.12em] uppercase text-[#18233A] font-medium">
+                        Master Layout Plan
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() => setEnlargedImage(plan.url)}
+                        className="flex items-center gap-2 text-[10px] md:text-[11px] tracking-[0.08em] uppercase text-[#18233A] hover:text-[#BB9632] transition-colors duration-200"
+                      >
+                        <span className="text-[14px]">⌕</span>
+                        Enlarge
+                      </button>
+
+                    </div>
 
                   </div>
 
-                </div>
+                ))}
 
-              ))}
+              </div>
+
+
+              {/* Navigation Arrows */}
+              {layoutPlans.length > 1 && (
+                <>
+                  {/* Previous Arrow */}
+                  <button
+                    type="button"
+                    onClick={scrollToPreviousLayout}
+                    aria-label="Previous layout plan"
+                    className="
+        absolute
+        left-3 md:left-5
+        top-1/2
+        -translate-y-1/2
+        z-10
+        w-11 h-11 md:w-12 md:h-12
+        rounded-full
+        bg-[#172033]
+        text-white
+        flex
+        items-center
+        justify-center
+        shadow-lg
+        hover:bg-[#BB9632]
+        transition-all
+        duration-300
+      "
+                  >
+                    <span className="text-xl md:text-2xl leading-none">
+                      ←
+                    </span>
+                  </button>
+
+                  {/* Next Arrow */}
+                  <button
+                    type="button"
+                    onClick={scrollToNextLayout}
+                    aria-label="Next layout plan"
+                    className="
+        absolute
+        right-3 md:right-5
+        top-1/2
+        -translate-y-1/2
+        z-10
+        w-11 h-11 md:w-12 md:h-12
+        rounded-full
+        bg-[#172033]
+        text-white
+        flex
+        items-center
+        justify-center
+        shadow-lg
+        hover:bg-[#BB9632]
+        transition-all
+        duration-300
+      "
+                  >
+                    <span className="text-xl md:text-2xl leading-none">
+                      →
+                    </span>
+                  </button>
+                </>
+              )}
 
             </div>
 
@@ -1388,21 +1572,111 @@ const ProjectDetails = ({ projectSlug }) => {
         </div>
 
         {gallery.length > 0 ? (
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="relative w-full">
 
-            {gallery.map((image, index) => (
-              <div
-                key={image._id || image.publicId || index}
-                className="overflow-hidden bg-white"
-              >
-                <img
-                  src={image.url}
-                  alt={`${project.name} ${index + 1}`}
-                  className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-            ))}
+            {/* Horizontal Gallery Scroll Area */}
+            <div
+              ref={galleryScrollRef}
+              className={
+                gallery.length === 1
+                  ? "flex justify-center w-full px-5"
+                  : "flex items-start gap-5 overflow-x-auto snap-x snap-mandatory px-5 scrollbar-hide"
+              }
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {gallery.map((image, index) => (
+                <div
+                  key={image._id || image.publicId || index}
+                  className={
+                    gallery.length === 1
+                      ? "w-full max-w-[1140px] overflow-hidden bg-white"
+                      : "flex-shrink-0 w-[85vw] md:w-[48vw] lg:w-[38vw] max-w-[520px] overflow-hidden bg-white snap-center"
+                  }
+                >
+                  <img
+                    src={image.url}
+                    alt={`${project.name} ${index + 1}`}
+                    className="
+                w-full
+                h-[400px]
+                md:h-[500px]
+                object-cover
+                block
+                transition-transform
+                duration-500
+                hover:scale-105
+              "
+                  />
+                </div>
+              ))}
+            </div>
 
+            {/* Navigation Arrows */}
+            {gallery.length > 1 && (
+              <>
+                {/* Previous Arrow */}
+                <button
+                  type="button"
+                  onClick={scrollToPreviousGallery}
+                  aria-label="Previous gallery image"
+                  className="
+              absolute
+              left-3 md:left-5
+              top-1/2
+              -translate-y-1/2
+              z-10
+              w-11 h-11 md:w-12 md:h-12
+              rounded-full
+              bg-[#172033]
+              text-white
+              flex
+              items-center
+              justify-center
+              shadow-lg
+              hover:bg-[#BB9632]
+              transition-all
+              duration-300
+            "
+                >
+                  <span className="text-xl md:text-2xl leading-none">
+                    ←
+                  </span>
+                </button>
+
+                {/* Next Arrow */}
+                <button
+                  type="button"
+                  onClick={scrollToNextGallery}
+                  aria-label="Next gallery image"
+                  className="
+              absolute
+              right-3 md:right-5
+              top-1/2
+              -translate-y-1/2
+              z-10
+              w-11 h-11 md:w-12 md:h-12
+              rounded-full
+              bg-[#172033]
+              text-white
+              flex
+              items-center
+              justify-center
+              shadow-lg
+              hover:bg-[#BB9632]
+              transition-all
+              duration-300
+            "
+                >
+                  <span className="text-xl md:text-2xl leading-none">
+                    →
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         ) : (
           <p className="text-center text-[13px] text-gray-500">
@@ -1410,6 +1684,7 @@ const ProjectDetails = ({ projectSlug }) => {
           </p>
         )}
       </section>
+
 
       {/* =====================================================
     LOCATION
@@ -1740,15 +2015,10 @@ const ProjectDetails = ({ projectSlug }) => {
                 </div>
 
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
-
-
     </div>
   );
 };

@@ -95,7 +95,7 @@ const OurStory = () => {
 
           {/* Description */}
           <p className="mx-auto mt-4 max-w-3xl text-[15px] font-light leading-6 text-[#55708a] md:text-[15px] md:leading-7">
-            With over 20 years of building trust, Viraj Constructions creates
+            With over 20 years of building trust, Vindhayavasini Constructions creates
             more than just structures; it develops thriving communities and
             landmark spaces where people build a lifetime of memories.
           </p>

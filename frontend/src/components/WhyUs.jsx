@@ -155,6 +155,7 @@ const WhyUs = () => {
                     md:mb-0
                     ml-20
                     md:ml-0
+                    mt-5
                   "
                 >
                   {value.title}
@@ -177,8 +178,9 @@ const WhyUs = () => {
                     leading-[1.55]
                     font-light
                     max-w-[420px]
+                    md:text-start
                     text-center
-                 
+                    mt-5
                   "
                 >
                   {value.description}

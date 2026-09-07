@@ -1,5 +1,5 @@
 // frontend/src/App.jsx
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Lenis from "lenis";
 
@@ -13,6 +13,33 @@ import CareersPage from "./pages/CarrersPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Stop browser from restoring previous scroll position
+    window.history.scrollRestoration = "manual";
+
+    // Reset normal browser scroll
+    window.scrollTo(0, 0);
+
+    // Reset Lenis scroll after it has initialized
+    const timer = setTimeout(() => {
+      if (window.lenis) {
+        window.lenis.scrollTo(0, {
+          immediate: true,
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return null;
+};
+
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -21,6 +48,7 @@ function App() {
       wheelMultiplier: 0.8,
       touchMultiplier: 1,
     });
+    window.lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -31,10 +59,13 @@ function App() {
 
     return () => {
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<ProjectPage />} />
@@ -50,6 +81,7 @@ function App() {
         <Route path="jobs" element={<JobsDashboard />} />
       </Route>
     </Routes>
+    </>
   );
 }
 

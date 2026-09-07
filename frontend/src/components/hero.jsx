@@ -283,7 +283,8 @@ const Hero = () => {
         className="
           absolute
           z-20
-          bottom-6
+          md:bottom-10
+          bottom-12
           left-1/2
           -translate-x-1/2
           flex

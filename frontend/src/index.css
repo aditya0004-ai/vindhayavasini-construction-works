@@ -43,3 +43,12 @@ html {
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-in-out;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
