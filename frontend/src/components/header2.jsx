@@ -418,7 +418,7 @@ const Header2 = () => {
 
           {/* ================= BLOGS ================= */}
 
-          <Link
+          {/* <Link
             to="/blogs"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -431,7 +431,7 @@ const Header2 = () => {
             "
           >
             Blogs
-          </Link>
+          </Link> */}
 
 
           {/* ================= CAREERS ================= */}
