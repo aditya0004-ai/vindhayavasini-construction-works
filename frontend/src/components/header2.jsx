@@ -125,29 +125,12 @@ const Header2 = () => {
             </Link>
 
 
-            {/* SEPARATOR */}
+           
 
-            <span className="h-5 w-[1px] bg-gray-300" />
+           
 
 
-            {/* BLOGS */}
-
-            {/* <Link
-              to="/blogs"
-              className="
-                px-4
-                text-[14px]
-                font-medium
-                tracking-[1.5px]
-                text-[#222]
-                hover:text-[#c99b22]
-                transition-colors
-                duration-300
-                hover:underline
-              "
-            >
-              BLOGS
-            </Link> */}
+           
 
 
             {/* SEPARATOR */}
@@ -416,22 +399,7 @@ const Header2 = () => {
           </Link>
 
 
-          {/* ================= BLOGS ================= */}
 
-          {/* <Link
-            to="/blogs"
-            onClick={() => setMobileMenuOpen(false)}
-            className="
-              border-t
-              border-gray-200
-              py-4
-              text-[18px]
-              text-[#4b5261]
-              font-serif
-            "
-          >
-            Blogs
-          </Link> */}
 
 
           {/* ================= CAREERS ================= */}
@@ -502,7 +470,7 @@ const Header2 = () => {
             {/* CALL US */}
 
             <a
-              href="tel:+919999999999"
+              href="tel:+919415664728"
               className="
                 flex-1
                 h-[40px]
@@ -530,7 +498,7 @@ const Header2 = () => {
             {/* EMAIL US */}
 
             <a
-              href="mailto:info@example.com"
+              href="mailto:ravimum82@gmail.com"
               className="
                 flex-1
                 h-[40px]

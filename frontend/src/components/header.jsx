@@ -359,7 +359,22 @@ const Header = () => {
 
           {/* ABOUT US LABEL */}
 
-          <div
+           <Link
+            to="/about"
+            onClick={() => setMobileMenuOpen(false)}
+            className="
+              border-t
+              border-gray-200
+              py-5
+              text-[19px]
+              text-[#4b5261]
+              font-serif
+            "
+          >
+            About Us
+          </Link>
+
+          {/* <div
             className="
               text-[11px]
               tracking-[2px]
@@ -369,12 +384,12 @@ const Header = () => {
             "
           >
             ABOUT US
-          </div>
+          </div> */}
 
 
           {/* ABOUT VIRAJ */}
 
-          <Link
+          {/* <Link
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -387,12 +402,12 @@ const Header = () => {
             "
           >
             About Vindhayavasini Constructions
-          </Link>
+          </Link> */}
 
 
           {/* ABOUT GROUP */}
 
-          <Link
+          {/* <Link
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -406,7 +421,7 @@ const Header = () => {
             "
           >
             About Vindhayavasini Group
-          </Link>
+          </Link> */}
 
 
           {/* ================= PROJECTS ================= */}
@@ -513,7 +528,7 @@ const Header = () => {
             {/* CALL US */}
 
             <a
-              href="tel:+919999999999"
+              href="tel:+919415664728"
               className="
                 flex-1
                 h-[47px]
@@ -541,7 +556,7 @@ const Header = () => {
             {/* EMAIL US */}
 
             <a
-              href="mailto:info@example.com"
+              href="mailto:ravimum82@gmail.com"
               className="
                 flex-1
                 h-[47px]
