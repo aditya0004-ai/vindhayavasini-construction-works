@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,6 +14,7 @@ import {
   ExternalLink,
   LoaderCircle,
   AlertCircle,
+  FileText,
 } from "lucide-react";
 
 /* =========================================================
@@ -130,6 +130,16 @@ const BROCHURE_DOWNLOAD_URL =
 const LOGO_URL =
   "https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787848495/ChatGPT_Image_Aug_27_2026_02_30_52_AM_oyvtse.png";
 
+// Mobile browsers (Android Chrome, iOS Safari) do not support rendering a
+// PDF inline inside an <iframe> the way desktop Chrome does — they show
+// their own generic "open/download this file" stub instead of the pages.
+// So on mobile we skip the iframe attempt entirely and show our own
+// on-brand preview card with Open/Download actions instead.
+const isMobileUserAgent = () => {
+  if (typeof navigator === "undefined") return false;
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+};
+
 /* =========================================================
    ANIMATION VARIANTS
 ========================================================= */
@@ -194,10 +204,19 @@ const ProjectSection = () => {
   const [showBrochure, setShowBrochure] = useState(false);
   const [pdfLoading, setPdfLoading] = useState(true);
   const [pdfError, setPdfError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const projectRefs = useRef([]);
   const projectTabsRef = useRef(null);
   const closeButtonRef = useRef(null);
+
+  /* -------------------------------------------------------
+     DETECT MOBILE (client-side only)
+  ------------------------------------------------------- */
+
+  useEffect(() => {
+    setIsMobile(isMobileUserAgent());
+  }, []);
 
   /* -------------------------------------------------------
      OPEN / CLOSE BROCHURE
@@ -703,75 +722,112 @@ const ProjectSection = () => {
               {/* PDF VIEWER */}
 
               <div className="relative flex-1 bg-[#3d4247] min-h-0">
-                {/* LOADING */}
+                {isMobile ? (
+                  /* -----------------------------------------------
+                     MOBILE: no iframe attempt at all.
+                     Mobile browsers don't render PDFs inline inside
+                     an iframe (no built-in PDF plugin like desktop
+                     Chrome), so instead of showing their generic
+                     "open/download this file" stub, we show our own
+                     branded preview card with clear actions.
+                  ----------------------------------------------- */
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-[#3d4247] px-6 text-center">
+                    <div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
+                      <FileText
+                        size={38}
+                        className="text-[#c49a32]"
+                        strokeWidth={1.5}
+                      />
+                    </div>
 
-                {pdfLoading && !pdfError && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#3d4247] z-10">
-                    <LoaderCircle
-                      size={34}
-                      className="text-[#c49a32] animate-spin"
-                    />
+                    <div>
+                      <p className="text-white text-sm font-medium mb-1">
+                        Vindhayavasini Construction &mdash; Company Profile
+                      </p>
 
-                    <span className="text-white/70 text-xs tracking-wide">
-                      Loading brochure&hellip;
-                    </span>
+                      <p className="text-white/60 text-xs">
+                        Inline preview isn&rsquo;t supported on this
+                        device. Open or download the brochure instead.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs">
+                      <a
+                        href={BROCHURE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-[#c49a32] text-[#111827] px-5 py-3 text-xs font-semibold rounded-md flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink size={14} />
+                        OPEN
+                      </a>
+
+                      <a
+                        href={BROCHURE_DOWNLOAD_URL}
+                        download="Vindhayavasini-Construction-Company-Profile.pdf"
+                        className="flex-1 border border-white/30 text-white px-5 py-3 text-xs font-semibold rounded-md flex items-center justify-center gap-2"
+                      >
+                        <Download size={14} />
+                        DOWNLOAD
+                      </a>
+                    </div>
                   </div>
-                )}
+                ) : (
+                  <>
+                    {/* LOADING (desktop only) */}
 
-                {/* ERROR */}
+                    {pdfLoading && !pdfError && (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#3d4247] z-10">
+                        <LoaderCircle
+                          size={34}
+                          className="text-[#c49a32] animate-spin"
+                        />
 
-                {pdfError && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#3d4247] z-10 px-6 text-center">
-                    <AlertCircle
-                      size={40}
-                      className="text-[#c49a32]"
+                        <span className="text-white/70 text-xs tracking-wide">
+                          Loading brochure&hellip;
+                        </span>
+                      </div>
+                    )}
+
+                    {/* ERROR (desktop only) */}
+
+                    {pdfError && (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#3d4247] z-10 px-6 text-center">
+                        <AlertCircle
+                          size={40}
+                          className="text-[#c49a32]"
+                        />
+
+                        <p className="text-white text-sm">
+                          Unable to display the brochure here.
+                        </p>
+
+                        <a
+                          href={BROCHURE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-[#c49a32] text-[#111827] px-5 py-3 text-xs font-semibold rounded-md"
+                        >
+                          OPEN PDF DIRECTLY
+                        </a>
+                      </div>
+                    )}
+
+                    <iframe
+                      src={`${BROCHURE_URL}#toolbar=1&navpanes=0&scrollbar=1`}
+                      title="Vindhayavasini Construction Works Company Profile"
+                      className="w-full h-full border-0"
+                      onLoad={() => {
+                        setPdfLoading(false);
+                        setPdfError(false);
+                      }}
+                      onError={() => {
+                        setPdfLoading(false);
+                        setPdfError(true);
+                      }}
                     />
-
-                    <p className="text-white text-sm">
-                      Unable to display the brochure here.
-                    </p>
-
-                    <a
-                      href={BROCHURE_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-[#c49a32] text-[#111827] px-5 py-3 text-xs font-semibold rounded-md"
-                    >
-                      OPEN PDF DIRECTLY
-                    </a>
-                  </div>
+                  </>
                 )}
-
-                <iframe
-                  src={`${BROCHURE_URL}#toolbar=1&navpanes=0&scrollbar=1`}
-                  title="Vindhayavasini Construction Works Company Profile"
-                  className="w-full h-full border-0"
-                  onLoad={() => {
-                    setPdfLoading(false);
-                    setPdfError(false);
-                  }}
-                  onError={() => {
-                    setPdfLoading(false);
-                    setPdfError(true);
-                  }}
-                />
-              </div>
-
-              {/* MOBILE FALLBACK NOTE */}
-
-              <div className="md:hidden flex-shrink-0 bg-[#f4ede0] border-t border-[#eadfc6] px-4 py-2.5 text-center">
-                <span className="text-[11px] text-[#5a4a2c]">
-                  Trouble viewing?{" "}
-
-                  <a
-                    href={BROCHURE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline font-medium"
-                  >
-                    Open the PDF directly
-                  </a>
-                </span>
               </div>
             </motion.div>
           </motion.div>
