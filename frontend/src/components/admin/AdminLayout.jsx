@@ -26,7 +26,7 @@ export default function AdminLayout({ children }) {
         <div className="relative px-6 py-6 border-b border-[#33291F]">
           <div className="flex items-center gap-2 mb-1">
             <Building2 className="w-5 h-5 text-[#C9A258]" />
-            <span className="font-serif text-lg text-[#F5F1E8]">Sanskar</span>
+            <span className="font-serif text-lg text-[#F5F1E8]">Vindhayavasini Construction</span>
           </div>
           <p className="text-[10px] tracking-[0.25em] text-[#A79C8C] uppercase pl-7">
             Admin Panel
