@@ -7,6 +7,7 @@ const slides = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
 
     title: "SUBHALAAY II (PHASE 1)",
+    href: "/projects/citozen",
 
     subtitle:
       "Desire incorporated in design A Step Closer to nature",
@@ -20,6 +21,7 @@ const slides = [
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90",
 
     title: "LOTUS ENCLAVE",
+    href: "/projects/citozen",
 
     subtitle:
       "Homes that compliment you",
@@ -33,6 +35,7 @@ const slides = [
       "https://virajconstructions.com/assets/banners/lotus-enclave-desktop.webp",
 
     title: "SUBHALAAY II (PHASE 1)",
+    href: "/projects/citozen",
 
     subtitle:
       "Desire incorporated in design A Step Closer to nature",
@@ -46,6 +49,7 @@ const slides = [
       "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
 
     title: "LUXURY RESIDENCES",
+    href: "/projects/citozen",
 
     subtitle:
       "Designed for modern living",
@@ -58,6 +62,7 @@ const slides = [
       "https://virajconstructions.com/assets/banners/sunbreeze-1-desktop.webp",
 
     title: "LUXURY RESIDENCES",
+    href: "/projects/citozen",
 
     subtitle:
       "Designed for modern living",
@@ -74,6 +79,7 @@ const slides = [
 
     subtitle:
       "Designed for modern living",
+    href: "/projects/citozen",
 
     description:
       "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
@@ -83,6 +89,7 @@ const slides = [
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
 
     title: "YOUR DREAM HOME",
+    href: "/projects/citozen",
 
     subtitle:
       "A lifestyle beyond expectations",
@@ -237,28 +244,29 @@ const Hero = () => {
           </p>
 
           {/* KNOW MORE BUTTON */}
-          <button
+          <a
+            href={slide.href}
             className="
-              group
-              mt-7
-             md:mt-9
-              w-[200px]
-              h-[55px]
-              flex
-              items-center
-              justify-center
-              gap-6
-              border
-              border-white
-              bg-[#101a2d]
-              text-white
-              text-[16px]
-              font-semibold
-              tracking-wide
-              hover:bg-[#c99b22]
-              transition-all
-              duration-300
-            "
+    group
+    mt-7
+    md:mt-9
+    w-[200px]
+    h-[55px]
+    flex
+    items-center
+    justify-center
+    gap-6
+    border
+    border-white
+    bg-[#101a2d]
+    text-white
+    text-[16px]
+    font-semibold
+    tracking-wide
+    hover:bg-[#c99b22]
+    transition-all
+    duration-300
+  "
           >
             <span>KNOW MORE</span>
 
@@ -266,13 +274,13 @@ const Hero = () => {
               size={22}
               strokeWidth={1.7}
               className="
-                text-[#c99b22]
-                group-hover:text-white
-                group-hover:translate-x-1
-                transition-all
-              "
+      text-[#c99b22]
+      group-hover:text-white
+      group-hover:translate-x-1
+      transition-all
+    "
             />
-          </button>
+          </a>
         </div>
       </div>
 

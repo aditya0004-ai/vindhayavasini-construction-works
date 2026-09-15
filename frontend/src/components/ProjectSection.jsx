@@ -26,6 +26,7 @@ const projects = [
     id: "citizen-city",
     name: "CITIZEN CITY",
     title: "Citizen City",
+    href: "/projects/citozen",
     location: "NEW GOMTI NAGAR, AYODHYA ROAD, LUCKNOW",
     description:
       "Citizen City is a 318-acre integrated township in New Gomti Nagar, Lucknow, bringing together premium residences, commercial hubs, green spaces and modern infrastructure.",
@@ -41,6 +42,7 @@ const projects = [
     id: "subhalaya-1",
     name: "SUBHALAAY I",
     title: "Subhalaya I",
+    href: "/projects/citozen",
     location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
     description:
       "Subhalaya I is a premium residential development offering 2 & 3 BHK apartments and 4 BHK penthouses in Citizen City, featuring a sophisticated lifestyle with modern amenities.",
@@ -56,6 +58,7 @@ const projects = [
     id: "subhalaya-2",
     name: "SUBHALAAY II",
     title: "Subhalaya II",
+    href: "/projects/citozen",
     location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
     description:
       "Subhalaya II Phase I offers contemporary residences designed around comfort, connectivity and modern urban living.",
@@ -71,6 +74,7 @@ const projects = [
     id: "lotus-court",
     name: "LOTUS COURT",
     title: "Lotus Court",
+    href: "/projects/citozen",
     location: "CITIZEN CITY, LUCKNOW",
     description:
       "Lotus Court is designed as an elegant residential destination combining spacious homes, greenery and thoughtfully planned surroundings.",
@@ -86,6 +90,7 @@ const projects = [
     id: "lotus-arcade",
     name: "LOTUS ARCADE",
     title: "Lotus Arcade",
+    href: "/projects/citozen",
     location: "CITIZEN CITY, LUCKNOW",
     description:
       "Lotus Arcade brings commercial spaces and modern conveniences together in a strategically connected location.",
@@ -101,6 +106,7 @@ const projects = [
     id: "lotus-enclave",
     name: "LOTUS ENCLAVE",
     title: "Lotus Enclave",
+    href: "/projects/citozen",
     location: "CITIZEN CITY, LUCKNOW",
     description:
       "Lotus Enclave offers thoughtfully planned homes with a balance of contemporary architecture and peaceful surroundings.",
@@ -416,11 +422,10 @@ const ProjectSection = () => {
                   )}
 
                   <span
-                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 text-[13px] ${
-                      isActive
+                    className={`relative z-10 flex items-center justify-center gap-1.5 transition-colors duration-200 text-[13px] ${isActive
                         ? "text-white"
                         : "text-[#18233a]"
-                    }`}
+                      }`}
                   >
                     {isActive && (
                       <Building2
@@ -482,11 +487,10 @@ const ProjectSection = () => {
                     duration: 0.55,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className={`order-2 ${
-                    index % 2 === 0
+                  className={`order-2 ${index % 2 === 0
                       ? "lg:order-2"
                       : "lg:order-1"
-                  }`}
+                    }`}
                 >
                   <h3 className="text-[#111827] font-elsie font-light text-[34px] md:text-[38px] mb-3 leading-tight">
                     {project.title}
@@ -521,11 +525,10 @@ const ProjectSection = () => {
                         return (
                           <div
                             key={`${project.id}-feature-${featureIndex}`}
-                            className={`flex flex-col items-center justify-center text-center px-2 ${
-                              !isLast
+                            className={`flex flex-col items-center justify-center text-center px-2 ${!isLast
                                 ? "border-r border-[#eadfc6]"
                                 : ""
-                            }`}
+                              }`}
                           >
                             <Icon
                               size={22}
@@ -549,11 +552,8 @@ const ProjectSection = () => {
                   {/* BUTTONS */}
 
                   <div className="flex flex-col sm:flex-row gap-3 mb-6">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        scrollToProject(index)
-                      }
+                    <a
+                      href={project.href}
                       className="bg-[#111827] text-white px-6 py-3 text-[12px] tracking-[0.5px] font-medium flex items-center justify-center gap-3 hover:bg-[#1d293e] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-[#c49a32] focus-visible:ring-offset-2"
                     >
                       VIEW PROJECT
@@ -562,7 +562,7 @@ const ProjectSection = () => {
                         size={15}
                         className="text-[#c49a32]"
                       />
-                    </button>
+                    </a>
 
                     <button
                       type="button"
@@ -592,11 +592,10 @@ const ProjectSection = () => {
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className={`order-1 ${
-                    index % 2 === 0
+                  className={`order-1 ${index % 2 === 0
                       ? "lg:order-1"
                       : "lg:order-2"
-                  }`}
+                    }`}
                 >
                   <div className="relative overflow-hidden group rounded-sm">
                     <motion.img

@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 import {
+  X,
+Eye,
+FileText,
+LoaderCircle,
+AlertCircle,
   ClipboardList,
   Award,
   Map,
@@ -81,6 +86,22 @@ import {
 const HEADER_HEIGHT = 80;
 const TAB_HEIGHT = 64;
 const API_URL = import.meta.env.VITE_API_URL;
+const BROCHURE_URL =
+  "https://res.cloudinary.com/wcimdxco/image/upload/v1789465919/Vindhayavasini_Construction_Company_Profile.pdf";
+
+const BROCHURE_DOWNLOAD_URL =
+  "https://res.cloudinary.com/wcimdxco/image/upload/fl_attachment/Vindhayavasini_Construction_Company_Profile.pdf";
+
+const LOGO_URL =
+  "https://res.cloudinary.com/dcqcmt2h5/image/upload/v1787848495/ChatGPT_Image_Aug_27_2026_02_30_52_AM_oyvtse.png";
+
+const isMobileUserAgent = () => {
+  if (typeof navigator === "undefined") return false;
+
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(
+    navigator.userAgent
+  );
+};
 
 /* =========================================================
    COMPONENT
@@ -95,6 +116,12 @@ const ProjectDetails = ({ projectSlug }) => {
   const layoutScrollRef = useRef(null);
   const galleryScrollRef = useRef(null);
   const activeTabRef = useRef(null);
+  const [showBrochure, setShowBrochure] = useState(false);
+const [pdfLoading, setPdfLoading] = useState(true);
+const [pdfError, setPdfError] = useState(false);
+const [isMobile, setIsMobile] = useState(false);
+
+const brochureCloseButtonRef = useRef(null);
 
   const sectionRefs = useRef({});
 
@@ -110,6 +137,44 @@ const ProjectDetails = ({ projectSlug }) => {
       });
     }
   }, [activeTab]);
+
+  useEffect(() => {
+  setIsMobile(isMobileUserAgent());
+}, []);
+useEffect(() => {
+  if (!showBrochure) return;
+
+  const handleEscape = (event) => {
+    if (event.key === "Escape") {
+      closeBrochure();
+    }
+  };
+
+  document.addEventListener("keydown", handleEscape);
+
+  const previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.removeEventListener("keydown", handleEscape);
+    document.body.style.overflow = previousOverflow;
+  };
+}, [showBrochure]);
+useEffect(() => {
+  if (showBrochure) {
+    brochureCloseButtonRef.current?.focus();
+  }
+}, [showBrochure]);
+
+const openBrochure = () => {
+  setPdfLoading(true);
+  setPdfError(false);
+  setShowBrochure(true);
+};
+
+const closeBrochure = () => {
+  setShowBrochure(false);
+};
 
   const scrollToPreviousGallery = () => {
     if (!galleryScrollRef.current) return;
@@ -1150,13 +1215,13 @@ const ProjectDetails = ({ projectSlug }) => {
                 label: "LOCATION",
                 value: project.location || "Not Available",
               },
-              {
-                icon: ClipboardList,
-                label: "PROJECT DETAILS",
-                value: project.isPublished
-                  ? "Available"
-                  : "Coming Soon",
-              },
+              // {
+              //   icon: ClipboardList,
+              //   label: "PROJECT DETAILS",
+              //   value: project.isPublished
+              //     ? "Available"
+              //     : "Coming Soon",
+              // },
             ].map((fact, index, arr) => {
               const FactIcon = fact.icon;
               const isLast = index === arr.length - 1;
@@ -1911,106 +1976,101 @@ const ProjectDetails = ({ projectSlug }) => {
                 {/* ================= BUTTONS ================= */}
 
                 <div className="flex flex-col gap-3">
+{/* VIEW BROCHURE */}
 
-                  {/* DOWNLOAD BROCHURE */}
+<button
+  type="button"
+  onClick={openBrochure}
+  className="
+    h-[50px]
+    bg-[#f5f3ef]
+    text-[#172235]
+    flex
+    items-center
+    justify-between
+    px-5
+    group
+    transition-all
+    duration-300
+    hover:bg-[#b39135]
+    hover:text-white
+    w-full
+  "
+>
+  <span
+    className="
+      text-[10px]
+      md:text-[11px]
+      tracking-[1.4px]
+      font-semibold
+      whitespace-nowrap
+    "
+  >
+    VIEW BROCHURE
+  </span>
 
-                  <a
-                    href="/brochure.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                h-[50px]
-                bg-[#f5f3ef]
-                text-[#172235]
-                flex
-                items-center
-                justify-between
-                px-5
-                group
-                transition-all
-                duration-300
-                hover:bg-[#b39135]
-                hover:text-white
-              "
-                  >
-
-                    <span
-                      className="
-                  text-[10px]
-                  md:text-[11px]
-                  tracking-[1.4px]
-                  font-semibold
-                  whitespace-nowrap
-                "
-                    >
-                      DOWNLOAD BROCHURE
-                    </span>
-
-                    <Download
-                      size={16}
-                      strokeWidth={1.8}
-                      className="
-                  transition-transform
-                  duration-300
-                  group-hover:translate-y-[2px]
-                "
-                    />
-
-                  </a>
+  <Eye
+    size={16}
+    strokeWidth={1.8}
+    className="
+      transition-transform
+      duration-300
+      group-hover:scale-110
+    "
+  />
+</button>
 
                   {/* GET DIRECTIONS */}
+<a
+  href={
+    project.locationUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      project.location || ""
+    )}`
+  }
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    h-[50px]
+    border
+    border-white/30
+    text-white
+    flex
+    items-center
+    justify-between
+    px-5
+    group
+    transition-all
+    duration-300
+    hover:border-[#b39135]
+    hover:bg-white/10
+  "
+>
+  <span
+    className="
+      text-[10px]
+      md:text-[11px]
+      tracking-[1.2px]
+      font-semibold
+      whitespace-nowrap
+    "
+  >
+    GET DIRECTIONS
+  </span>
 
-                  <a
-                    href={
-                      project.locationUrl ||
-                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                        project.location || ""
-                      )}`
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                h-[50px]
-                border
-                border-white/30
-                text-white
-                flex
-                items-center
-                justify-between
-                px-5
-                group
-                transition-all
-                duration-300
-                hover:border-[#b39135]
-                hover:bg-white/10
-              "
-                  >
-
-                    <span
-                      className="
-                  text-[10px]
-                  md:text-[11px]
-                  tracking-[1.2px]
-                  font-semibold
-                  whitespace-nowrap
-                "
-                    >
-                      GET DIRECTIONS
-                    </span>
-
-                    <ExternalLink
-                      size={16}
-                      strokeWidth={1.7}
-                      className="
-                  text-[#b39135]
-                  transition-transform
-                  duration-300
-                  group-hover:translate-x-[2px]
-                  group-hover:-translate-y-[2px]
-                "
-                    />
-
-                  </a>
+  <ExternalLink
+    size={16}
+    strokeWidth={1.7}
+    className="
+      text-[#b39135]
+      transition-transform
+      duration-300
+      group-hover:translate-x-[2px]
+      group-hover:-translate-y-[2px]
+    "
+  />
+</a>
+                  
 
                 </div>
 
@@ -2019,6 +2079,521 @@ const ProjectDetails = ({ projectSlug }) => {
           </div>
         </div>
       </section>
+      {/* =====================================================
+    PROFESSIONAL BROCHURE VIEWER
+===================================================== */}
+
+<AnimatePresence>
+  {showBrochure && (
+    <motion.div
+      key="brochure-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          closeBrochure();
+        }
+      }}
+      className="
+        fixed
+        inset-0
+        z-[9999]
+        bg-[#0b1220]/80
+        backdrop-blur-md
+        flex
+        items-end
+        md:items-center
+        justify-center
+        p-0
+        md:p-6
+      "
+      role="dialog"
+      aria-modal="true"
+      aria-label="Company brochure viewer"
+    >
+      <motion.div
+        key="brochure-panel"
+        initial={{
+          opacity: 0,
+          y: 48,
+          scale: 0.96,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        }}
+        exit={{
+          opacity: 0,
+          y: 32,
+          scale: 0.97,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 28,
+        }}
+        className="
+          relative
+          w-full
+          md:max-w-5xl
+          h-[92dvh]
+          md:h-[88vh]
+          bg-white
+          flex
+          flex-col
+          overflow-hidden
+          rounded-t-[22px]
+          md:rounded-2xl
+          shadow-2xl
+        "
+      >
+
+        {/* =================================================
+            HEADER
+        ================================================= */}
+
+        <div
+          className="
+            bg-gradient-to-r
+            from-[#111827]
+            to-[#1d293e]
+            text-white
+            px-4
+            md:px-7
+            py-4
+            md:py-5
+            flex
+            items-center
+            justify-between
+            gap-3
+            flex-shrink-0
+          "
+        >
+
+          {/* LOGO + TITLE */}
+
+          <div className="flex items-center gap-3 min-w-0">
+
+            <div
+              className="
+                w-11
+                h-11
+                md:w-12
+                md:h-12
+                bg-white
+                rounded-xl
+                flex
+                items-center
+                justify-center
+                flex-shrink-0
+                p-1.5
+                shadow-sm
+              "
+            >
+              <img
+                src={LOGO_URL}
+                alt="Vindhayavasini Construction Works logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <div className="min-w-0">
+
+              <h2
+                className="
+                  text-xs
+                  md:text-sm
+                  font-semibold
+                  tracking-wide
+                  truncate
+                "
+              >
+                VINDHAYAVASINI
+              </h2>
+
+              <p
+                className="
+                  text-[10px]
+                  md:text-xs
+                  text-gray-300
+                  tracking-wider
+                  truncate
+                "
+              >
+                CONSTRUCTION WORKS &middot; COMPANY PROFILE
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* ACTIONS */}
+
+          <div
+            className="
+              flex
+              items-center
+              gap-2
+              md:gap-3
+              flex-shrink-0
+            "
+          >
+
+            {/* OPEN */}
+
+            <a
+              href={BROCHURE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                flex
+                items-center
+                gap-2
+                text-[10px]
+                md:text-xs
+                border
+                border-white/25
+                rounded-md
+                px-2.5
+                md:px-3
+                py-2
+                hover:bg-white
+                hover:text-[#111827]
+                transition-colors
+              "
+              aria-label="Open brochure in new tab"
+            >
+              <ExternalLink size={14} />
+
+              <span className="hidden sm:inline">
+                OPEN
+              </span>
+            </a>
+
+            {/* DOWNLOAD */}
+
+            <a
+              href={BROCHURE_DOWNLOAD_URL}
+              download="Vindhayavasini-Construction-Company-Profile.pdf"
+              className="
+                flex
+                items-center
+                gap-2
+                text-[10px]
+                md:text-xs
+                border
+                border-white/25
+                rounded-md
+                px-2.5
+                md:px-3
+                py-2
+                hover:bg-white
+                hover:text-[#111827]
+                transition-colors
+              "
+              aria-label="Download brochure"
+            >
+              <Download size={14} />
+
+              <span className="hidden sm:inline">
+                DOWNLOAD
+              </span>
+            </a>
+
+            {/* CLOSE */}
+
+            <button
+              ref={brochureCloseButtonRef}
+              type="button"
+              onClick={closeBrochure}
+              className="
+                text-white
+                hover:text-[#c49a32]
+                transition-colors
+                p-1.5
+                rounded-md
+                hover:bg-white/10
+                focus-visible:ring-2
+                focus-visible:ring-[#c49a32]
+              "
+              aria-label="Close brochure"
+            >
+              <X size={22} />
+            </button>
+
+          </div>
+
+        </div>
+
+        {/* =================================================
+            PDF VIEWER
+        ================================================= */}
+
+        <div
+          className="
+            relative
+            flex-1
+            bg-[#3d4247]
+            min-h-0
+          "
+        >
+
+          {/* =================================================
+              MOBILE PREVIEW
+          ================================================= */}
+
+          {isMobile ? (
+
+            <div
+              className="
+                absolute
+                inset-0
+                flex
+                flex-col
+                items-center
+                justify-center
+                gap-5
+                bg-[#3d4247]
+                px-6
+                text-center
+              "
+            >
+
+              <div
+                className="
+                  w-20
+                  h-20
+                  rounded-2xl
+                  bg-white/10
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <FileText
+                  size={38}
+                  className="text-[#c49a32]"
+                  strokeWidth={1.5}
+                />
+              </div>
+
+              <div>
+
+                <p
+                  className="
+                    text-white
+                    text-sm
+                    font-medium
+                    mb-1
+                  "
+                >
+                  Vindhayavasini Construction
+                  <br />
+                  Company Profile
+                </p>
+
+                <p
+                  className="
+                    text-white/60
+                    text-xs
+                    leading-5
+                  "
+                >
+                  Inline preview isn't supported on
+                  this device. Open or download the
+                  brochure instead.
+                </p>
+
+              </div>
+
+              <div
+                className="
+                  flex
+                  flex-col
+                  sm:flex-row
+                  gap-3
+                  w-full
+                  max-w-xs
+                "
+              >
+
+                {/* OPEN */}
+
+                <a
+                  href={BROCHURE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    flex-1
+                    bg-[#c49a32]
+                    text-[#111827]
+                    px-5
+                    py-3
+                    text-xs
+                    font-semibold
+                    rounded-md
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                  "
+                >
+                  <ExternalLink size={14} />
+                  OPEN
+                </a>
+
+                {/* DOWNLOAD */}
+
+                <a
+                  href={BROCHURE_DOWNLOAD_URL}
+                  download="Vindhayavasini-Construction-Company-Profile.pdf"
+                  className="
+                    flex-1
+                    border
+                    border-white/30
+                    text-white
+                    px-5
+                    py-3
+                    text-xs
+                    font-semibold
+                    rounded-md
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                  "
+                >
+                  <Download size={14} />
+                  DOWNLOAD
+                </a>
+
+              </div>
+
+            </div>
+
+          ) : (
+
+            /* =================================================
+               DESKTOP PDF
+            ================================================= */
+
+            <>
+
+              {/* LOADING */}
+
+              {pdfLoading && !pdfError && (
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    gap-3
+                    bg-[#3d4247]
+                    z-10
+                  "
+                >
+                  <LoaderCircle
+                    size={34}
+                    className="
+                      text-[#c49a32]
+                      animate-spin
+                    "
+                  />
+
+                  <span
+                    className="
+                      text-white/70
+                      text-xs
+                      tracking-wide
+                    "
+                  >
+                    Loading brochure&hellip;
+                  </span>
+
+                </div>
+              )}
+
+              {/* ERROR */}
+
+              {pdfError && (
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    gap-4
+                    bg-[#3d4247]
+                    z-10
+                    px-6
+                    text-center
+                  "
+                >
+
+                  <AlertCircle
+                    size={40}
+                    className="text-[#c49a32]"
+                  />
+
+                  <p className="text-white text-sm">
+                    Unable to display the brochure here.
+                  </p>
+
+                  <a
+                    href={BROCHURE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                      bg-[#c49a32]
+                      text-[#111827]
+                      px-5
+                      py-3
+                      text-xs
+                      font-semibold
+                      rounded-md
+                    "
+                  >
+                    OPEN PDF DIRECTLY
+                  </a>
+
+                </div>
+              )}
+
+              {/* PDF */}
+
+              <iframe
+                src={`${BROCHURE_URL}#toolbar=1&navpanes=0&scrollbar=1`}
+                title="Vindhayavasini Construction Works Company Profile"
+                className="w-full h-full border-0"
+                onLoad={() => {
+                  setPdfLoading(false);
+                  setPdfError(false);
+                }}
+                onError={() => {
+                  setPdfLoading(false);
+                  setPdfError(true);
+                }}
+              />
+
+            </>
+
+          )}
+
+        </div>
+
+      </motion.div>
+
+    </motion.div>
+  )}
+</AnimatePresence>
     </div>
   );
 };

@@ -140,21 +140,20 @@ const ProjectHero = ({ projectSlug }) => {
 
           {/* BUTTON */}
           <button
-            className="group mt-7 border border-white bg-[#0F172A] hover:bg-[#C9A258] hover:border-[#C9A258] text-white px-6 py-3 flex items-center gap-2.5 transition-colors duration-300"
-            onClick={() => {
-              document
-                .getElementById("enquiry-section")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            <span className="text-[15px] font-semibold tracking-[1.5px] uppercase">
-              Enquire now
-            </span>
-            <Headphones
-              size={17}
-              className="text-[#C9A258] group-hover:text-white transition-colors duration-300"
-            />
-          </button>
+  className="group mt-7 border border-white bg-[#0F172A] hover:bg-[#C9A258] hover:border-[#C9A258] text-white px-6 py-3 flex items-center gap-2.5 transition-colors duration-300"
+  onClick={() => {
+    window.location.href = "tel:+919415664728";
+  }}
+>
+  <span className="text-[15px] font-semibold tracking-[1.5px] uppercase">
+    Enquire now
+  </span>
+
+  <Headphones
+    size={17}
+    className="text-[#C9A258] group-hover:text-white transition-colors duration-300"
+  />
+</button>
         </div>
       </div>
     </section>

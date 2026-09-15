@@ -85,10 +85,10 @@ const OurStory = () => {
 
           {/* Main Heading */}
           <h2 className="mx-auto max-w-3xl font-elsie text-[30px] font-light leading-[1.15] tracking-[-0.02em] text-[#151515] sm:text-[36px] md:text-[42px] lg:text-[55px]">
-  Building India's future,
-  <br />
-  one <span className="text-[#c49a3a]">landmark at a time.</span>
-</h2>
+            Building India's future,
+            <br />
+            one <span className="text-[#c49a3a]">landmark at a time.</span>
+          </h2>
 
           {/* Description */}
           <p className="mx-auto mt-4 max-w-3xl text-[15px] font-light leading-6 text-[#55708a] md:text-[15px] md:leading-7">
@@ -157,65 +157,43 @@ const OurStory = () => {
             {/* Buttons */}
             <div className="mt-13 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
-              {/* About Viraj */}
-              <button
+              {/* About Vindhayavasini */}
+              <a
+                href="/about"
                 className="
-                  group
-                  flex
-                  h-[50px]
-                  items-center
-                  justify-center
-                  gap-2
-                  bg-[#0d1629]
-                  px-5
-                  text-[12px]
-                  font-semibold
-                  tracking-wide
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:bg-[#c49a3a]
-                "
+    group
+    flex
+    h-[50px]
+    items-center
+    justify-center
+    gap-2
+    bg-[#0d1629]
+    px-5
+    text-[12px]
+    font-semibold
+    tracking-wide
+    text-white
+    transition-all
+    duration-300
+    hover:bg-[#c49a3a]
+  "
               >
                 <span>ABOUT VINDHAYAVASINI CONSTRUCTIONS</span>
 
                 <ArrowRight
                   size={15}
                   strokeWidth={1.5}
-                  className="text-[#c49a3a] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white"
+                  className="
+      text-[#c49a3a]
+      transition-transform
+      duration-300
+      group-hover:translate-x-1
+      group-hover:text-white
+    "
                 />
-              </button>
+              </a>
 
-              {/* About BBD */}
-              {/* <button
-                className="
-                  group
-                  flex
-                  h-[46px]
-                  items-center
-                  justify-center
-                  gap-2
-                  border
-                  border-[#172033]
-                  bg-transparent
-                  px-5
-                  text-[11.5px]
-                  font-semibold
-                  text-[#172033]
-                  transition-all
-                  duration-300
-                  hover:bg-[#0d1629]
-                  hover:text-white
-                "
-              >
-                <span>ABOUT BBD GROUP</span>
 
-                <ArrowRight
-                  size={15}
-                  strokeWidth={1.5}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button> */}
 
             </div>
           </div>
