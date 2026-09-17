@@ -31,9 +31,14 @@ export function AdminAuthProvider({ children }) {
   }, []);
 
   const login = useCallback(async (username, password) => {
-    await adminApi.login(username, password);
-    setIsAuthenticated(true);
-  }, []);
+  await adminApi.login(username, password);
+
+  if (!adminApi.getToken()) {
+    throw new Error("Login failed: authentication token was not saved.");
+  }
+
+  setIsAuthenticated(true);
+}, []);
 
   const logout = useCallback(() => {
     adminApi.logout();

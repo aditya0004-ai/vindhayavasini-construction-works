@@ -73,7 +73,7 @@ const login = async (req, res) => {
     ================================ */
 
     const expiresIn =
-      process.env.JWT_EXPIRES_IN || "90d";
+      process.env.JWT_EXPIRES_IN || "30d";
 
     const token = jwt.sign(
       {
