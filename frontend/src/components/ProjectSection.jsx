@@ -39,15 +39,15 @@ const projects = [
     ],
   },
   {
-    id: "subhalaya-1",
-    name: "SUBHALAAY I",
-    title: "Subhalaya I",
-    href: "/projects/citozen",
-    location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
+    id: "unitech",
+    name: "UNITECH UNIHOMES ",
+    title: "Unitech Unihomes Phase 4",
+    href: "/projects/unitech-unihomes-phase-4",
+    location: "Unitech Unihomes, 01 F1-704, Sector 117, Noida, Uttar Pradesh",
     description:
-      "Subhalaya I is a premium residential development offering 2 & 3 BHK apartments and 4 BHK penthouses in Citizen City, featuring a sophisticated lifestyle with modern amenities.",
+      "Unitech Unihomes Phase-4 is a modern residential development featuring contemporary towers, thoughtfully designed homes, landscaped surroundings, and comfortable community spaces for a convenient urban lifestyle.",
     image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=85",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789912814/vindhayavasini-construction/projects/tklkp7fsd1b1g2ybwll9.jpg",
     features: [
       { icon: Building2, value: "2 & 3 BHK", label: "Apartments" },
       { icon: Gem, value: "4 BHK", label: "Penthouses" },
@@ -55,15 +55,15 @@ const projects = [
     ],
   },
   {
-    id: "subhalaya-2",
-    name: "SUBHALAAY II",
-    title: "Subhalaya II",
-    href: "/projects/citozen",
-    location: "CITIZEN CITY, AYODHYA ROAD, LUCKNOW",
+    id: "commissioner-office",
+    name: "COMMISSIONER OFFICE",
+    title: "Commissioner Office",
+    href: "/projects/commissioner-office",
+    location: "Milk Waziuddinpur, Saharanpur, Uttar Pradesh",
     description:
-      "Subhalaya II Phase I offers contemporary residences designed around comfort, connectivity and modern urban living.",
+      "Commissioner Office, Saharanpur is a modern administrative facility featuring functional office spaces, contemporary architecture, organized infrastructure, and a professional environment supporting efficient governance and public services.",
     image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789916184/vindhayavasini-construction/projects/dor9qbpb9xufyu4ufuuc.jpg",
     features: [
       { icon: Building2, value: "Premium", label: "Residences" },
       { icon: TreePine, value: "Green", label: "Landscape" },
@@ -86,38 +86,38 @@ const projects = [
       { icon: ShieldCheck, value: "Safe", label: "Living" },
     ],
   },
-  {
-    id: "lotus-arcade",
-    name: "LOTUS ARCADE",
-    title: "Lotus Arcade",
-    href: "/projects/citozen",
-    location: "CITIZEN CITY, LUCKNOW",
-    description:
-      "Lotus Arcade brings commercial spaces and modern conveniences together in a strategically connected location.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
-    features: [
-      { icon: Building2, value: "Modern", label: "Commercial" },
-      { icon: TreePine, value: "Prime", label: "Location" },
-      { icon: ShieldCheck, value: "Secure", label: "Premises" },
-    ],
-  },
-  {
-    id: "lotus-enclave",
-    name: "LOTUS ENCLAVE",
-    title: "Lotus Enclave",
-    href: "/projects/citozen",
-    location: "CITIZEN CITY, LUCKNOW",
-    description:
-      "Lotus Enclave offers thoughtfully planned homes with a balance of contemporary architecture and peaceful surroundings.",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
-    features: [
-      { icon: Building2, value: "Premium", label: "Homes" },
-      { icon: TreePine, value: "Beautiful", label: "Landscape" },
-      { icon: ShieldCheck, value: "Secure", label: "Living" },
-    ],
-  },
+  // {
+  //   id: "lotus-arcade",
+  //   name: "LOTUS ARCADE",
+  //   title: "Lotus Arcade",
+  //   href: "/projects/citozen",
+  //   location: "CITIZEN CITY, LUCKNOW",
+  //   description:
+  //     "Lotus Arcade brings commercial spaces and modern conveniences together in a strategically connected location.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+  //   features: [
+  //     { icon: Building2, value: "Modern", label: "Commercial" },
+  //     { icon: TreePine, value: "Prime", label: "Location" },
+  //     { icon: ShieldCheck, value: "Secure", label: "Premises" },
+  //   ],
+  // },
+  // {
+  //   id: "lotus-enclave",
+  //   name: "LOTUS ENCLAVE",
+  //   title: "Lotus Enclave",
+  //   href: "/projects/citozen",
+  //   location: "CITIZEN CITY, LUCKNOW",
+  //   description:
+  //     "Lotus Enclave offers thoughtfully planned homes with a balance of contemporary architecture and peaceful surroundings.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
+  //   features: [
+  //     { icon: Building2, value: "Premium", label: "Homes" },
+  //     { icon: TreePine, value: "Beautiful", label: "Landscape" },
+  //     { icon: ShieldCheck, value: "Secure", label: "Living" },
+  //   ],
+  // },
 ];
 
 /* =========================================================

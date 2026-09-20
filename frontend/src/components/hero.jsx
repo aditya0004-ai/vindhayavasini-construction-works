@@ -18,10 +18,10 @@ const slides = [
 
   {
     image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2000&q=90",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789912814/vindhayavasini-construction/projects/tklkp7fsd1b1g2ybwll9.jpg",
 
-    title: "LOTUS ENCLAVE",
-    href: "/projects/citozen",
+    title: "UNITECH UNIHOMES PHASE 4",
+    href: "/projects/unitech-unihomes-phase-4",
 
     subtitle:
       "Homes that compliment you",
@@ -32,16 +32,16 @@ const slides = [
 
   {
     image:
-      "https://virajconstructions.com/assets/banners/lotus-enclave-desktop.webp",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789916184/vindhayavasini-construction/projects/dor9qbpb9xufyu4ufuuc.jpg",
 
-    title: "SUBHALAAY II (PHASE 1)",
-    href: "/projects/citozen",
+    title: "COMMISSIONER OFFICE",
+    href: "/projects/commissioner-office",
 
     subtitle:
-      "Desire incorporated in design A Step Closer to nature",
+      "A Modern Administrative Facility Designed for Efficient Governance and Public Service",
 
     description:
-      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in City.",
+      "Commissioner Office, Saharanpur is a modern administrative facility featuring functional office spaces, contemporary architecture, organized infrastructure, and a professional environment supporting efficient governance and public services.",
   },
 
   {
@@ -57,46 +57,46 @@ const slides = [
     description:
       "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
   },
-  {
-    image:
-      "https://virajconstructions.com/assets/banners/sunbreeze-1-desktop.webp",
+  // {
+  //   image:
+  //     "https://virajconstructions.com/assets/banners/sunbreeze-1-desktop.webp",
 
-    title: "LUXURY RESIDENCES",
-    href: "/projects/citozen",
+  //   title: "LUXURY RESIDENCES",
+  //   href: "/projects/citozen",
 
-    subtitle:
-      "Designed for modern living",
+  //   subtitle:
+  //     "Designed for modern living",
 
-    description:
-      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
-  },
+  //   description:
+  //     "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+  // },
 
-  {
-    image:
-      "https://virajconstructions.com/assets/banners/lotus-court-desktop.webp",
+  // {
+  //   image:
+  //     "https://virajconstructions.com/assets/banners/lotus-court-desktop.webp",
 
-    title: "LUXURY RESIDENCES",
+  //   title: "LUXURY RESIDENCES",
 
-    subtitle:
-      "Designed for modern living",
-    href: "/projects/citozen",
+  //   subtitle:
+  //     "Designed for modern living",
+  //   href: "/projects/citozen",
 
-    description:
-      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
+  //   description:
+  //     "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+  // },
+  // {
+  //   image:
+  //     "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
 
-    title: "YOUR DREAM HOME",
-    href: "/projects/citozen",
+  //   title: "YOUR DREAM HOME",
+  //   href: "/projects/citozen",
 
-    subtitle:
-      "A lifestyle beyond expectations",
+  //   subtitle:
+  //     "A lifestyle beyond expectations",
 
-    description:
-      "Beautiful residences crafted with premium spaces, peaceful surroundings and exceptional attention to detail.",
-  },
+  //   description:
+  //     "Beautiful residences crafted with premium spaces, peaceful surroundings and exceptional attention to detail.",
+  // },
 ];
 
 const Hero = () => {
