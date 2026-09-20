@@ -23,19 +23,19 @@ import {
 
 const projects = [
   {
-    id: "citizen-city",
-    name: "CITIZEN CITY",
-    title: "Citizen City",
-    href: "/projects/citozen",
-    location: "NEW GOMTI NAGAR, AYODHYA ROAD, LUCKNOW",
+    id: "police-line-development-project",
+    name: "POLICE LINE ",
+    title: "Police Line Development Project",
+    href: "/projects/police-line-development-project",
+    location: "POLICE LINE, AMETHI, UTTAR PRADESH",
     description:
-      "Citizen City is a 318-acre integrated township in New Gomti Nagar, Lucknow, bringing together premium residences, commercial hubs, green spaces and modern infrastructure.",
+      "Modern police infrastructure developed with quality construction, thoughtful planning, secure facilities, and durable structures to support residential, administrative, and operational requirements.",
     image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789905368/vindhayavasini-construction/projects/x9o4z5wbuyxim7jawpij.jpg",
     features: [
-      { icon: Building2, value: "318 Acres", label: "Township" },
-      { icon: TreePine, value: "100 Acres", label: "Greenery" },
-      { icon: ShieldCheck, value: "5 Km from High", label: "Court" },
+      { icon: Building2, value: "80 Acres", label: "Township" },
+      { icon: TreePine, value: "35 Acres", label: "Greenery" },
+      { icon: ShieldCheck, value: "14 Km from High", label: "Court" },
     ],
   },
   {

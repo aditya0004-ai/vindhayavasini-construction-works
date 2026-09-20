@@ -4,16 +4,16 @@ import { ArrowRight } from "lucide-react";
 const slides = [
   {
     image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=90",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789905368/vindhayavasini-construction/projects/x9o4z5wbuyxim7jawpij.jpg",
 
-    title: "SUBHALAAY II (PHASE 1)",
-    href: "/projects/citozen",
+    title: "POLICE LINE DEVELOPMENT PROJECT",
+    href: "/projects/police-line-development-project",
 
     subtitle:
-      "Desire incorporated in design A Step Closer to nature",
+      "Building a Secure and Modern Future for Our Police Force",
 
     description:
-      "Find your perfect balance of nature & luxury with premium 2 & 3 BHK apartments in Lucknow City.",
+      "Modern police infrastructure developed with quality construction, thoughtful planning, secure facilities, and durable structures to support residential, administrative, and operational requirements."
   },
 
   {

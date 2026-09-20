@@ -113,9 +113,13 @@ const ProjectHero = ({ projectSlug }) => {
           )}
 
           {/* OVERVIEW */}
-          {project.subHeading && (
+          {project.overview && (
             <p className="mt-3 text-white text-[15px] md:text-[16px] leading-[1.65] max-w-[480px] line-clamp-2 font-semibold">
-              {project.subHeading}
+              {project.overview
+                .split(/\s+/)
+                .slice(0, 15)
+                .join(" ")}
+              {project.overview.split(/\s+/).length > 50 ? "..." : ""}
             </p>
           )}
 

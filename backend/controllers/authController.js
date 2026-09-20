@@ -56,13 +56,7 @@ const login = async (req, res) => {
           process.env.ADMIN_PASSWORD_HASH
         )
       : false;
-      console.log("ADMIN LOGIN DEBUG:", {
-  receivedUsername: username,
-  expectedUsername: process.env.ADMIN_USERNAME,
-  usernameMatch: username === process.env.ADMIN_USERNAME,
-  passwordMatch: passwordMatches,
-  hasPasswordHash: !!process.env.ADMIN_PASSWORD_HASH,
-});
+      
 
     /* ================================
        INVALID LOGIN
