@@ -49,7 +49,7 @@ const OurStory = () => {
     },
     {
       icon: MapPin,
-      number: "7",
+      number: "35+",
       text: "Total Projects",
     },
     {

@@ -77,6 +77,26 @@ AlertCircle,
   Fence,
   Layers,
   BrickWall,
+  Factory,
+  HardHat,
+  Ruler,
+  DraftingCompass,
+  Wrench,
+  Gavel,
+  Library,
+  BriefcaseBusiness,
+  BadgeCheck,
+  FileCheck,
+  HousePlus,
+  BedDouble,
+  KeyRound,
+  Sprout,
+  Truck,
+  ParkingSquare,
+  LockKeyhole,
+  Stethoscope,
+  CalendarCheck,
+  Users,
 } from "lucide-react";
 
 /* =========================================================
@@ -815,6 +835,218 @@ const closeBrochure = () => {
       text.includes("multi level")
     ) {
       return Layers;
+    }
+
+
+    /* =====================================================
+       GOVERNMENT / ADMINISTRATIVE
+    ===================================================== */
+
+    if (
+      text.includes("commissioner") ||
+      text.includes("commissioner's office") ||
+      text.includes("commissioner office") ||
+      text.includes("administrative") ||
+      text.includes("administration") ||
+      text.includes("government office") ||
+      text.includes("government facility")
+    ) {
+      return Landmark;
+    }
+
+    if (
+      text.includes("public service") ||
+      text.includes("public services") ||
+      text.includes("public interface")
+    ) {
+      return Users;
+    }
+
+    if (
+      text.includes("official workspace") ||
+      text.includes("official workspaces") ||
+      text.includes("office space") ||
+      text.includes("departmental")
+    ) {
+      return BriefcaseBusiness;
+    }
+
+    if (
+      text.includes("court") ||
+      text.includes("judicial") ||
+      text.includes("legal")
+    ) {
+      return Gavel;
+    }
+
+    if (
+      text.includes("government") ||
+      text.includes("institutional")
+    ) {
+      return Building2;
+    }
+
+
+    /* =====================================================
+       CONSTRUCTION / PROJECT EXECUTION
+    ===================================================== */
+
+    if (
+      text.includes("factory") ||
+      text.includes("industrial")
+    ) {
+      return Factory;
+    }
+
+    if (
+      text.includes("hard hat") ||
+      text.includes("worksite") ||
+      text.includes("site safety")
+    ) {
+      return HardHat;
+    }
+
+    if (
+      text.includes("measurement") ||
+      text.includes("measured") ||
+      text.includes("dimension")
+    ) {
+      return Ruler;
+    }
+
+    if (
+      text.includes("architectural") ||
+      text.includes("architect") ||
+      text.includes("planning and design")
+    ) {
+      return DraftingCompass;
+    }
+
+    if (
+      text.includes("repair") ||
+      text.includes("maintenance") ||
+      text.includes("workshop")
+    ) {
+      return Wrench;
+    }
+
+    if (
+      text.includes("quality certified") ||
+      text.includes("quality assurance") ||
+      text.includes("quality check")
+    ) {
+      return BadgeCheck;
+    }
+
+    if (
+      text.includes("documented") ||
+      text.includes("documentation") ||
+      text.includes("filed")
+    ) {
+      return FileCheck;
+    }
+
+
+    /* =====================================================
+       RESIDENTIAL
+    ===================================================== */
+
+    if (
+      text.includes("residential complex") ||
+      text.includes("housing") ||
+      text.includes("residential development")
+    ) {
+      return HousePlus;
+    }
+
+    if (
+      text.includes("bedroom") ||
+      text.includes("bedrooms")
+    ) {
+      return BedDouble;
+    }
+
+    if (
+      text.includes("key handover") ||
+      text.includes("possession") ||
+      text.includes("ready to move")
+    ) {
+      return KeyRound;
+    }
+
+
+    /* =====================================================
+       LANDSCAPING / GREEN FEATURES
+    ===================================================== */
+
+    if (
+      text.includes("plantation") ||
+      text.includes("planting") ||
+      text.includes("green spaces") ||
+      text.includes("green space")
+    ) {
+      return Sprout;
+    }
+
+
+    /* =====================================================
+       TRANSPORT / PARKING
+    ===================================================== */
+
+    if (
+      text.includes("truck") ||
+      text.includes("loading bay") ||
+      text.includes("loading area")
+    ) {
+      return Truck;
+    }
+
+    if (
+      text.includes("parking area") ||
+      text.includes("parking facility") ||
+      text.includes("parking spaces")
+    ) {
+      return ParkingSquare;
+    }
+
+
+    /* =====================================================
+       ACCESS / SECURITY
+    ===================================================== */
+
+    if (
+      text.includes("access control") ||
+      text.includes("controlled access") ||
+      text.includes("restricted access")
+    ) {
+      return LockKeyhole;
+    }
+
+
+    /* =====================================================
+       HEALTHCARE
+    ===================================================== */
+
+    if (
+      text.includes("doctor") ||
+      text.includes("clinic") ||
+      text.includes("medical care")
+    ) {
+      return Stethoscope;
+    }
+
+
+    /* =====================================================
+       PROJECT STATUS / TIMELINE
+    ===================================================== */
+
+    if (
+      text.includes("completion") ||
+      text.includes("completed") ||
+      text.includes("scheduled") ||
+      text.includes("timeline")
+    ) {
+      return CalendarCheck;
     }
 
 

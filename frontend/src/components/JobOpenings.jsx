@@ -127,7 +127,7 @@ const JobOpenings = () => {
                   <div className="flex shrink-0 gap-3">
 
                     <a
-                      href={`mailto:hr@yourcompany.com?subject=Application for ${job.title}`}
+                      href={`mailto:ravimum82@gmail.com?subject=Application for ${job.title}`}
                       className="flex items-center justify-center gap-2 bg-[#182235] px-6 py-3 text-xs font-semibold tracking-[1.5px] text-white transition hover:bg-[#a88635]"
                     >
                       <Send size={15} className="text-[#c9a54b]" />

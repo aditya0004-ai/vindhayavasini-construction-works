@@ -88,25 +88,27 @@ const BuildCTA = () => {
         </p>
 
         {/* Button */}
-        <button
-          className="
-            mt-2
-            bg-[#c9a258]
-            px-6
-            py-2.5
-            text-[11px]
-            font-medium
-            uppercase
-            tracking-[2.5px]
-            text-[#111820]
-            transition-all
-            duration-300
-            hover:bg-[#d7b66c]
-            hover:-translate-y-0.5
-          "
-        >
-          Schedule a Visit
-        </button>
+      <a
+  href="tel:+919415664728"
+  className="
+    inline-block
+    mt-2
+    bg-[#c9a258]
+    px-6
+    py-2.5
+    text-[11px]
+    font-medium
+    uppercase
+    tracking-[2.5px]
+    text-[#111820]
+    transition-all
+    duration-300
+    hover:bg-[#d7b66c]
+    hover:-translate-y-0.5
+  "
+>
+  Schedule a Visit
+</a>
       </div>
     </section>
   );

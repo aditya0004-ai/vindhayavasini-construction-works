@@ -20,24 +20,20 @@ const Footer = () => {
 
   const developmentLinks = [
     {
-      name: "Omaxe City",
-      href: "/projects/omaxe-city",
+      name: "Police Line",
+      href: "/projects/police-line-development-project",
     },
     {
-      name: "Subhalaya II (Phase I)",
-      href: "/projects/subhalaya-2-phase-1",
+      name: "Unitech Unihomes (Phase IV)",
+      href: "/projects/sunitech-unihomes-phase-4",
     },
     {
-      name: "Subhalaya II (Phase II)",
-      href: "/projects/subhalaya-2-phase-2",
+      name: "Commissioner Office",
+      href: "/projects/commissioner-office",
     },
     {
-      name: "Lotus Court",
-      href: "/projects/lotus-court",
-    },
-    {
-      name: "Lotus Arcade",
-      href: "/projects/lotus-arcade",
+      name: "District Court",
+      href: "/projects/district-court",
     },
   ];
 

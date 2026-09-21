@@ -7,9 +7,7 @@ const GlobalPresence = () => {
       label: "CORPORATE OFFICE",
       title: "Headquarters",
       details: [
-        "CITIZEN Towers, Vibhuti Khand",
-        "Gomti Nagar, Lucknow - 226010",
-        "Uttar Pradesh, India",
+        " Chhatnag Rd, Narayan Das ka Pura, Jhusi, Prayagraj 211019",
       ],
     },
     {
@@ -17,8 +15,8 @@ const GlobalPresence = () => {
       label: "NEW ENQUIRIES",
       title: "Sales",
       details: [
-        "+91 9696333555",
-        "saleshead@vindhayavasiniconstructions.co.in",
+        "+91 9918926704",
+        "vindhayavasiniconstruction@gmail.com",
       ],
     },
     {
@@ -26,8 +24,8 @@ const GlobalPresence = () => {
       label: "CUSTOMER CARE",
       title: "Support",
       details: [
-        "+91 9696333555",
-        "saleshead@vindhayavasiniconstructions.co.in",
+        "+91 9415664728",
+        "ravimum82@gmail.com",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },
@@ -36,7 +34,7 @@ const GlobalPresence = () => {
       label: "HR DEPARTMENT",
       title: "Careers",
       details: [
-        "hr@vindhayavasiniconstructions.co.in",
+        "ravimum82@gmail.com",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },

@@ -15,6 +15,8 @@ import {
   LoaderCircle,
   AlertCircle,
   FileText,
+  Scale,
+  Users,
 } from "lucide-react";
 
 /* =========================================================
@@ -29,7 +31,7 @@ const projects = [
     href: "/projects/police-line-development-project",
     location: "POLICE LINE, AMETHI, UTTAR PRADESH",
     description:
-      "Modern police infrastructure developed with quality construction, thoughtful planning, secure facilities, and durable structures to support residential, administrative, and operational requirements.",
+      "Secure police infrastructure with residential, administrative, and operational facilities, developed for efficient service and long-term use.",
     image:
       "https://res.cloudinary.com/wcimdxco/image/upload/v1789905368/vindhayavasini-construction/projects/x9o4z5wbuyxim7jawpij.jpg",
     features: [
@@ -45,7 +47,7 @@ const projects = [
     href: "/projects/unitech-unihomes-phase-4",
     location: "Unitech Unihomes, 01 F1-704, Sector 117, Noida, Uttar Pradesh",
     description:
-      "Unitech Unihomes Phase-4 is a modern residential development featuring contemporary towers, thoughtfully designed homes, landscaped surroundings, and comfortable community spaces for a convenient urban lifestyle.",
+      "Thoughtfully planned residences with comfortable homes, landscaped surroundings, and well-designed community spaces for everyday living.",
     image:
       "https://res.cloudinary.com/wcimdxco/image/upload/v1789912814/vindhayavasini-construction/projects/tklkp7fsd1b1g2ybwll9.jpg",
     features: [
@@ -61,63 +63,33 @@ const projects = [
     href: "/projects/commissioner-office",
     location: "Milk Waziuddinpur, Saharanpur, Uttar Pradesh",
     description:
-      "Commissioner Office, Saharanpur is a modern administrative facility featuring functional office spaces, contemporary architecture, organized infrastructure, and a professional environment supporting efficient governance and public services.",
+      "A well-planned administrative facility featuring functional spaces, efficient planning, and a professional environment for public service and governance.",
     image:
       "https://res.cloudinary.com/wcimdxco/image/upload/v1789916184/vindhayavasini-construction/projects/dor9qbpb9xufyu4ufuuc.jpg",
     features: [
-      { icon: Building2, value: "Premium", label: "Residences" },
-      { icon: TreePine, value: "Green", label: "Landscape" },
-      { icon: ShieldCheck, value: "Secure", label: "Community" },
+     { icon: Building2, value: "Modern", label: "Administration" },
+
+{ icon: Users, value: "Public", label: "Services" },
+
+{ icon: ShieldCheck, value: "Secure", label: "Facility" },
     ],
   },
   {
-    id: "lotus-court",
-    name: "LOTUS COURT",
-    title: "Lotus Court",
-    href: "/projects/citozen",
-    location: "CITIZEN CITY, LUCKNOW",
+    id: "district-court",
+    name: "DISTRICT COURT",
+    title: "District Court",
+    href: "/projects/district-court",
+    location: "Vx85+3f4, Kasia - Padrauna Rd, Rabindra Nagar Dhoos, Kushinagar, Uttar Pradesh",
     description:
-      "Lotus Court is designed as an elegant residential destination combining spacious homes, greenery and thoughtfully planned surroundings.",
+      "A modern district court facility designed with dedicated courtrooms, administrative spaces, and efficient infrastructure for judicial services.",
     image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789964827/vindhayavasini-construction/projects/zmkszjzmbufesffc7xy2.jpg",
     features: [
-      { icon: Building2, value: "Premium", label: "Homes" },
-      { icon: TreePine, value: "Green", label: "Spaces" },
-      { icon: ShieldCheck, value: "Safe", label: "Living" },
+     { icon: Building2, value: "Modern", label: "Courtrooms" },
+{ icon: Scale, value: "Efficient", label: "Justice" },
+{ icon: ShieldCheck, value: "Secure", label: "Premises" },
     ],
   },
-  // {
-  //   id: "lotus-arcade",
-  //   name: "LOTUS ARCADE",
-  //   title: "Lotus Arcade",
-  //   href: "/projects/citozen",
-  //   location: "CITIZEN CITY, LUCKNOW",
-  //   description:
-  //     "Lotus Arcade brings commercial spaces and modern conveniences together in a strategically connected location.",
-  //   image:
-  //     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
-  //   features: [
-  //     { icon: Building2, value: "Modern", label: "Commercial" },
-  //     { icon: TreePine, value: "Prime", label: "Location" },
-  //     { icon: ShieldCheck, value: "Secure", label: "Premises" },
-  //   ],
-  // },
-  // {
-  //   id: "lotus-enclave",
-  //   name: "LOTUS ENCLAVE",
-  //   title: "Lotus Enclave",
-  //   href: "/projects/citozen",
-  //   location: "CITIZEN CITY, LUCKNOW",
-  //   description:
-  //     "Lotus Enclave offers thoughtfully planned homes with a balance of contemporary architecture and peaceful surroundings.",
-  //   image:
-  //     "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85",
-  //   features: [
-  //     { icon: Building2, value: "Premium", label: "Homes" },
-  //     { icon: TreePine, value: "Beautiful", label: "Landscape" },
-  //     { icon: ShieldCheck, value: "Secure", label: "Living" },
-  //   ],
-  // },
 ];
 
 /* =========================================================

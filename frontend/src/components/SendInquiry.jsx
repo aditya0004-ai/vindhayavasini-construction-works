@@ -89,7 +89,7 @@ const SendInquiry = () => {
 
             {/* Image */}
             <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvM96Jb8iLHr6ASGngmChENEb3YEnfFA1J10yAD05cvA&s=10"
               alt="Luxury Architecture"
               className="relative z-10 h-[400px] w-[430px] object-cover opacity-90 grayscale"
             />

@@ -13,7 +13,7 @@ const slides = [
       "Building a Secure and Modern Future for Our Police Force",
 
     description:
-      "Modern police infrastructure developed with quality construction, thoughtful planning, secure facilities, and durable structures to support residential, administrative, and operational requirements."
+      "Secure police infrastructure with residential, administrative, and operational facilities, developed for efficient service and long-term use."
   },
 
   {
@@ -27,7 +27,7 @@ const slides = [
       "Homes that compliment you",
 
     description:
-      "Premium 2 & 3 BHK villas in  Green City designed for comfort, greenery & exclusivity.",
+      "Thoughtfully planned residences with comfortable homes, landscaped surroundings, and well-designed community spaces for everyday living.",
   },
 
   {
@@ -41,62 +41,23 @@ const slides = [
       "A Modern Administrative Facility Designed for Efficient Governance and Public Service",
 
     description:
-      "Commissioner Office, Saharanpur is a modern administrative facility featuring functional office spaces, contemporary architecture, organized infrastructure, and a professional environment supporting efficient governance and public services.",
+      "A well-planned administrative facility featuring functional spaces, efficient planning, and a professional environment for public service and governance.",
   },
 
   {
     image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=2000&q=90",
+      "https://res.cloudinary.com/wcimdxco/image/upload/v1789964827/vindhayavasini-construction/projects/zmkszjzmbufesffc7xy2.jpg",
 
-    title: "LUXURY RESIDENCES",
-    href: "/projects/citozen",
+    title: "DISTRICT COURT",
+    href: "/projects/district-court",
 
     subtitle:
-      "Designed for modern living",
+      "Modern Judicial Infrastructure for Efficient and Accessible Justice",
 
     description:
-      "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
+      "A modern district court facility designed with dedicated courtrooms, administrative spaces, and efficient infrastructure for judicial services.",
   },
-  // {
-  //   image:
-  //     "https://virajconstructions.com/assets/banners/sunbreeze-1-desktop.webp",
-
-  //   title: "LUXURY RESIDENCES",
-  //   href: "/projects/citozen",
-
-  //   subtitle:
-  //     "Designed for modern living",
-
-  //   description:
-  //     "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
-  // },
-
-  // {
-  //   image:
-  //     "https://virajconstructions.com/assets/banners/lotus-court-desktop.webp",
-
-  //   title: "LUXURY RESIDENCES",
-
-  //   subtitle:
-  //     "Designed for modern living",
-  //   href: "/projects/citozen",
-
-  //   description:
-  //     "Experience thoughtfully designed homes combining elegant architecture, comfort and modern amenities.",
-  // },
-  // {
-  //   image:
-  //     "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=90",
-
-  //   title: "YOUR DREAM HOME",
-  //   href: "/projects/citozen",
-
-  //   subtitle:
-  //     "A lifestyle beyond expectations",
-
-  //   description:
-  //     "Beautiful residences crafted with premium spaces, peaceful surroundings and exceptional attention to detail.",
-  // },
+ 
 ];
 
 const Hero = () => {
