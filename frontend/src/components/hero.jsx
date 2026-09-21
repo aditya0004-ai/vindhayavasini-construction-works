@@ -6,7 +6,7 @@ const slides = [
     image:
       "https://res.cloudinary.com/wcimdxco/image/upload/v1789905368/vindhayavasini-construction/projects/x9o4z5wbuyxim7jawpij.jpg",
 
-    title: "POLICE LINE DEVELOPMENT PROJECT",
+    title: "POLICE LINE DEVELOPMENT",
     href: "/projects/police-line-development-project",
 
     subtitle:

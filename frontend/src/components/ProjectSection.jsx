@@ -27,9 +27,9 @@ const projects = [
   {
     id: "police-line-development-project",
     name: "POLICE LINE ",
-    title: "Police Line Development Project",
+    title: "Police Line Development",
     href: "/projects/police-line-development-project",
-    location: "POLICE LINE, AMETHI, UTTAR PRADESH",
+    location: "Police Line, Gauriganj, Amethi, Uttar Pradesh",
     description:
       "Secure police infrastructure with residential, administrative, and operational facilities, developed for efficient service and long-term use.",
     image:
