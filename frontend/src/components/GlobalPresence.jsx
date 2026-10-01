@@ -5,36 +5,36 @@ const GlobalPresence = () => {
     {
       number: "01",
       label: "CORPORATE OFFICE",
-      title: "Headquarters",
+      title: "Office",
       details: [
-        " Chhatnag Rd, Narayan Das ka Pura, Jhusi, Prayagraj 211019",
+        "Arazi 37 MI, Sarai Taki, Dr Preeti Hospital and Maternity Center, Jhunsi, Prayagraj, Uttar Pradesh, 211019",
       ],
     },
+    // {
+    //   number: "02",
+    //   label: "NEW ENQUIRIES",
+    //   title: "Team",
+    //   details: [
+    //     "",
+    //     "vindhyavasiniconstructionworks@gmail.com",
+    //   ],
+    // },
     {
       number: "02",
-      label: "NEW ENQUIRIES",
-      title: "Sales",
-      details: [
-        "+91 9918926704",
-        "vindhayavasiniconstruction@gmail.com",
-      ],
-    },
-    {
-      number: "03",
       label: "CUSTOMER CARE",
       title: "Support",
       details: [
-        "+91 9415664728",
-        "ravimum82@gmail.com",
+        "",
+        "vindhyavasiniconstructionworks@gmail.com",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },
     {
-      number: "04",
+      number: "03",
       label: "HR DEPARTMENT",
       title: "Careers",
       details: [
-        "ravimum82@gmail.com",
+        "vindhyavasiniconstructionworks@gmail.com",
         "Mon - Sat: 9:30 AM - 6:30 PM",
       ],
     },

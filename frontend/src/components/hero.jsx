@@ -18,7 +18,7 @@ const slides = [
 
   {
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789912814/vindhayavasini-construction/projects/tklkp7fsd1b1g2ybwll9.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881835/Urban_Excavation_with_TATA_Hitachi_Excavator_zkpxzo.png",
 
     title: "UNITECH UNIHOMES PHASE 4",
     href: "/projects/unitech-unihomes-phase-4",
@@ -32,7 +32,7 @@ const slides = [
 
   {
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789916184/vindhayavasini-construction/projects/dor9qbpb9xufyu4ufuuc.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881821/Foundation_Footings_Under_Inspection_zfen7b.png",
 
     title: "COMMISSIONER OFFICE",
     href: "/projects/commissioner-office",
@@ -46,7 +46,7 @@ const slides = [
 
   {
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789964827/vindhayavasini-construction/projects/zmkszjzmbufesffc7xy2.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881974/Construction_Crew_at_a_Concrete_Jobsite_lpekmo.png",
 
     title: "DISTRICT COURT",
     href: "/projects/district-court",

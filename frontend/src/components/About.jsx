@@ -69,7 +69,7 @@ const About = () => {
               <span className="text-[#d6a85f]">Building Trust.</span>
             </h1>
             <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl">
-              Vindhayavasini Construction is committed to creating exceptional
+              Vindhayavasini Construction work is committed to creating exceptional
               residential and commercial spaces where quality, innovation and
               trust come together.
             </p>
@@ -119,9 +119,9 @@ const About = () => {
             </h2>
             <div className="w-12 h-[2px] bg-[#d6a85f] mb-4" />
             <p className="text-gray-600 text-sm leading-relaxed mb-3">
-              At Vindhayavasini Construction, we believe that a building is
+              At Vindhayavasini Construction work, we believe that a building is
               more than just bricks and concrete. It is a space where dreams
-              take shape, families grow, and businesses thrive.
+              take shape, Country grow, and businesses thrive.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               With a strong commitment to quality, transparency and modern
@@ -177,7 +177,7 @@ const About = () => {
               <div className="absolute inset-0 bg-[#d6a85f]/10 blur-3xl scale-90 rounded-full" />
 
               <img
-                src="https://png.pngtree.com/png-vector/20230925/ourlarge/pngtree-businessman-with-arms-folded-shirt-png-image_10034183.png"
+                src="https://res.cloudinary.com/drghcxact/image/upload/v1790883465/WhatsApp_Image_2026-09-19_at_11.42.50_PM_lwet1n.jpg"
                 alt="Ravi Dubey, Chairman of Vindhayavasini Constructions"
                 className="
                   relative
@@ -274,11 +274,11 @@ const About = () => {
                 mb-6
               "
             >
-              At Vindhayavasini Construction, we believe that every structure is more
+              At Vindhayavasini Construction work, we believe that every structure is more
               than concrete and steel—it is the foundation of someone's future. Our
               journey is driven by a commitment to thoughtful design, reliable
               construction, and spaces that bring lasting value to the people who call
-              them home.
+              them Home / Office.
             </p>
 
             {/* Divider */}
@@ -306,7 +306,7 @@ const About = () => {
                     whitespace-nowrap
                   "
                 >
-                  Ravi Dubey
+                  Ravi Shankar Dubey
                 </h3>
               </div>
 
@@ -314,7 +314,7 @@ const About = () => {
 
               <div className="md:text-right">
                 <p className="text-[#263243] text-sm font-medium mb-1">
-                  Mr. Ravi Dubey
+                  Mr. Ravi Shankar Dubey
                 </p>
 
                 <p
@@ -436,7 +436,7 @@ const About = () => {
           <h2 className="font-elsie text-xl md:text-3xl leading-tight mb-4">
             We Don't Just Build Structures.
             <br />
-            We Build Your Future.
+            We Build Countries Future.
           </h2>
           <p className="text-white/80 max-w-xl mx-auto leading-relaxed text-sm">
             Our commitment is to transform your vision into spaces that stand
@@ -456,7 +456,7 @@ const About = () => {
           </h2>
           <p className="text-gray-400 max-w-lg mx-auto mb-6 text-sm">
             Let's create something exceptional together. Explore our projects
-            and discover the spaces built by Vindhayavasini Construction.
+            and discover the spaces built by Vindhayavasini Construction work.
           </p>
           <button
             onClick={() => navigate("/projects")}

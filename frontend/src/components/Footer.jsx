@@ -99,29 +99,10 @@ const Footer = () => {
                   />
 
                   <p className="text-[13px] leading-6 uppercase tracking-[0.4px] text-white/80">
-                    Chhatnag Rd, Narayan Das ka Pura,
+                    Arazi 37 MI, Sarai Taki, Dr Preeti Hospital and Maternity Center,
                     <br />
-                    Jhusi, Prayagraj 211019
+                    Jhusi, Prayagraj, 211019
                   </p>
-
-                </div>
-
-
-                {/* Phone */}
-
-                <div className="flex items-center gap-4 p-5 border-b border-white/10">
-
-                  <Phone
-                    size={19}
-                    className="text-[#c49a32] shrink-0"
-                  />
-
-                  <a
-                    href="tel:+919415664728"
-                    className="text-[14px] text-white/85 hover:text-[#c49a32] transition-colors duration-300"
-                  >
-                    +91 9415664728
-                  </a>
 
                 </div>
 
@@ -136,10 +117,10 @@ const Footer = () => {
                   />
 
                   <a
-                    href="mailto:ravimum82@gmail.com"
+                    href="mailto:vindhyavasiniconstructionworks@gmail.com"
                     className="text-[13px] font-medium break-all text-white/85 hover:text-[#c49a32] transition-colors duration-300"
                   >
-                    ravimum82@gmail.com
+                    vindhyavasiniconstructionworks@gmail.com
                   </a>
 
                 </div>
@@ -386,42 +367,13 @@ const Footer = () => {
 
             <p className="text-[13px] sm:text-[14px] font-semibold tracking-[0.8px] text-white/90">
 
-              © 2026 VINDHAYAVASINI CONSTRUCTIONS PVT. LTD.
+              © 2026 VINDHAYAVASINI CONSTRUCTION WORK.
 
             </p>
 
             <p className="mt-3 text-[11px] sm:text-[12px] tracking-[2px] text-[#c49a32]">
 
               BUILT WITH PRECISION. DELIVERED WITH EXCELLENCE.
-
-            </p>
-
-          </div>
-
-
-          {/* Certificates */}
-
-          <div className="flex flex-col lg:items-end gap-3">
-
-            <div className="flex flex-wrap gap-2">
-
-              <span className="border border-white/15 bg-white/[0.04] px-4 py-2 text-[11px] text-white/70">
-
-                RERA: UPREAPR11196
-
-              </span>
-
-              <span className="border border-white/15 bg-white/[0.04] px-4 py-2 text-[11px] text-white/70">
-
-                CIN: U45201UP2005PTC030895
-
-              </span>
-
-            </div>
-
-            <p className="text-[11px] tracking-[1px] text-white/50">
-
-              ISO 9001:2015 | ISO 14001:2015 | ISO 45001:2018 CERTIFIED
 
             </p>
 

@@ -49,7 +49,7 @@ const projects = [
     description:
       "Thoughtfully planned residences with comfortable homes, landscaped surroundings, and well-designed community spaces for everyday living.",
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789912814/vindhayavasini-construction/projects/tklkp7fsd1b1g2ybwll9.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881835/Urban_Excavation_with_TATA_Hitachi_Excavator_zkpxzo.png",
     features: [
       { icon: Building2, value: "2 & 3 BHK", label: "Apartments" },
       { icon: Gem, value: "4 BHK", label: "Penthouses" },
@@ -65,7 +65,7 @@ const projects = [
     description:
       "A well-planned administrative facility featuring functional spaces, efficient planning, and a professional environment for public service and governance.",
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789916184/vindhayavasini-construction/projects/dor9qbpb9xufyu4ufuuc.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881821/Foundation_Footings_Under_Inspection_zfen7b.png",
     features: [
      { icon: Building2, value: "Modern", label: "Administration" },
 
@@ -83,7 +83,7 @@ const projects = [
     description:
       "A modern district court facility designed with dedicated courtrooms, administrative spaces, and efficient infrastructure for judicial services.",
     image:
-      "https://res.cloudinary.com/wcimdxco/image/upload/v1789964827/vindhayavasini-construction/projects/zmkszjzmbufesffc7xy2.jpg",
+      "https://res.cloudinary.com/drghcxact/image/upload/v1790881974/Construction_Crew_at_a_Concrete_Jobsite_lpekmo.png",
     features: [
      { icon: Building2, value: "Modern", label: "Courtrooms" },
 { icon: Scale, value: "Efficient", label: "Justice" },

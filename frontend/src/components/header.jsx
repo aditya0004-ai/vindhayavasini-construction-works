@@ -216,7 +216,7 @@ const Header = () => {
             {/* MAIL */}
 
             <a
-              href="mailto:info@example.com"
+              href="mailto:vindhyavasiniconstructionworks@gmail.com"
               className="
                 hidden
                 lg:flex
@@ -359,7 +359,7 @@ const Header = () => {
 
           {/* ABOUT US LABEL */}
 
-           <Link
+           {/* <Link
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -372,9 +372,9 @@ const Header = () => {
             "
           >
             About Us
-          </Link>
+          </Link> */}
 
-          {/* <div
+          <div
             className="
               text-[11px]
               tracking-[2px]
@@ -384,12 +384,12 @@ const Header = () => {
             "
           >
             ABOUT US
-          </div> */}
+          </div>
 
 
-          {/* ABOUT VIRAJ */}
+          {/* ABOUT VINDHAYAVASINI */}
 
-          {/* <Link
+          <Link
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -402,12 +402,12 @@ const Header = () => {
             "
           >
             About Vindhayavasini Constructions
-          </Link> */}
+          </Link>
 
 
           {/* ABOUT GROUP */}
-
-          {/* <Link
+{/* 
+          <Link
             to="/about"
             onClick={() => setMobileMenuOpen(false)}
             className="
@@ -440,25 +440,6 @@ const Header = () => {
           >
             Projects
           </Link>
-
-
-          {/* ================= BLOGS ================= */}
-
-          {/* <Link
-            to="/blogs"
-            onClick={() => setMobileMenuOpen(false)}
-            className="
-              border-t
-              border-gray-200
-              py-4
-              text-[18px]
-              text-[#4b5261]
-              font-serif
-            "
-          >
-            Blogs
-          </Link> */}
-
 
           {/* ================= CAREERS ================= */}
 
@@ -528,7 +509,7 @@ const Header = () => {
             {/* CALL US */}
 
             <a
-              href="tel:+919415664728"
+              href="tel:+91"
               className="
                 flex-1
                 h-[47px]
@@ -556,7 +537,7 @@ const Header = () => {
             {/* EMAIL US */}
 
             <a
-              href="mailto:ravimum82@gmail.com"
+              href="mailto:vindhyavasiniconstructionworks@gmail.com"
               className="
                 flex-1
                 h-[47px]

@@ -194,7 +194,7 @@ const Header2 = () => {
             {/* PHONE */}
 
             <a
-              href="tel:+919999999999"
+              href="tel:"
               className="
                 hidden
                 lg:flex
@@ -221,7 +221,7 @@ const Header2 = () => {
             {/* MAIL */}
 
             <a
-              href="mailto:info@example.com"
+              href="mailto:vindhyavasiniconstructionworks@gmail.com"
               className="
                 hidden
                 lg:flex
