@@ -8,6 +8,7 @@ import {
   Building2,
   ShieldCheck,
   Award,
+  Handshake
 } from "lucide-react";
 
 const Footer = () => {
@@ -210,124 +211,155 @@ const Footer = () => {
 
             </div>
 
+{/* ================= WHY CHOOSE US ================= */}
 
-            {/* ================= WHY CHOOSE US ================= */}
+<div className="lg:border-l lg:border-white/10 lg:pl-10">
 
-            <div className="lg:border-l lg:border-white/10 lg:pl-10">
+  <h3 className="flex items-center gap-4 text-[14px] tracking-[3px] text-[#c49a32]">
 
-              <h3 className="flex items-center gap-4 text-[14px] tracking-[3px] text-[#c49a32]">
+    <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
 
-                <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
+    WHY CHOOSE US
 
-                WHY CHOOSE US
-
-              </h3>
-
-
-              <p className="mt-6 text-[14px] leading-7 text-white/70 max-w-[300px]">
-
-                Built on trust, driven by quality, and
-                committed to creating spaces that stand
-                the test of time.
-
-              </p>
+  </h3>
 
 
-              {/* Feature 1 */}
+  <p className="mt-6 text-[14px] leading-7 text-white/70 max-w-[300px]">
 
-              <div className="flex items-start gap-4 mt-7">
+    Built on trust, driven by quality, and
+    committed to creating spaces that stand
+    the test of time.
 
-                <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
-
-                  <Award
-                    size={20}
-                    className="text-[#c49a32]"
-                  />
-
-                </div>
-
-                <div>
-
-                  <h4 className="text-[14px] font-semibold text-white">
-
-                    28+ Years of Experience
-
-                  </h4>
-
-                  <p className="text-[12px] leading-5 text-white/50 mt-1">
-
-                    Expertise you can trust.
-
-                  </p>
-
-                </div>
-
-              </div>
+  </p>
 
 
-              {/* Feature 2 */}
+  {/* Feature 1 */}
 
-              <div className="flex items-start gap-4 mt-5">
+  <div className="flex items-start gap-4 mt-7">
 
-                <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
+    <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
 
-                  <ShieldCheck
-                    size={20}
-                    className="text-[#c49a32]"
-                  />
+      <Award
+        size={20}
+        className="text-[#c49a32]"
+      />
 
-                </div>
+    </div>
 
-                <div>
+    <div>
 
-                  <h4 className="text-[14px] font-semibold text-white">
+      <h4 className="text-[14px] font-semibold text-white">
 
-                    Quality & Reliability
+        28+ Years of Experience
 
-                  </h4>
+      </h4>
 
-                  <p className="text-[12px] leading-5 text-white/50 mt-1">
+      <p className="text-[12px] leading-5 text-white/50 mt-1">
 
-                    Precision in every project.
+        Expertise you can trust.
 
-                  </p>
+      </p>
 
-                </div>
+    </div>
 
-              </div>
+  </div>
 
 
-              {/* Feature 3 */}
+  {/* Feature 2 */}
 
-              <div className="flex items-start gap-4 mt-5">
+  <div className="flex items-start gap-4 mt-5">
 
-                <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
+    <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
 
-                  <Building2
-                    size={20}
-                    className="text-[#c49a32]"
-                  />
+      <ShieldCheck
+        size={20}
+        className="text-[#c49a32]"
+      />
 
-                </div>
+    </div>
 
-                <div>
+    <div>
 
-                  <h4 className="text-[14px] font-semibold text-white">
+      <h4 className="text-[14px] font-semibold text-white">
 
-                    Trusted Developments
+        Quality & Reliability
 
-                  </h4>
+      </h4>
 
-                  <p className="text-[12px] leading-5 text-white/50 mt-1">
+      <p className="text-[12px] leading-5 text-white/50 mt-1">
 
-                    Creating spaces for tomorrow.
+        Precision in every project.
 
-                  </p>
+      </p>
 
-                </div>
+    </div>
 
-              </div>
+  </div>
 
+
+  {/* Feature 3 */}
+
+  <div className="flex items-start gap-4 mt-5">
+
+    <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
+
+      <Building2
+        size={20}
+        className="text-[#c49a32]"
+      />
+
+    </div>
+
+    <div>
+
+      <h4 className="text-[14px] font-semibold text-white">
+
+        Trusted Developments
+
+      </h4>
+
+      <p className="text-[12px] leading-5 text-white/50 mt-1">
+
+        Creating spaces for tomorrow.
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  {/* Feature 4 — Business Partner */}
+
+  <div className="flex items-start gap-4 mt-5">
+
+    <div className="w-10 h-10 shrink-0 border border-[#c49a32]/40 bg-[#c49a32]/10 flex items-center justify-center">
+
+      <Handshake
+        size={20}
+        className="text-[#c49a32]"
+      />
+
+    </div>
+
+    <div>
+
+      <h4 className="text-[14px] font-semibold text-white">
+
+        Bank of India Partner
+
+      </h4>
+
+      <p className="text-[12px] leading-5 text-white/50 mt-1">
+
+        Trusted financial collaboration.
+
+      </p>
+
+    </div>
+
+  </div>
+           
 
               {/* CTA */}
 

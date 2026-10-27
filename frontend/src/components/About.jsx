@@ -8,7 +8,10 @@ import {
   HardHat,
   CheckCircle2,
   ArrowRight,
+  ArrowUpRight,
   Quote,
+  ShieldCheck,
+  Landmark,
 } from "lucide-react";
 
 const About = () => {
@@ -19,6 +22,7 @@ const About = () => {
     { icon: Users, number: "1000+", label: "Happy Families" },
     { icon: Award, number: "28+", label: "Years of Experience" },
     { icon: HardHat, number: "50+", label: "Expert Professionals" },
+    { icon: Landmark, number: "Bank of India", label: "Business Partner", wrap: true },
   ];
 
   const values = [
@@ -76,14 +80,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        {/* <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-white/60 text-[10px] uppercase tracking-[3px]">
-            Scroll
-          </span>
-          <div className="w-px h-8 bg-white/40" />
-        </div> */}
-
         <div className="absolute bottom-0 left-0 w-full h-1 bg-[#d6a85f]" />
       </section>
 
@@ -100,7 +96,7 @@ const About = () => {
               />
             </div>
             <div className="absolute -bottom-4 -right-3 md:-right-5 bg-[#1d1d1d] text-white px-5 py-4 shadow-xl">
-              <p className="font-elsie text-2xl text-[#d6a85f]">10+</p>
+              <p className="font-elsie text-2xl text-[#d6a85f]">28+</p>
               <p className="text-[11px] uppercase tracking-wider text-gray-300 mt-0.5">
                 Years of Excellence
               </p>
@@ -121,7 +117,7 @@ const About = () => {
             <p className="text-gray-600 text-sm leading-relaxed mb-3">
               At Vindhayavasini Construction work, we believe that a building is
               more than just bricks and concrete. It is a space where dreams
-              take shape, Country grow, and businesses thrive.
+              take shape, communities grow, and businesses thrive.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               With a strong commitment to quality, transparency and modern
@@ -134,9 +130,7 @@ const About = () => {
               {values.map((value, index) => (
                 <div key={index} className="flex items-center gap-2.5">
                   <CheckCircle2 size={16} className="text-[#b88742] shrink-0" />
-                  <span className="text-gray-700 text-sm">
-                    {value}
-                  </span>
+                  <span className="text-gray-700 text-sm">{value}</span>
                 </div>
               ))}
             </div>
@@ -146,7 +140,7 @@ const About = () => {
 
       {/* ============ STATS ============ */}
       <section className="bg-[#1b1b1b] py-9 md:py-10 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -157,7 +151,11 @@ const About = () => {
                 <div className="flex justify-center mb-2">
                   <Icon size={22} strokeWidth={1.5} className="text-[#d6a85f]" />
                 </div>
-                <h3 className="font-elsie text-2xl md:text-3xl text-white mb-1">
+                <h3
+                  className={`font-elsie text-white mb-1 text-2xl md:text-3xl leading-tight ${
+                    stat.wrap ? "break-words" : ""
+                  }`}
+                >
                   {stat.number}
                 </h3>
                 <p className="text-gray-400 text-[11px] md:text-xs">{stat.label}</p>
@@ -170,110 +168,40 @@ const About = () => {
       {/* ============ MESSAGE FROM THE BOARD ============ */}
       <section className="bg-[#f7f7f6] py-10 md:py-14 px-6 md:px-10 overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] items-center gap-8 lg:gap-12">
-
           {/* Chairman Image */}
           <div className="relative flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[340px]">
               <div className="absolute inset-0 bg-[#d6a85f]/10 blur-3xl scale-90 rounded-full" />
 
               <img
-                src="https://res.cloudinary.com/drghcxact/image/upload/v1790883465/WhatsApp_Image_2026-09-19_at_11.42.50_PM_lwet1n.jpg"
+                src="https://res.cloudinary.com/wcimdxco/image/upload/v1793081299/IMG_8338.jpg"
                 alt="Ravi Dubey, Chairman of Vindhayavasini Constructions"
-                className="
-                  relative
-                  z-10
-                  w-full
-                  h-[280px]
-                  sm:h-[340px]
-                  md:h-[400px]
-                  object-contain
-                  object-bottom
-                "
+                className="relative z-10 w-full h-[280px] sm:h-[340px] md:h-[400px] object-contain object-bottom"
               />
 
-              <div
-                className="
-                  absolute
-                  bottom-2
-                  left-1/2
-                  -translate-x-1/2
-                  w-[70%]
-                  h-6
-                  bg-black/20
-                  blur-2xl
-                  rounded-full
-                "
-              />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[70%] h-6 bg-black/20 blur-2xl rounded-full" />
             </div>
           </div>
 
           {/* Content */}
           <div className="max-w-2xl">
-
             {/* Label */}
-            <div
-              className="
-                inline-flex
-                items-center
-                gap-2.5
-                border
-                border-[#263243]
-                px-3.5
-                py-2
-                md:px-4
-                md:py-2.5
-                mb-5
-              "
-            >
-              <Quote
-                size={15}
-                strokeWidth={1.5}
-                className="text-[#b88742]"
-              />
-
-              <span
-                className="
-                  text-[#263243]
-                  uppercase
-                  tracking-[3px]
-                  text-[10px]
-                  font-semibold
-                "
-              >
+            <div className="inline-flex items-center gap-2.5 border border-[#263243] px-3.5 py-2 md:px-4 md:py-2.5 mb-5">
+              <Quote size={15} strokeWidth={1.5} className="text-[#b88742]" />
+              <span className="text-[#263243] uppercase tracking-[3px] text-[10px] font-semibold">
                 Message From The Board
               </span>
             </div>
 
             {/* Heading */}
-            <h2
-              className="
-                font-elsie
-                text-2xl
-                md:text-3xl
-                lg:text-4xl
-                text-[#263243]
-                leading-[1.15]
-                mb-4
-              "
-            >
+            <h2 className="font-elsie text-2xl md:text-3xl lg:text-4xl text-[#263243] leading-[1.15] mb-4">
               Building Today.
               <br />
-              <span className="text-[#b88742]">
-                Creating Tomorrow.
-              </span>
+              <span className="text-[#b88742]">Creating Tomorrow.</span>
             </h2>
 
             {/* Message */}
-            <p
-              className="
-                text-gray-600
-                text-sm
-                md:text-base
-                leading-relaxed
-                max-w-xl
-                mb-6
-              "
-            >
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-xl mb-6">
               At Vindhayavasini Construction work, we believe that every structure is more
               than concrete and steel—it is the foundation of someone's future. Our
               journey is driven by a commitment to thoughtful design, reliable
@@ -285,27 +213,9 @@ const About = () => {
             <div className="w-full h-px bg-[#d6c7ad]/70 mb-5" />
 
             {/* Signature & Designation */}
-            <div
-              className="
-                flex
-                flex-col
-                md:flex-row
-                md:items-center
-                md:justify-between
-                gap-4
-              "
-            >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="md:pr-6">
-                <h3
-                  className="
-                    font-elsie
-                    italic
-                    text-xl
-                    md:text-2xl
-                    text-[#263243]
-                    whitespace-nowrap
-                  "
-                >
+                <h3 className="font-elsie italic text-xl md:text-2xl text-[#263243] whitespace-nowrap">
                   Ravi Shankar Dubey
                 </h3>
               </div>
@@ -316,17 +226,7 @@ const About = () => {
                 <p className="text-[#263243] text-sm font-medium mb-1">
                   Mr. Ravi Shankar Dubey
                 </p>
-
-                <p
-                  className="
-                    text-[#b88742]
-                    uppercase
-                    tracking-[2.5px]
-                    text-[10px]
-                    leading-relaxed
-                    font-semibold
-                  "
-                >
+                <p className="text-[#b88742] uppercase tracking-[2.5px] text-[10px] leading-relaxed font-semibold">
                   Vindhayavasini Constructions
                   <br />
                   Chairman
@@ -428,6 +328,83 @@ const About = () => {
         </div>
       </section>
 
+      {/* ================= OUR PARTNER — BANK OF INDIA ================= */}
+      <section className="bg-[#151515] py-14 md:py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-10 md:mb-14">
+            <h3 className="flex items-center justify-center gap-4 text-[12px] md:text-[14px] tracking-[3px] text-[#c49a32]">
+              <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
+              OUR PARTNER
+              <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
+            </h3>
+
+            <h2 className="font-elsie text-2xl md:text-4xl text-white mt-4">
+              Proudly Associated With
+            </h2>
+
+            <p className="mt-3 text-[13px] md:text-[14px] leading-7 text-white/50 max-w-xl mx-auto">
+              A trusted financial collaboration that strengthens every project
+              we deliver.
+            </p>
+          </div>
+
+          {/* Single partner card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="group flex flex-col md:flex-row items-center gap-6 md:gap-10 border border-white/10 bg-white/[0.02] hover:border-[#c49a32]/50 transition-all duration-300 px-6 py-8 md:px-10 md:py-10">
+              {/* Logo / Icon */}
+              <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-28 md:h-28 border border-[#c49a32]/40 bg-[#c49a32]/10">
+                <Landmark size={40} className="text-[#c49a32]" />
+              </div>
+
+              {/* Text */}
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-[11px] md:text-[12px] tracking-[3px] text-[#c49a32] uppercase">
+                  Business Partner
+                </p>
+
+                <h3 className="font-elsie text-xl md:text-3xl text-white mt-2">
+                  Bank of India
+                </h3>
+
+                <p className="mt-3 text-[13px] md:text-[14px] leading-7 text-white/60 max-w-md mx-auto md:mx-0">
+                  Backed by one of India's leading public sector banks — ensuring
+                  financial reliability and trust across every development.
+                </p>
+
+                {/* Feature chips */}
+                <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
+                  {["Trusted Finance", "Secure Backing", "Nationwide Presence"].map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="flex items-center gap-1.5 text-[10px] md:text-[11px] tracking-[1px] uppercase text-white/60 border border-white/10 bg-white/[0.03] px-3 py-1.5"
+                      >
+                        <ShieldCheck size={12} className="text-[#c49a32]" />
+                        {item}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="shrink-0">
+                <a
+                  href="https://www.bankofindia.co.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[12px] md:text-[13px] tracking-[1px] uppercase text-[#c49a32] border border-[#c49a32]/40 px-4 py-2.5 hover:bg-[#c49a32]/10 transition-colors duration-300"
+                >
+                  Visit Website
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ QUOTE ============ */}
       <section className="relative py-12 md:py-14 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[#b88742]" />
@@ -436,7 +413,7 @@ const About = () => {
           <h2 className="font-elsie text-xl md:text-3xl leading-tight mb-4">
             We Don't Just Build Structures.
             <br />
-            We Build Countries Future.
+            We Build The Country's Future.
           </h2>
           <p className="text-white/80 max-w-xl mx-auto leading-relaxed text-sm">
             Our commitment is to transform your vision into spaces that stand
@@ -460,14 +437,7 @@ const About = () => {
           </p>
           <button
             onClick={() => navigate("/projects")}
-            className="
-              inline-flex items-center gap-2.5
-              bg-[#d6a85f] text-[#222]
-              px-5 py-3
-              font-semibold text-sm
-              hover:bg-white
-              transition-all duration-300
-            "
+            className="inline-flex items-center gap-2.5 bg-[#d6a85f] text-[#222] px-5 py-3 font-semibold text-sm hover:bg-white transition-all duration-300"
           >
             Explore Our Projects
             <ArrowRight size={16} />
