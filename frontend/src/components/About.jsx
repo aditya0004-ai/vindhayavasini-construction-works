@@ -148,16 +148,22 @@ const About = () => {
                 key={index}
                 className="text-center lg:border-r lg:border-white/10 lg:last:border-0"
               >
-                <div className="flex justify-center mb-2">
-                  <Icon size={22} strokeWidth={1.5} className="text-[#d6a85f]" />
-                </div>
-                <h3
-                  className={`font-elsie text-white mb-1 text-2xl md:text-3xl leading-tight ${
-                    stat.wrap ? "break-words" : ""
-                  }`}
-                >
-                  {stat.number}
-                </h3>
+               
+<div className={`flex justify-center ${stat.wrap ? "mb-4" : "mb-2"}`}>
+  <Icon size={22} strokeWidth={1.5} className="text-[#d6a85f]" />
+</div>
+
+                
+<h3
+  className={`font-elsie text-white mb-1 leading-tight ${
+    stat.wrap
+      ? "text-lg md:text-xl"
+      : "text-2xl md:text-3xl"
+  }`}
+>
+  {stat.number}
+</h3>
+
                 <p className="text-gray-400 text-[11px] md:text-xs">{stat.label}</p>
               </div>
             );
@@ -327,83 +333,99 @@ const About = () => {
           </div>
         </div>
       </section>
+<section className="relative overflow-hidden bg-[#151515] px-5 py-14 sm:px-6 md:py-20 lg:px-8">
+  {/* Decorative background */}
+  <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+    <div className="absolute inset-x-0 top-0 mx-auto h-px w-2/3 bg-gradient-to-r from-transparent via-[#c49a32]/40 to-transparent" />
+    <div className="absolute left-1/2 top-0 h-64 w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c49a32]/[0.06] blur-3xl" />
+  </div>
 
-      {/* ================= OUR PARTNER — BANK OF INDIA ================= */}
-      <section className="bg-[#151515] py-14 md:py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Heading */}
-          <div className="text-center mb-10 md:mb-14">
-            <h3 className="flex items-center justify-center gap-4 text-[12px] md:text-[14px] tracking-[3px] text-[#c49a32]">
-              <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
-              OUR PARTNER
-              <span className="w-[10px] h-[10px] bg-[#c49a32] block shrink-0" />
-            </h3>
+  <div className="relative mx-auto max-w-7xl">
+    {/* Heading */}
+    <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
+      <p className="flex items-center justify-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-[#c49a32] sm:text-xs">
+        <span aria-hidden="true" className="block h-1.5 w-1.5 shrink-0 rotate-45 bg-[#c49a32]" />
+        Our Partner
+        <span aria-hidden="true" className="block h-1.5 w-1.5 shrink-0 rotate-45 bg-[#c49a32]" />
+      </p>
 
-            <h2 className="font-elsie text-2xl md:text-4xl text-white mt-4">
-              Proudly Associated With
-            </h2>
+      <h2 className="mt-4 font-elsie text-2xl leading-tight text-white sm:text-3xl md:text-4xl">
+        Proudly Associated With
+      </h2>
 
-            <p className="mt-3 text-[13px] md:text-[14px] leading-7 text-white/50 max-w-xl mx-auto">
-              A trusted financial collaboration that strengthens every project
-              we deliver.
-            </p>
-          </div>
+      <p className="mx-auto mt-3 max-w-xl text-[13px] leading-7 text-white/50 md:text-sm">
+        A trusted financial collaboration that strengthens every project we deliver.
+      </p>
+    </div>
 
-          {/* Single partner card */}
-          <div className="max-w-4xl mx-auto">
-            <div className="group flex flex-col md:flex-row items-center gap-6 md:gap-10 border border-white/10 bg-white/[0.02] hover:border-[#c49a32]/50 transition-all duration-300 px-6 py-8 md:px-10 md:py-10">
-              {/* Logo / Icon */}
-              <div className="shrink-0 flex items-center justify-center w-24 h-24 md:w-28 md:h-28 border border-[#c49a32]/40 bg-[#c49a32]/10">
-                <Landmark size={40} className="text-[#c49a32]" />
-              </div>
+    {/* Partner card */}
+    <div className="mx-auto max-w-4xl">
+      <div className="group relative flex flex-col items-center gap-7 border border-white/10 bg-white/[0.02] px-6 py-8 text-center transition-colors duration-300 hover:border-[#c49a32]/50 hover:bg-white/[0.035] sm:px-8 sm:py-10 md:flex-row md:items-center md:gap-10 md:px-10 md:py-10 md:text-left">
+        {/* Gold accent line */}
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-[#c49a32] via-[#e0be6a] to-transparent transition-transform duration-500 group-hover:scale-x-100"
+        />
 
-              {/* Text */}
-              <div className="flex-1 text-center md:text-left">
-                <p className="text-[11px] md:text-[12px] tracking-[3px] text-[#c49a32] uppercase">
-                  Business Partner
-                </p>
+        {/* Logo */}
+        <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden border border-[#c49a32]/40 bg-white p-3 sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36 lg:p-4">
+          <img
+            src="https://companieslogo.com/img/orig/BANKINDIA.NS-e3d88e01.png?t=1720244490"
+            alt="Bank of India logo"
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
 
-                <h3 className="font-elsie text-xl md:text-3xl text-white mt-2">
-                  Bank of India
-                </h3>
+        {/* Divider — desktop only */}
+        <span aria-hidden="true" className="hidden h-20 w-px shrink-0 bg-white/10 md:block" />
 
-                <p className="mt-3 text-[13px] md:text-[14px] leading-7 text-white/60 max-w-md mx-auto md:mx-0">
-                  Backed by one of India's leading public sector banks — ensuring
-                  financial reliability and trust across every development.
-                </p>
+        {/* Text */}
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#c49a32] sm:text-[11px] md:text-xs">
+            Business Partner
+          </p>
 
-                {/* Feature chips */}
-                <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
-                  {["Trusted Finance", "Secure Backing", "Nationwide Presence"].map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="flex items-center gap-1.5 text-[10px] md:text-[11px] tracking-[1px] uppercase text-white/60 border border-white/10 bg-white/[0.03] px-3 py-1.5"
-                      >
-                        <ShieldCheck size={12} className="text-[#c49a32]" />
-                        {item}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
+          <h3 className="mt-2 font-elsie text-xl text-white sm:text-2xl md:text-3xl">
+            Bank of India
+          </h3>
 
-              {/* CTA */}
-              <div className="shrink-0">
-                <a
-                  href="https://www.bankofindia.co.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[12px] md:text-[13px] tracking-[1px] uppercase text-[#c49a32] border border-[#c49a32]/40 px-4 py-2.5 hover:bg-[#c49a32]/10 transition-colors duration-300"
-                >
-                  Visit Website
-                  <ArrowUpRight size={14} />
-                </a>
-              </div>
-            </div>
+          <p className="mx-auto mt-3 max-w-md text-[13px] leading-7 text-white/60 md:mx-0 md:text-sm">
+            Backed by one of India&apos;s leading public sector banks — ensuring
+            financial reliability and trust across every development.
+          </p>
+
+          {/* Feature chips */}
+          <div className="mt-5 flex flex-wrap justify-center gap-2 md:justify-start md:gap-3">
+            {["Trusted Finance", "Secure Backing", "Nationwide Presence"].map((item) => (
+              <span
+                key={item}
+                className="flex items-center gap-1.5 border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] uppercase tracking-[0.12em] text-white/60 transition-colors duration-300 hover:border-[#c49a32]/40 hover:text-white/80 sm:text-[11px]"
+              >
+                <ShieldCheck size={12} className="shrink-0 text-[#c49a32]" aria-hidden="true" />
+                {item}
+              </span>
+            ))}
           </div>
         </div>
-      </section>
+
+        {/* CTA */}
+        <div className="w-full shrink-0 sm:w-auto">
+          <a
+            href="https://www.bankofindia.co.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 border border-[#c49a32]/40 px-5 py-3 text-[11px] uppercase tracking-[0.14em] text-[#c49a32] transition-colors duration-300 hover:bg-[#c49a32] hover:text-[#151515] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c49a32] focus-visible:ring-offset-2 focus-visible:ring-offset-[#151515] sm:w-auto sm:text-[12px] md:text-[13px]"
+          >
+            Visit Website
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ============ QUOTE ============*/}
       <section className="relative py-12 md:py-14 px-6 overflow-hidden">
