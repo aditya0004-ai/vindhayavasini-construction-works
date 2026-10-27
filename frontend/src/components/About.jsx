@@ -405,7 +405,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* ============ QUOTE ==========-==*/}
+      {/* ============ QUOTE ============*/}
       <section className="relative py-12 md:py-14 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[#b88742]" />
         <div className="relative max-w-3xl mx-auto text-center text-white">
